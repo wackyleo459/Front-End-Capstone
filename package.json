@@ -1,0 +1,39 @@
+{
+  "name": "Front-End-Capstone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.index.js",
+    "react-dev": "webpack --config ./webpack.config.js --mode development -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hr-lax43-NDS-FEC/Front-End-Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hr-lax43-NDS-FEC/Front-End-Capstone/issues"
+  },
+  "homepage": "https://github.com/hr-lax43-NDS-FEC/Front-End-Capstone#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "express-dom": "^5.13.4",
+    "live-server": "^1.2.1",
+    "material-ui": "^0.20.2",
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.33.2",
+    "webpack-dev": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13"
+  }
+}
