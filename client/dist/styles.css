@@ -1,0 +1,113 @@
+.starUserDate {
+  display: flex;
+  padding: -45px;
+  margin-right: 25%;
+  margin-left: -5px;
+  justify-content: space-between;
+}
+
+label {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 500%;
+  margin: 20px;
+  height: 20px;
+}
+
+#modalForm {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.reviewBody {
+  padding: 20px;
+}
+
+.overAllRating {
+  padding: 20px;
+}
+
+.recommendation {
+  padding: 20px;
+}
+
+.addReviewChart {
+  width: 90%;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.barRating {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.starNumberRating {
+  margin-left: 150px;
+  margin-bottom: 60px;
+}
+
+.reviewTitle {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.reviewFeedBody {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.emailAndNickname {
+  padding: 20px;
+}
+
+.submitButton {
+  padding: 20px;
+}
+
+.button {
+  padding: 25px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 20%;
+}
+
+.column1 {
+  float: left;
+  width: 25%;
+  margin-top: 10px;
+}
+
+.column {
+  float: right;
+  width: 70%;
+  margin-left: 10px;
+  margin-top: 50px
+}
+
+hr {
+  position: relative;
+  left: -40px;
+  width: 75%;
+  margin: 40px;
+}
+
+i {
+  padding: -5px;
+  margin-left: 2px;
+  height: 20px;
+}
+
+.sort {
+  padding: 30px;
+  margin-left: -33px;
+
+}
+
