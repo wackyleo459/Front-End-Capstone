@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductDetail from './ProductDetail.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,13 +13,15 @@ class App extends React.Component {
 
   render() {
     return (
-    <div>
-      Does this work?
+    <div className="main">
+      <header className="nav">Header
+      </header>
+      <ProductDetail className="product"/>
     </div>
     )
   }
 
 
-}
+};
 
 export default App;
