@@ -3,7 +3,8 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-import shoes from '../../data/dummy.js';
+import shoes from '../../data/shoeStyles.js';
+import shoeDetails from '../../data/shoeDetails.js';
 
 export default class ProductDetail extends React.Component {
   constructor(props) {
@@ -25,14 +26,14 @@ export default class ProductDetail extends React.Component {
 
   render () {
     return (
-      <div>This is from Product Details!
+      <div className="productDetail">
         <div className={this.state.view}>
-          <ImageGallery shoes={shoes} clickExpand={this.expandView} view={this.state.view}/>
+          <ImageGallery detail={shoeDetails} clickExpand={this.expandView} view={this.state.view}/>
 
         {this.state.view === 'collapsed' ?
           <React.Fragment>
             <ProductInfo />
-            <StyleSelector />
+            <StyleSelector styles={shoes}/>
             <AddCart />
            </React.Fragment>
             : null }

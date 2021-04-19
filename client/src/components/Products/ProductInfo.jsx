@@ -5,6 +5,8 @@ import $ from 'jquery';
 const appendFB = $('.fa-facebook-square').append(facebookShare);
 
 const facebookShare = <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+// http://www.facebook.com/share.php?u=hubspot.com
+//https://www.pinterest.com/pin/99360735500167749/
 
 const ProductInfo = () => (
   <div className="productInfo">

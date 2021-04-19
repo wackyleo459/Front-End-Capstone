@@ -14,9 +14,9 @@ class App extends React.Component {
   render() {
     return (
     <div className="main">
-      <header className="nav">Header
+      <header className="nav">Header for Navigation Bar
       </header>
-      <ProductDetail className="product"/>
+      <ProductDetail className="productOverview"/>
     </div>
     )
   }
