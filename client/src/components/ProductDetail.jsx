@@ -32,7 +32,7 @@ export default class ProductDetail extends React.Component {
 
         {this.state.view === 'collapsed' ?
           <React.Fragment>
-            <ProductInfo />
+            <ProductInfo styles={shoes}/>
             <StyleSelector styles={shoes}/>
             <AddCart />
            </React.Fragment>

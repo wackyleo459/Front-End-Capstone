@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel'
 
 const ImageGallery = function (props) {
   const [currentIndex, setIndex] = useState(0);
 
   const thumbnailClick = (e, link, index) => {
     e.preventDefault();
-    console.log('current index', index);
     setIndex(index);
   }
 
@@ -24,8 +22,8 @@ const ImageGallery = function (props) {
   }
 
   const thumbnailStyle = (ind) => {
-    if(ind === currentIndex) {
-      return {boxShadow: '0 0 1px 1px grey'};
+    if (ind === currentIndex) {
+      return { boxShadow: '0 0 1px 1px grey' };
     }
   }
   //expanded: overlay becomes icons
@@ -35,19 +33,22 @@ const ImageGallery = function (props) {
   //zoom 2.5*
   return (
     <div className="imageGallery">
-      <div className="mainView" style={{height: '100%'}}>
+      <div className="mainView" style={{ height: '100%' }}>
         <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
         <img className="mainImg" src={props.detail[currentIndex]} />
         <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
       </div>
       <div className="overlay">
         {props.detail.map((shoe, ind) => (
-          <img className="thumbnail" key={ind} src={shoe} onClick={(e) => thumbnailClick(e, shoe, ind)} style={thumbnailStyle(ind)}/>
+          <img className="thumbnail" key={ind} src={shoe} onClick={(e) => thumbnailClick(e, shoe, ind)} style={thumbnailStyle(ind)} />
         ))}
       </div>
       <button id="expand" type="button" onClick={props.clickExpand}>
         <i id="expandFas" className="fas fa-expand-alt fa-lg" ></i>
       </button>
+      <span className="material-icons">
+        add_circle_outline
+      </span>
     </div>
   )
 }
