@@ -3,30 +3,46 @@ import Carousel from 'react-bootstrap/Carousel'
 
 const ImageGallery = function (props) {
   const [currentIndex, setIndex] = useState(0);
-  // const [currentImg, setImg] = useState('https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/2af1560aab574695a3b4ac7200d483c9_9366/4D_Fusio_Shoes_Orange_FY5929_01_standard.jpg');
-
 
   const thumbnailClick = (e, link, index) => {
     e.preventDefault();
-    console.log('hey');
+    console.log('current index', index);
     setIndex(index);
-    // setImg(link);
+  }
+
+  const arrowsClick = (e, direction) => {
+    e.preventDefault();
+    if (direction === 'left' && currentIndex > 0) {
+      setIndex((prevInd) => {
+        return prevInd - 1;
+      })
+    } else if (direction === 'right' && currentIndex < props.detail.length - 1) {
+      setIndex((prevInd) => {
+        return prevInd + 1;
+      })
+    }
+  }
+
+  const thumbnailStyle = (ind) => {
+    if(ind === currentIndex) {
+      return {boxShadow: '0 0 1px 1px grey'};
+    }
   }
   //expanded: overlay becomes icons
   //collapsed: overlay stays as image
-  //left & right arrows
+
   //onHover w/ magnifying '+' symbol
   //zoom 2.5*
   return (
     <div className="imageGallery">
       <div className="mainView" style={{height: '100%'}}>
-        <div className="left"></div>
+        <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
         <img className="mainImg" src={props.detail[currentIndex]} />
-        <div className="right"></div>
+        <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
       </div>
       <div className="overlay">
         {props.detail.map((shoe, ind) => (
-          <img className="thumbnail" key={ind} src={shoe} onClick={(e) => thumbnailClick(e, shoe, ind)}/>
+          <img className="thumbnail" key={ind} src={shoe} onClick={(e) => thumbnailClick(e, shoe, ind)} style={thumbnailStyle(ind)}/>
         ))}
       </div>
       <button id="expand" type="button" onClick={props.clickExpand}>
