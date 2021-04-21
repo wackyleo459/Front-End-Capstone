@@ -9,7 +9,7 @@ const StyleSelector = (props) => {
   };
 
   const highlightStyle = (index) => {
-    if (index === currentStyleInd) {
+    if (index === currentStyleInd) { //can change to props.currentStyle
       return { border: '1px solid blue' };
     }
   }
@@ -17,7 +17,9 @@ const StyleSelector = (props) => {
   return (
     <div className="selectStyles">
       {props.styles.map((style, ind) => (
-        <img className="selectStyle" key={ind} src={style.src} alt={style.color} onClick={()=> setStyle(ind)} style={highlightStyle(ind)}/>
+        <img className="selectStyle" key={ind} src={style.src} alt={style.color} onClick={()=> {
+          setStyle(ind);
+          props.setStyle(ind)}} style={highlightStyle(ind)}/>
       ))}
     </div>
   )

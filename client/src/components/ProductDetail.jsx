@@ -10,18 +10,23 @@ export default class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'collapsed'
-    }
+      view: 'collapsed',
+      shoeStyle: ''
+    };
+
     this.expandView = this.expandView.bind(this);
+    this.setShoeStyle = this.setShoeStyle.bind(this);
   }
 
   expandView (e) {
     e.preventDefault();
-    if (this.state.view === 'collapsed') {
-      this.setState({view: 'expanded'});
-    } else {
-      this.setState({view: 'collapsed'});
+    this.state.view === 'collapsed' ?
+      this.setState({view: 'expanded'}) : this.setState({view: 'collapsed'});
     }
+
+
+  setShoeStyle(style) {
+    this.setState({ shoeStyle: style }, () => {console.log(this.state.shoeStyle)});
   }
 
   render () {
@@ -33,7 +38,8 @@ export default class ProductDetail extends React.Component {
         {this.state.view === 'collapsed' ?
           <React.Fragment>
             <ProductInfo styles={shoes}/>
-            <StyleSelector styles={shoes}/>
+            {/* pass state's shoeStyle as currentStyle */}
+            <StyleSelector styles={shoes} setStyle={this.setShoeStyle} />
             <AddCart />
            </React.Fragment>
             : null }
