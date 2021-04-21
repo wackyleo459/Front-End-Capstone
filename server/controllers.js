@@ -1,9 +1,10 @@
 const axios = require('axios');
 const token = require('../config.js');
+const URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
 
 controllers = {
   getReviews: (req, res) => {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/?page=1&count=100&sort=relevant&product_id=16057', { headers: {Authorization: `${token}`}})
+    axios.get(`${URL}/reviews/?page=1&count=100&sort=${req.query.sort}&product_id=16057`, { headers: {Authorization: token}})
       .then((response) => {
         res.status(200).send(response.data)
       })
@@ -11,8 +12,8 @@ controllers = {
   },
 
   postReviews: (req, res) => {
-    console.log('from controllers!!')
-    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/', { headers: {Authorization: `${token}`}})
+    console.log('FROM THE CONTROLLER', req.body)
+    axios.post(`${URL}/reviews/?rating=1&summary=thisisgood&body=thisisgood&recommend=true&name=kevin&email=me@gmail&photos=[png]&characteristics=&product_id=16057`, { headers: {Authorization: token}})
       .then((response) => {
         res.status(200).send(response.data)
       })
