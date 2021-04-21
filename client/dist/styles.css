@@ -1,12 +1,4 @@
-.starUserDate {
-  display: flex;
-  padding: -45px;
-  margin-right: 25%;
-  margin-left: -5px;
-  justify-content: space-between;
-}
-
-label {
+#title {
   font-size: 24px;
 }
 
@@ -16,82 +8,6 @@ h1 {
   height: 20px;
 }
 
-#modalForm {
-  height: 600px;
-  overflow-y: auto;
-}
-
-.reviewBody {
-  padding: 20px;
-}
-
-.overAllRating {
-  padding: 20px;
-}
-
-.recommendation {
-  padding: 20px;
-}
-
-.addReviewChart {
-  width: 90%;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.barRating {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-}
-
-.starNumberRating {
-  margin-left: 150px;
-  margin-bottom: 60px;
-}
-
-.reviewTitle {
-  padding: 10px;
-  margin-left: -10px;
-}
-
-.reviewFeedBody {
-  padding: 10px;
-  margin-left: -10px;
-}
-
-.emailAndNickname {
-  padding: 20px;
-}
-
-.submitButton {
-  padding: 20px;
-}
-
-.button {
-  padding: 25px;
-  margin-right: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 20%;
-}
-
-.column1 {
-  float: left;
-  width: 25%;
-  margin-top: 10px;
-}
-
-.column {
-  float: right;
-  width: 70%;
-  margin-left: 10px;
-  margin-top: 50px
-}
-
 hr {
   position: relative;
   left: -40px;
@@ -99,15 +15,228 @@ hr {
   margin: 40px;
 }
 
-i {
-  padding: -5px;
-  margin-left: 2px;
-  height: 20px;
+/*-----Start Reviews Entry-----**-----Right Container-----*/
+.columnNd {
+  float: right;
+  width: 65%;
+  margin-top: 50px
 }
 
-.sort {
+#labelNd {
+  font-size: 25px;
+}
+
+.sortNd {
   padding: 30px;
   margin-left: -33px;
-
 }
 
+.starUserDateNd {
+  display: flex;
+  padding: -45px;
+  margin-right: 25%;
+  margin-left: -5px;
+  justify-content: space-between;
+}
+
+.reviewTitleNd {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.reviewFeedBodyNd {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.buttonNd {
+  padding: 25px;
+  margin-right: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 12%;
+  font-size: 15px;
+  text-align:right;
+}
+
+/*-----Modal Component-----*/
+
+#modalFormNd {
+  height: 800px;
+  overflow-y: auto;
+}
+
+#reviewFormNd {
+  font-size: 500%;
+  margin: 20px;
+  padding: 21px;
+  height: 20px;
+  margin-left: 28%;
+}
+
+.overAllRatingNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.modalTextAreaNd {
+  margin-left: 20px;
+  padding: 50px;
+  outline-width: 0;
+  resize: none;
+  border-radius: 10%;
+  border: 3px solid rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.recommendationNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.characteristicsNd {
+  padding: 50px;
+  margin-left: 20px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  grid-template-columns:
+    93px
+    160px
+    206px
+    159px
+    171px
+    154px;
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+th {
+  position: auto;
+  top: 0;
+  background: rgb(138, 191, 212);
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.reviewBodyNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.uploadPhotosNd {
+  margin-left: 35px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#uploadPhotosNd {
+  border: 3px solid rgb(138, 191, 212);
+  padding: 10px;
+  border-radius: 10%;
+  outline-width: 0;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.nicknameNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#nicknameNd {
+  border-radius: 10%;
+  width: 25%;
+  margin-left: 20px;
+  padding: 10px;
+  outline-width: 0;
+  border: 3px solid rgb(138, 191, 212);
+}
+
+.emailNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#emailNd {
+  border-radius: 10%;
+  width: 25%;
+  margin-left: 20px;
+  padding: 10px;
+  border: 3px solid rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  outline-width: 0;
+}
+
+#submitButtonNd {
+  size: 10px;
+  border-radius: 10px;
+  margin-left: 85px;
+  width: 100px;
+  margin-top: 40px;
+  height: 40px;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+#cancelButtonNd {
+  size: 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  width: 100px;
+  margin-top: 40px;
+  height: 40px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.closeModalNd {
+  margin-left: 35px;
+  padding: 50px;
+}
+
+/*-----End Review Entry-----*/
+
+/*-----Start Rating Entry-----**-----Left Container-----*/
+
+.column1Nd {
+  margin-left: 20%;
+  padding-top: 40px;
+  width: 25%;
+  margin-top: 10px;
+}
+
+.starNumberRatingNd {
+  margin-left: 150px;
+  margin-bottom: 60px;
+}
+
+/*-----End Rating Entry-----*/
