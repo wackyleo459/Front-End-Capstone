@@ -5,6 +5,7 @@ import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
 import shoes from '../../data/shoeStyles.js';
 import shoeDetails from '../../data/shoeDetails.js';
+import styles from '../../data/styles.js';
 
 export default class ProductDetail extends React.Component {
   constructor(props) {
@@ -37,9 +38,10 @@ export default class ProductDetail extends React.Component {
 
         {this.state.view === 'collapsed' ?
           <React.Fragment>
-            <ProductInfo styles={shoes}/>
+            <ProductInfo styles={shoes} product={this.props.product} />
             {/* pass state's shoeStyle as currentStyle */}
-            <StyleSelector styles={shoes} setStyle={this.setShoeStyle} />
+            {/* <StyleSelector styles={shoes} setStyle={this.setShoeStyle} /> */}
+            <StyleSelector styles={styles} setStyle={this.setShoeStyle} />
             <AddCart />
            </React.Fragment>
             : null }

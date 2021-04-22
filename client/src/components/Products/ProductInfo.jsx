@@ -1,7 +1,6 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
 import $ from 'jquery';
-import ss from './StyleSelector.jsx'
 
 const appendFB = $('.fa-facebook-square').append(facebookShare);
 
@@ -9,7 +8,7 @@ const facebookShare = <div class="fb-share-button" data-href="https://developers
 // http://www.facebook.com/share.php?u=hubspot.com
 //https://www.pinterest.com/pin/99360735500167749/
 
-const ProductInfo = (props) => (
+const ProductInfo = ({product}) => (
   <div className="productInfo">
     <div className="product-description">
       <div>
@@ -25,10 +24,10 @@ const ProductInfo = (props) => (
           <a href='https://www.w3schools.com/cssref/pr_dim_min-width.asp'>Read all reviews</a>
         </span>
       </div>
-      <div className="category"> Running Shoes</div>
-      <div className="title">4D Fusio Shoes</div>
-      <div className="price">{props.styles[2].price}</div>
-      <div className="overview">This product is excluded from all promotional discounts and offers.</div>
+      <div className="category">{product.category}</div>
+      <div className="title">{product.name}</div>
+      <div className="price">{product.default_price}</div>
+      <div className="overview">{product.description}</div>
       <div className="share">Share
           <i className="fab fa-facebook-square"></i>
           <a className="twitter-share-button" href="https://twitter.com/intent/tweet">

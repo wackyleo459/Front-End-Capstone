@@ -2,6 +2,7 @@ const axios = require('axios');
 const token = require('../config.js');
 
 controllers = {
+
   getReviews: (req, res) => {
     axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/?page=1&count=100&sort=relevant&product_id=16057', { headers: {Authorization: `${token}`}})
       .then((response) => {

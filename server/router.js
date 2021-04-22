@@ -3,6 +3,6 @@ const controllers = require('./controllers.js');
 
 router
   .route('/reviews')
-  .get(controllers.getReviews)
+  .get(controllers.getReviews);
 
 module.exports = router
