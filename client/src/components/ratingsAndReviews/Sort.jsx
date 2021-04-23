@@ -10,5 +10,4 @@ const Sort = ({ getProductInfo, category, reviews }) => (
     </select>
   </div>
 )
-
 export default Sort;

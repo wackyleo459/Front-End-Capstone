@@ -34,5 +34,4 @@ const ReviewEntry = ({ review, helpfulChange }) => (
     <hr/>
   </div>
 )
-
 export default ReviewEntry;

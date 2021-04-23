@@ -191,5 +191,4 @@ class Modals extends Component {
     );
     }
 }
-
 export default Modals;

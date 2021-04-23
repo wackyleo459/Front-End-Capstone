@@ -24,5 +24,4 @@ class StarRatingEntry extends React.Component {
     );
   }
 }
-
 export default StarRatingEntry;
