@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(255, 255, 240);
+}
+
 #title {
   font-size: 24px;
 }
@@ -15,11 +19,55 @@ hr {
   margin: 40px;
 }
 
+.submitReviewButtonNd {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid;
+}
+
+
 /*-----Start Reviews Entry-----**-----Right Container-----*/
 .columnNd {
   float: right;
   width: 65%;
-  margin-top: 50px
+  margin-top: 50px;
+}
+
+
+.reviewsNd {
+  margin-top: 150px;
+  position:absolute;
+  bottom:0px;
+  top:0px;
+  overflow:auto;
+  margin-bottom: 100px;
+}
+
+.reviewsButtonsNd {
+  margin-top: 100%;
+}
+
+.selectButtonNd {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid;
+  background: none;
+}
+
+#dropdownNd {
+  margin-left: 20px;
 }
 
 #labelNd {
@@ -29,13 +77,14 @@ hr {
 .sortNd {
   padding: 30px;
   margin-left: -33px;
+  position: fixed;
 }
 
 .starUserDateNd {
   display: flex;
   padding: -45px;
   margin-right: 25%;
-  margin-left: -5px;
+  margin-left: -1px;
   justify-content: space-between;
 }
 
@@ -47,17 +96,51 @@ hr {
 .reviewFeedBodyNd {
   padding: 10px;
   margin-left: -10px;
+  width: 76%;
+  font-size: 22px;
 }
 
-.buttonNd {
-  padding: 25px;
-  margin-right: 20px;
-  margin-top: 30px;
+.reviewResponseNd {
+  padding: 20px;
+  width: 73.5%;
+  margin-left: -5px;
+  background-color: lightgrey;
+  background-size: auto;
   margin-bottom: 20px;
-  width: 12%;
-  font-size: 15px;
-  text-align:right;
+  font-size: 22px;
 }
+
+.moreReviewsButtonNd {
+  padding: 25px;
+  margin: 0;
+  margin-left: 20px;
+  width: 15%;
+  font-size: 15px;
+  display: inline;
+
+}
+.addReviewsButtonNd {
+  padding: 25px;
+  float: left;
+  margin: 0;
+  width: 15%;
+  font-size: 15px;
+  display: inline;
+}
+
+/* .reviewsButtonsNd{
+  margin-top: 10px;
+  margin: 20px;
+  margin-left: 0px;
+  display: inline-block;
+
+} */
+/* .addReviewButtonNd{
+  margin-top: 10px;
+  margin: 20px;
+  margin-right: 40px;
+  display: inline-block;
+} */
 
 /*-----Modal Component-----*/
 
@@ -82,12 +165,13 @@ hr {
 
 .modalTextAreaNd {
   margin-left: 20px;
-  padding: 50px;
+  padding: 20px;
   outline-width: 0;
   resize: none;
   border-radius: 10%;
   border: 3px solid rgb(138, 191, 212);
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(138 191 212);
+  width: 55%;
 }
 
 .recommendationNd {
@@ -101,6 +185,16 @@ hr {
   margin-left: 20px;
   box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
 }
+
+/* td input{
+  visibility: hidden;
+}
+
+td input:checked:after {
+  content:"";
+
+  visibility:visible;
+} */
 
 table {
   display: grid;
@@ -176,6 +270,7 @@ th {
 }
 
 .emailNd {
+  outline-width: 0;
   margin-left: 20px;
   padding: 50px;
   box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
@@ -201,6 +296,7 @@ th {
   font-size: larger;
   font-weight: bold;
   cursor: pointer;
+  outline-width: 0;
 }
 
 a:hover {
@@ -230,8 +326,19 @@ a:hover {
 .column1Nd {
   margin-left: 20%;
   padding-top: 40px;
-  width: 25%;
-  margin-top: 10px;
+  float: left;
+  margin-top: -15px;
+  position: fixed;
+}
+
+#ratingsSummaryNd {
+  margin-top: 55%;
+}
+
+.barChartNd {
+  margin-right: 25;
+  padding-right: -40px;
+  margin-bottom: 10px;
 }
 
 .starNumberRatingNd {

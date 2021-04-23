@@ -9,13 +9,16 @@ class Reviews extends React.Component {
     super(props);
 
     this.state = {
+      rating: 0,
+      helpfulness: 0,
       reviews: [],
       moreReviews: [],
-      category: 'relevance'
+      category: 'helpfulness'
     };
 
     this.handleMoreReviews = this.handleMoreReviews.bind(this);
     this.getProductInfo = this.getProductInfo.bind(this);
+    this.handleHelpulChange = this.handleHelpulChange.bind(this)
   }
 
   componentDidMount() {
@@ -37,9 +40,15 @@ class Reviews extends React.Component {
       this.setState({
           reviews: sliced,
           moreReviews: copyData.slice(2)
-      }, () => console.log(res.data.results))
+      })
     })
     .catch(err => console.error(err));
+  }
+
+  handleHelpulChange(event) {
+    this.setState({
+      helpfulness: event.target.value
+    }, console.log(this.state.helpfulness))
   }
 
   handleMoreReviews(event) {
@@ -53,18 +62,20 @@ class Reviews extends React.Component {
     return (
       <div>
         <div className="columnNd">
-          <Sort category={this.state.category} getProductInfo={this.getProductInfo}/>
-
+            <Sort category={this.state.category} reviews={this.state.reviews.length} getProductInfo={this.getProductInfo}/>
+          <div className="reviewsNd">
           {this.state.reviews.map((review, index) => (
-            <ReviewEntry review={review} key={index}/>))}
+            <ReviewEntry review={review} key={index} helpfulChange={this.handleHelpulChange}/>))}
 
             <Modals />
+          <div className="reviewsbuttonsNd">
             {(this.state.moreReviews.length === 0) ? null : (
-              <input className="buttonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
+              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
+          </div>
+          </div>
         </div>
       </div>
     )
   }   
 }
-
 export default Reviews;

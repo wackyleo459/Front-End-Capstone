@@ -1,28 +1,49 @@
 import React from 'react';
-import { HorizontalBar } from 'react-chartjs-2';
-import Rating from 'react-rating';
 import axios from 'axios';
+import StarRatingEntry from './StarRatingEntry.jsx';
 
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      results: 0,
+      reviews: []
+    }
+
+    this.getRating = this.getRating.bind(this);
+
+  }
+
+  componentDidMount() {
+    this.getRating()
+  }
+
+  getRating(event) {
+    axios.get(`http://localhost:3000/reviews`)
+      .then((res) => {
+        this.setState({
+          reviews: res.data.results
+        }, () => console.log(res.data.results))
+      })
+      .catch((err) => console.error(err));
   }
 
   render() {
     return (
       <div className="column1Nd">
         <label id="title">Ratings and Reviews</label>
-        <h1>3.5</h1>
-        <div className="starNumberRatingNd">
-           <span>
-              <Rating emptySymbol="fa fa-star-o fa-1x" fullSymbol="fa fa-star fa-1x"/>
-           </span>
+
+        <div id="ratingsSummaryNd">
+          <p>100% of reviews recommend this product</p>
         </div>
-        <p>100% of reviews recommend this product</p>
+        <div className="starNumberRatingNd">
+          {this.state.reviews.map((review, index) => (
+            <StarRatingEntry review={review} key={index}/>
+          ))}
+        </div>
       </div>
     )
   }
 }
-
 export default Ratings;
