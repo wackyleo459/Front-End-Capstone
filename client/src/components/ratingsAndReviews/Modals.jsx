@@ -9,11 +9,15 @@ class Modals extends Component {
       super(props);
 
       this.state = {
-        visible: false
+        visible: false,
+        charRequired: 50 + ' Characters Required',
+        charExceeded: false,
+        text: ''
       }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleCharChange = this.handleCharChange.bind(this);
     }
 
     handleSubmit(event) {
@@ -25,6 +29,19 @@ class Modals extends Component {
           }, () => console.log(this.state))
         })
         .catch((err) => console.error(err))
+    }
+
+    handleCharChange(event) {
+      let input = event.target.value;
+      if (input.length <= 50) {
+        this.setState({
+          charRequired: (50 - input.length) + ' Characters Required'
+        })
+      } else {
+        this.setState({
+          charRequired: (1000 - input.length) + ' Characters Remaining'
+        })
+      }
     }
 
     handleChange(event) {
@@ -50,7 +67,7 @@ class Modals extends Component {
     render() {
     return (
       <section>
-        <input className="buttonNd" type="button" value="ADD A REVIEW    +" onClick={() => this.openModal()} />
+        <input className="addReviewsButtonNd" type="button" value="ADD A REVIEW +" onClick={() => this.openModal()} />
           <Modal visible={this.state.visible} width="1200" height="800" effect="fadeInUp" id="modalNd" onClickAway={() => this.closeModal()}>
             <div>
                <form onSubmit={this.handleSubmit} id="modalFormNd">
@@ -68,7 +85,8 @@ class Modals extends Component {
                   <div className="recommendationNd">
                     <label id="labelNd"><b>* Do you recommend this product?</b></label>
                     <br/>
-                    <textarea rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
+                    <textarea maxLength="1000" onChange={this.handleCharChange} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
+                    <p>{this.state.charRequired}</p>
                   </div>
                   <div className="characteristicsNd">
                     <label id="labelNd"><b>* Characteristics</b></label>
@@ -87,51 +105,51 @@ class Modals extends Component {
 
                       <tr>
                         <td><b>Size</b></td>
-                        <td><input type="radio" name="size" value="A size to small"/>A size to small</td>
-                        <td><input type="radio" name="size" value="A size to small"/>1/2 a size too small</td>
-                        <td><input type="radio" name="size" value="A size to small"/>Perfect</td>
-                        <td><input type="radio" name="size" value="A size to small"/>1/2 a size too big</td>
-                        <td><input type="radio" name="size" value="A size to small"/>A size too wide</td>
+                        <td><label><input type="radio" name="size" value="A size to small"/>A size to small</label></td>
+                        <td><label><input type="radio" name="size" value="A size to small"/>1/2 a size too small</label></td>
+                        <td><label><input type="radio" name="size" value="A size to small"/>Perfect</label></td>
+                        <td><label><input type="radio" name="size" value="A size to small"/>1/2 a size too big</label></td>
+                        <td><label><input type="radio" name="size" value="A size to small"/>A size too wide</label></td>
                       </tr>
                       <tr>
                         <td><b>Width</b></td>
-                        <td><input type="radio" name="width" value="A size to small"/>Too narrow</td>
-                        <td><input type="radio" name="width" value="A size to small"/>Slightly narrow</td>
-                        <td><input type="radio" name="width" value="A size to small"/>Perfect</td>
-                        <td><input type="radio" name="width" value="A size to small"/>Slightly wide</td>
-                        <td><input type="radio" name="width" value="A size to small"/>Too wide</td>
+                        <td><label><input type="radio" name="width" value="A size to small"/>Too narrow</label></td>
+                        <td><label><input type="radio" name="width" value="A size to small"/>Slightly narrow</label></td>
+                        <td><label><input type="radio" name="width" value="A size to small"/>Perfect</label></td>
+                        <td><label><input type="radio" name="width" value="A size to small"/>Slightly wide</label></td>
+                        <td><label><input type="radio" name="width" value="A size to small"/>Too wide</label></td>
                       </tr>
                       <tr>
                         <td><b>Comfort</b></td>
-                        <td><input type="radio" name="comfort" value="A size to small"/>Uncomfortable</td>
-                        <td><input type="radio" name="comfort" value="A size to small"/>Slightly Uncomfortable</td>
-                        <td><input type="radio" name="comfort" value="A size to small"/>Ok</td>
-                        <td><input type="radio" name="comfort" value="A size to small"/>Comfortable</td>
-                        <td><input type="radio" name="comfort" value="A size to small"/>Perfect</td>
+                        <td><label><input type="radio" name="comfort" value="A size to small"/>Uncomfortable</label></td>
+                        <td><label><input type="radio" name="comfort" value="A size to small"/>Slightly Uncomfortable</label></td>
+                        <td><label><input type="radio" name="comfort" value="A size to small"/>Ok</label></td>
+                        <td><label><input type="radio" name="comfort" value="A size to small"/>Comfortable</label></td>
+                        <td><label><input type="radio" name="comfort" value="A size to small"/>Perfect</label></td>
                       </tr>
                       <tr>
                         <td><b>Quality</b></td>
-                        <td><input type="radio" name="Quality" value="A size to small"/>Poor</td>
-                        <td><input type="radio" name="Quality" value="A size to small"/>Below Average</td>
-                        <td><input type="radio" name="Quality" value="A size to small"/>What I expected</td>
-                        <td><input type="radio" name="Quality" value="A size to small"/>Pretty great</td>
-                        <td><input type="radio" name="Quality" value="A size to small"/>Perfect</td>
+                        <td><label><input type="radio" name="Quality" value="A size to small"/>Poor</label></td>
+                        <td><label><input type="radio" name="Quality" value="A size to small"/>Below Average</label></td>
+                        <td><label><input type="radio" name="Quality" value="A size to small"/>What I expected</label></td>
+                        <td><label><input type="radio" name="Quality" value="A size to small"/>Pretty great</label></td>
+                        <td><label><input type="radio" name="Quality" value="A size to small"/>Perfect</label></td>
                       </tr>
                       <tr>
                         <td><b>Length</b></td>
-                        <td><input type="radio" name="Length" value="A size to small"/>Runs Short</td>
-                        <td><input type="radio" name="Length" value="A size to small"/>Runs slightly short</td>
-                        <td><input type="radio" name="Length" value="A size to small"/>Perfect</td>
-                        <td><input type="radio" name="Length" value="A size to small"/>Runs slightly long</td>
-                        <td><input type="radio" name="Length" value="A size to small"/>Runs long</td>
+                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs Short</label></td>
+                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs slightly short</label></td>
+                        <td><label><input type="radio" name="Length" value="A size to small"/>Perfect</label></td>
+                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs slightly long</label></td>
+                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs long</label></td>
                       </tr>
                       <tr>
                         <td><b>Fit</b></td>
-                        <td><input type="radio" name="Fit" value="A size to small"/>Runs tight</td>
-                        <td><input type="radio" name="Fit" value="A size to small"/>Runs slightly tight</td>
-                        <td><input type="radio" name="Fit" value="A size to small"/>Perfect</td>
-                        <td><input type="radio" name="Fit" value="A size to small"/>Runs slightly long</td>
-                        <td><input type="radio" name="Fit" value="A size to small"/>Runs long</td>
+                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs tight</label></td>
+                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs slightly tight</label></td>
+                        <td><label><input type="radio" name="Fit" value="A size to small"/>Perfect</label></td>
+                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs slightly long</label></td>
+                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs long</label></td>
                       </tr>
                     </tbody>
                   </table>
@@ -139,7 +157,8 @@ class Modals extends Component {
                  <div className="reviewBodyNd">
                      <label id="labelNd"><b>* Review</b></label>
                      <br/>
-                     <textarea rows="5" cols="60" width="20" className="modalTextAreaNd" ></textarea>
+                     <textarea maxLength="1000" onChange={this.handleCharChange} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
+                    <p>{this.state.charRequired}</p>
                  </div>
                  <div className="uploadPhotosNd">
                      <label id="labelNd"><b>Upload your photos</b></label>
