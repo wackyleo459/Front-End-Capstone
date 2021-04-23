@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Sort = ({ getProductInfo, category, reviews }) => (
-
   <div className="sortNd">
     <label id="labelNd"><b>{reviews} Reviews sorted by</b></label>
     <select className="selectButtonNd" id="dropDownNd" onChange={(event) => getProductInfo(event)}>
