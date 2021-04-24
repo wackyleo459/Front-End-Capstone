@@ -1,75 +1,49 @@
 import React from 'react';
-import { HorizontalBar } from 'react-chartjs-2';
-import Rating from 'react-rating';
 import axios from 'axios';
+import StarRatingEntry from './StarRatingEntry.jsx';
 
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      labels: ['5 stars', '4 stars', '3 stars', '2 stars', '1 stars'],
-      datasets: [
-        {
-          data: [5, 2, 3, 4, 5],
-          backgroundColor: 'fillpattern'
-        }
-      ],
-      options: {
-        elements: {
-          bar: {
-            borderRadius: 10
-          }
-        },
-        plugins: {
-          title: {
-            display: true
-          }
-        },
-        scales: {
-          xAxes: [{
-            barPercentage: 10,
-            ticks: {
-              display: false
-            },
-            gridLines: {
-              display:false
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              display:false
-            }
-          }]
-        }
-       }
+      results: 0,
+      reviews: []
     }
 
-    this.getRatings = this.getRatings.bind(this);
+    this.getRating = this.getRating.bind(this);
+
   }
 
   componentDidMount() {
-    this.getRatings();
+    this.getRating()
   }
 
-  getRatings() {
-    axios.get('http://localhost:3000/reviews')
+  getRating(event) {
+    axios.get(`http://localhost:3000/reviews`)
+      .then((res) => {
+        this.setState({
+          reviews: res.data.results
+        }, () => console.log(res.data.results))
+      })
+      .catch((err) => console.error(err));
   }
 
   render() {
     return (
-      <div className="column1">
-        <h1>3.5</h1>
-        <div className="starNumberRating">
-           <span>
-              <Rating emptySymbol="fa fa-star-o fa-1x" fullSymbol="fa fa-star fa-1x"/>
-           </span>
+      <div className="column1Nd">
+        <label id="title">Ratings and Reviews</label>
+
+        <div id="ratingsSummaryNd">
+          <p>100% of reviews recommend this product</p>
         </div>
-        <p>100% of reviews recommend this product</p>
-        <HorizontalBar data={this.state} datasets={this.state.datasets} options={this.state.options}/>
+        <div className="starNumberRatingNd">
+          {this.state.reviews.map((review, index) => (
+            <StarRatingEntry review={review} key={index}/>
+          ))}
+        </div>
       </div>
     )
   }
 }
-
 export default Ratings;

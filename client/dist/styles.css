@@ -33,7 +33,11 @@
   justify-content: space-between;
 }
 
-label {
+body {
+  background-color: rgb(255, 255, 240);
+}
+
+#title {
   font-size: 24px;
 }
 
@@ -43,82 +47,6 @@ h1 {
   height: 20px;
 }
 
-#modalForm {
-  height: 600px;
-  overflow-y: auto;
-}
-
-.reviewBody {
-  padding: 20px;
-}
-
-.overAllRating {
-  padding: 20px;
-}
-
-.recommendation {
-  padding: 20px;
-}
-
-.addReviewChart {
-  width: 90%;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.barRating {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 40px;
-}
-
-.starNumberRating {
-  margin-left: 150px;
-  margin-bottom: 60px;
-}
-
-.reviewTitle {
-  padding: 10px;
-  margin-left: -10px;
-}
-
-.reviewFeedBody {
-  padding: 10px;
-  margin-left: -10px;
-}
-
-.emailAndNickname {
-  padding: 20px;
-}
-
-.submitButton {
-  padding: 20px;
-}
-
-.button {
-  padding: 25px;
-  margin-right: 20px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  width: 20%;
-}
-
-.column1 {
-  float: left;
-  width: 25%;
-  margin-top: 10px;
-}
-
-.column {
-  float: right;
-  width: 70%;
-  margin-left: 10px;
-  margin-top: 50px
-}
-
 hr {
   position: relative;
   left: -40px;
@@ -126,15 +54,331 @@ hr {
   margin: 40px;
 }
 
-i {
-  padding: -5px;
-  margin-left: 2px;
-  height: 20px;
+.submitReviewButtonNd {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid;
 }
 
-.sort {
+
+/*-----Start Reviews Entry-----**-----Right Container-----*/
+.columnNd {
+  float: right;
+  width: 65%;
+  margin-top: 50px;
+}
+
+
+.reviewsNd {
+  margin-top: 150px;
+  position:absolute;
+  bottom:0px;
+  top:0px;
+  overflow:auto;
+  margin-bottom: 100px;
+}
+
+.reviewsButtonsNd {
+  margin-top: 100%;
+}
+
+.selectButtonNd {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid;
+  background: none;
+}
+
+#dropdownNd {
+  margin-left: 20px;
+}
+
+#labelNd {
+  font-size: 25px;
+}
+
+.sortNd {
   padding: 30px;
   margin-left: -33px;
-
+  position: fixed;
 }
 
+.starUserDateNd {
+  display: flex;
+  padding: -45px;
+  margin-right: 25%;
+  margin-left: -1px;
+  justify-content: space-between;
+}
+
+.reviewTitleNd {
+  padding: 10px;
+  margin-left: -10px;
+}
+
+.reviewFeedBodyNd {
+  padding: 10px;
+  margin-left: -10px;
+  width: 76%;
+  font-size: 22px;
+}
+
+.reviewResponseNd {
+  padding: 20px;
+  width: 73.5%;
+  margin-left: -5px;
+  background-color: lightgrey;
+  background-size: auto;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.moreReviewsButtonNd {
+  padding: 25px;
+  margin: 0;
+  margin-left: 20px;
+  width: 15%;
+  font-size: 15px;
+  display: inline;
+
+}
+.addReviewsButtonNd {
+  padding: 25px;
+  float: left;
+  margin: 0;
+  width: 15%;
+  font-size: 15px;
+  display: inline;
+}
+
+/* .reviewsButtonsNd{
+  margin-top: 10px;
+  margin: 20px;
+  margin-left: 0px;
+  display: inline-block;
+
+} */
+/* .addReviewButtonNd{
+  margin-top: 10px;
+  margin: 20px;
+  margin-right: 40px;
+  display: inline-block;
+} */
+
+/*-----Modal Component-----*/
+
+#modalFormNd {
+  height: 800px;
+  overflow-y: auto;
+}
+
+#reviewFormNd {
+  font-size: 500%;
+  margin: 20px;
+  padding: 21px;
+  height: 20px;
+  margin-left: 28%;
+}
+
+.overAllRatingNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.modalTextAreaNd {
+  margin-left: 20px;
+  padding: 20px;
+  outline-width: 0;
+  resize: none;
+  border-radius: 10%;
+  border: 3px solid rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(138 191 212);
+  width: 55%;
+}
+
+.recommendationNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.characteristicsNd {
+  padding: 50px;
+  margin-left: 20px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+/* td input{
+  visibility: hidden;
+}
+
+td input:checked:after {
+  content:"";
+
+  visibility:visible;
+} */
+
+table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  grid-template-columns:
+    93px
+    160px
+    206px
+    159px
+    171px
+    154px;
+}
+
+thead,
+tbody,
+tr {
+  display: contents;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+th {
+  position: auto;
+  top: 0;
+  background: rgb(138, 191, 212);
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.reviewBodyNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.uploadPhotosNd {
+  margin-left: 35px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#uploadPhotosNd {
+  border: 3px solid rgb(138, 191, 212);
+  padding: 10px;
+  border-radius: 10%;
+  outline-width: 0;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+.nicknameNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#nicknameNd {
+  border-radius: 10%;
+  width: 25%;
+  margin-left: 20px;
+  padding: 10px;
+  outline-width: 0;
+  border: 3px solid rgb(138, 191, 212);
+}
+
+.emailNd {
+  outline-width: 0;
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+}
+
+#emailNd {
+  border-radius: 10%;
+  width: 25%;
+  margin-left: 20px;
+  padding: 10px;
+  border: 3px solid rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  outline-width: 0;
+}
+
+#submitButtonNd {
+  size: 10px;
+  border-radius: 10px;
+  margin-left: 85px;
+  width: 100px;
+  margin-top: 40px;
+  height: 40px;
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+  outline-width: 0;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+#cancelButtonNd {
+  size: 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  width: 100px;
+  margin-top: 40px;
+  height: 40px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.closeModalNd {
+  margin-left: 35px;
+  padding: 50px;
+}
+
+/*-----End Review Entry-----*/
+
+/*-----Start Rating Entry-----**-----Left Container-----*/
+
+.column1Nd {
+  margin-left: 20%;
+  padding-top: 40px;
+  float: left;
+  margin-top: -15px;
+  position: fixed;
+}
+
+#ratingsSummaryNd {
+  margin-top: 55%;
+}
+
+.barChartNd {
+  margin-right: 25;
+  padding-right: -40px;
+  margin-bottom: 10px;
+}
+
+.starNumberRatingNd {
+  margin-left: 150px;
+  margin-bottom: 60px;
+}
+
+/*-----End Rating Entry-----*/
