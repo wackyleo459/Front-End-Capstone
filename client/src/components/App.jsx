@@ -17,14 +17,16 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      currentProduct: ''
+      currentProduct: '',
+      productStyles: ''
     }
     this.getProduct = this.getProduct.bind(this);
+    this.getStyles = this.getStyles.bind(this);
   }
   componentDidMount() {
     this.getProduct(16056);
   }
- //id, name, slogan, description, category, default_price
+
   getProduct(id) {
     axios.get(url + `${id}`, auth)
       .then(({data}) => {
@@ -39,6 +41,19 @@ class App extends React.Component {
             features: data.features
           }
         });
+        this.getStyles(id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  getStyles(id) {
+    axios.get(url + `${id}/styles`, auth)
+      .then( ({data}) => {
+        this.setState({
+          productStyles: data.results
+        });
       })
       .catch(err => {
         console.log(err);
@@ -46,15 +61,21 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-    <div className="main">
-      <header className="nav">Header for Navigation Bar
-      </header>
-      <ProductDetail className="productOverview" product={this.state.currentProduct}/>
-      <Reviews />
-      <Ratings />
-    </div>
-    )
+    if (this.state.currentProduct && this.state.productStyles) {
+      return (
+        <div className="main">
+          <header className="nav">Header for Navigation Bar
+          </header>
+          <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles}/>
+          <Reviews />
+          <Ratings />
+        </div>
+        )
+    } else {
+      return (
+        <div>App rendering</div>
+      )
+    }
   }
 };
 

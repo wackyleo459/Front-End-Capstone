@@ -3,8 +3,7 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-import shoes from '../../data/shoeStyles.js';
-import shoeDetails from '../../data/shoeDetails.js';
+
 import styles from '../../data/styles.js';
 
 export default class ProductDetail extends React.Component {
@@ -12,11 +11,18 @@ export default class ProductDetail extends React.Component {
     super(props);
     this.state = {
       view: 'collapsed',
-      shoeStyle: ''
+      //change to style Index? or keep?
+      stylePhotos: '', //.map(each => each.url) //add current product's style as state.
+      styleInfo : ''
     };
-
     this.expandView = this.expandView.bind(this);
-    this.setShoeStyle = this.setShoeStyle.bind(this);
+    this.setStyle = this.setStyle.bind(this);
+  }
+  componentDidMount() {
+    this.setState({
+      styleInfo: this.props.productStyles[0],
+      stylePhotos: this.props.productStyles[0].photos
+    })
   }
 
   expandView (e) {
@@ -26,27 +32,45 @@ export default class ProductDetail extends React.Component {
     }
 
 
-  setShoeStyle(style) {
-    this.setState({ shoeStyle: style }, () => {console.log(this.state.shoeStyle)});
+  setStyle(style) {
+    const currentStyle = this.props.productStyles.find(eachStyle => style === eachStyle.style_id);
+    const {name, original_price, sale_price} = currentStyle;
+
+    this.setState({
+      stylePhotos: currentStyle.photos,
+      styleInfo: {
+        name: name,
+        original_price: original_price,
+        sale_price: sale_price
+      }
+    });
   }
 
   render () {
-    return (
-      <div className="productDetail">
-        <div className={this.state.view}>
-          <ImageGallery detail={shoeDetails} clickExpand={this.expandView} view={this.state.view}/>
+    console.log('from productDetail productStyles', this.props.productStyles);
+    console.log('from productDetail product', this.props.product);
 
-        {this.state.view === 'collapsed' ?
-          <React.Fragment>
-            <ProductInfo styles={shoes} product={this.props.product} />
-            {/* pass state's shoeStyle as currentStyle */}
-            {/* <StyleSelector styles={shoes} setStyle={this.setShoeStyle} /> */}
-            <StyleSelector styles={styles} setStyle={this.setShoeStyle} />
-            <AddCart />
-           </React.Fragment>
-            : null }
+    if (this.state.styleInfo && this.state.stylePhotos) {
+      return (
+        <div className="productDetail">
+          <div className={this.state.view}>
+            <ImageGallery detail={this.state.stylePhotos} clickExpand={this.expandView} view={this.state.view}/>
+
+          {this.state.view === 'collapsed' ?
+            <React.Fragment>
+              <ProductInfo product={this.props.product} selectedStyle={this.state.styleInfo}/>
+              <StyleSelector styles={this.props.productStyles} setStyle={this.setStyle} />
+              <AddCart />
+             </React.Fragment>
+              : null }
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div>Product Detail State not updated</div>
+      )
+    }
+
   }
 }

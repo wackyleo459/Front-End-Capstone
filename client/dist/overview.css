@@ -105,9 +105,16 @@
 
 }
 .share {
-  display: flex;
-  justify-content:space-around;
   font-size: 0.95em;
+  text-align: left;
+  display: inline-flex;
+}
+
+#SNS {
+  flex-grow: 0.5;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 1em;
 }
 .fa-facebook-square {
   position: relative;

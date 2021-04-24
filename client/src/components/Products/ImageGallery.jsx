@@ -35,12 +35,12 @@ const ImageGallery = function (props) {
     <div className="imageGallery">
       <div className="mainView" style={{ height: '100%' }}>
         <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
-        <img className="mainImg" src={props.detail[currentIndex]} />
+        <img className="mainImg" src={props.detail[currentIndex].url} />
         <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
       </div>
       <div className="overlay">
-        {props.detail.map((shoe, ind) => (
-          <img className="thumbnail" key={ind} src={shoe} onClick={(e) => thumbnailClick(e, shoe, ind)} style={thumbnailStyle(ind)} />
+        {props.detail.map((item, ind) => (
+          <img className="thumbnail" key={ind} src={item.thumbnail_url} onClick={(e) => thumbnailClick(e, item, ind)} style={thumbnailStyle(ind)} />
         ))}
       </div>
       <button id="expand" type="button" onClick={props.clickExpand}>
