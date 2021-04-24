@@ -60,7 +60,7 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="reviewsComponent">
         <div className="columnNd">
             <Sort category={this.state.category} reviews={this.state.reviews.length} getProductInfo={this.getProductInfo}/>
           <div className="reviewsNd">
