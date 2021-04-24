@@ -24,7 +24,7 @@ class App extends React.Component {
     this.getStyles = this.getStyles.bind(this);
   }
   componentDidMount() {
-    this.getProduct(16056);
+    this.getProduct(16256);
   }
 
   getProduct(id) {
@@ -67,8 +67,8 @@ class App extends React.Component {
           <header className="nav">Header for Navigation Bar
           </header>
           <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles}/>
-          <Reviews />
-          <Ratings />
+          {/* <Reviews />
+          <Ratings /> */}
         </div>
         )
     } else {

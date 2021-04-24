@@ -3,9 +3,9 @@ import StarRatings from 'react-star-ratings';
 
 const ProductInfo = ({ product, selectedStyle }) => {
   const sale = selectedStyle.sale_price;
-  const checkSale = function(input) {
+  const checkSale = function (input) {
     if (input) {
-      return {textDecoration: 'line-through'};
+      return { textDecoration: 'line-through' };
     }
   }
 
@@ -28,10 +28,12 @@ const ProductInfo = ({ product, selectedStyle }) => {
         <div className="category">{product.category}</div>
         <div className="title">{product.name}</div>
         <div className='style'>{selectedStyle.name}</div>
-        <div className="originalPrice" style={checkSale(sale)}>
-          {selectedStyle.original_price}
+        <div className="price">
+          {sale ? <span className="salePrice" style={{ color: 'maroon' }}>{sale}</span> : null}
+          <span className="originalPrice" style={checkSale(sale)}>
+            {selectedStyle.original_price}
+          </span>
         </div>
-        <span className='salePrice'>{selectedStyle.sale_price}</span>
         <div className="overview">{product.description}</div>
         <div className="share">Share
           <span id='SNS'>

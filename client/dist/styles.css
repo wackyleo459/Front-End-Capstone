@@ -8,6 +8,7 @@
   grid-template-areas:
     "navbar"
     "contents"
+    "ratings"
     "footer"
 }
 @media (min-width: 640px) {
@@ -16,6 +17,7 @@
     grid-template-areas:
       "navbar navbar navbar"
       ". contents ."
+      ". ratings ."
       'footer footer footer'
   }
 }
@@ -24,6 +26,9 @@
 }
 .productOverview {
   grid-area: contents;
+}
+.reviewsComponent, .ratingsComponent {
+  grid-area: ratings;
 }
 .starUserDate {
   display: flex;

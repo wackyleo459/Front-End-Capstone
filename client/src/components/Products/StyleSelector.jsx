@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 const StyleSelector = ({styles, setStyle}) => {
   const [currentIndex, setIndex] = useState(0);
 
-  const select = (event, id, index) => {
+  const select = (event, index) => {
     event.preventDefault();
-    setStyle(id); //updates parent's state
+    document.getElementById('selectForm').reset();
+    setStyle(index); //updates parent's state
     setIndex(index); //updates current component state
   };
 
   const highlightStyle = (index) => {
-    if (index === currentIndex) { //can change to props.currentStyle
+    if (index === currentIndex) {
       return { border: '1px solid blue' };
     }
   }
@@ -18,7 +19,7 @@ const StyleSelector = ({styles, setStyle}) => {
   return (
     <div className="selectStyles">
       {styles.map(({style_id, name, photos}, ind) => (
-        <img className="selectStyle" key={ind} src={photos[0].thumbnail_url} alt={name} onClick={(e) => { select(e, style_id, ind) }} style={highlightStyle(ind)}/>
+        <img className="selectStyle" key={ind} src={photos[0].thumbnail_url} alt={name} onClick={(e) => { select(e, ind) }} style={highlightStyle(ind)}/>
       ))}
     </div>
   )

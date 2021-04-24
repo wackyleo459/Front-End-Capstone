@@ -11,18 +11,14 @@ export default class ProductDetail extends React.Component {
     super(props);
     this.state = {
       view: 'collapsed',
-      //change to style Index? or keep?
-      stylePhotos: '', //.map(each => each.url) //add current product's style as state.
+      stylePhotos: '',
       styleInfo : ''
     };
     this.expandView = this.expandView.bind(this);
     this.setStyle = this.setStyle.bind(this);
   }
   componentDidMount() {
-    this.setState({
-      styleInfo: this.props.productStyles[0],
-      stylePhotos: this.props.productStyles[0].photos
-    })
+    this.setStyle(0);
   }
 
   expandView (e) {
@@ -32,16 +28,17 @@ export default class ProductDetail extends React.Component {
     }
 
 
-  setStyle(style) {
-    const currentStyle = this.props.productStyles.find(eachStyle => style === eachStyle.style_id);
-    const {name, original_price, sale_price} = currentStyle;
+  setStyle(index) {
+    const currentStyle = this.props.productStyles[index];
+    const {name, original_price, sale_price, skus} = currentStyle;
 
     this.setState({
       stylePhotos: currentStyle.photos,
       styleInfo: {
         name: name,
         original_price: original_price,
-        sale_price: sale_price
+        sale_price: sale_price,
+        skus: Object.values(skus)
       }
     });
   }
@@ -60,7 +57,7 @@ export default class ProductDetail extends React.Component {
             <React.Fragment>
               <ProductInfo product={this.props.product} selectedStyle={this.state.styleInfo}/>
               <StyleSelector styles={this.props.productStyles} setStyle={this.setStyle} />
-              <AddCart />
+              <AddCart skus={this.state.styleInfo.skus}/>
              </React.Fragment>
               : null }
           </div>

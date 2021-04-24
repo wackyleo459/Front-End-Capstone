@@ -53,7 +53,7 @@
   grid-area: cart;
   border: 2px solid green;
 }
-/* edit display, maybe border */
+
 .mainView {
   display: flex;
   background-color: #edeef0;
@@ -173,19 +173,39 @@ div.title {
 div.overview {
   font-size: 12px;
 }
-div.price {
+.price {
   font-size: 13px;
   font-weight: 300;
+}
+.salePrice {
+  padding-right: 1em;
 }
 
 .fab:hover {
   color: blue;
 }
 
-
 div.add {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+}
+
+label {
+  width: unset;
+  padding: 0 5px 0 5px;
+  margin: 3px;
+  box-sizing: border-box;
+  font : 0.85em "typewriter", sans-serif;
+}
+#addToBag {
+  margin: 3px;
+  font-size: 0.9em;
+}
+select {
+  width : auto;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
