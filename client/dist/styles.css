@@ -347,3 +347,33 @@ a:hover {
 }
 
 /*-----End Rating Entry-----*/
+
+.moreQuestions {
+  padding: 12px;
+  background: white;
+  margin-left: 50px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.moreAnswers {
+  border: none;
+  color: rgb(87, 86, 86);
+  background: white;
+  margin-left: 12px;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.submitQuestion {
+  padding: 12px;
+  background: white;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.dividernf {
+  width:10px;
+  height:auto;
+  display:inline-block;
+}

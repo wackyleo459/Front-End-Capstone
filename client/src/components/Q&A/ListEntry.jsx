@@ -15,6 +15,7 @@ class ListEntry extends React.Component {
     }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    this.setCount = this.setCount.bind(this);
   }
 
   showModal() {
@@ -26,6 +27,12 @@ class ListEntry extends React.Component {
   hideModal() {
     this.setState({
       visible: false,
+    });
+  }
+
+  setCount() {
+    this.setState({
+      helpful: this.state.helpful + 1
     });
   }
 
@@ -41,9 +48,7 @@ class ListEntry extends React.Component {
             <button
               style={{ border: 'none', background: 'white' }}
               type="button"
-              onClick={() => {
-                setCount((c) => c + 1);
-              }}
+              onClick={this.setCount}
             >Yes {`(${this.state.helpful}) |`}
             </button>
             <button style={{ border: 'none', background: 'white' }} onClick={this.showModal} type="button">Add Answer</button>

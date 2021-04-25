@@ -28,9 +28,9 @@ class QandA extends React.Component {
             type="text"
             onChange={this.changeHandler}
             value={this.state.searchValue}
-            placeholder="Have a question? Search for answers..."
+            placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
             size="90"
-            style={{ height: '35px' }}
+            style={{ height: '35px', padding: '5px', fontSize: '15px' }}
           />
         </form>
         <List />

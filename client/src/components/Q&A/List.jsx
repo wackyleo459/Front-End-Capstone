@@ -67,8 +67,9 @@ class List extends React.Component {
           <ul>
             {this.state.questions.results.map((question, index) => <ListEntry questions={question} key={index} />)}
           </ul>
-          <button type="button">More Answered Questions</button>
-          <button type="submit" onClick={() => this.showModal()}>Add A Question</button>
+          <button type="button" className="moreQuestions">More Answered Questions</button>
+          <div className="dividernf" />
+          <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question</button>
           <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal handleClose={this.hideModal} />
           </Modal>
@@ -80,8 +81,9 @@ class List extends React.Component {
           <ul>
             {this.state.questions.results.slice(0, 4).map((question, index) => <ListEntry questions={question} key={index} />)}
           </ul>
-          <button type="button" onClick={this.showMoreQuestions}>More Answered Questions</button>
-          <button type="submit" onClick={() => this.showModal()}>Add A Question</button>
+          <button type="button" onClick={this.showMoreQuestions} className="moreQuestions">More Answered Questions</button>
+          <div className="dividernf" />
+          <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question</button>
           <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal handleClose={this.hideModal} />
           </Modal>
@@ -93,8 +95,9 @@ class List extends React.Component {
           <ul>
             {this.state.questions.results.map((question, index) => <ListEntry questions={question} key={index} />)}
           </ul>
-          <button type="button" onClick={this.showLessQuestions}>Less Answered Questions</button>
-          <button type="submit" onClick={() => this.showModal()}>Add A Question</button>
+          <button type="button" onClick={this.showLessQuestions} className="moreQuestions">Less Answered Questions</button>
+          <div className="dividernf" />
+          <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question</button>
           <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal handleClose={this.hideModal} />
           </Modal>

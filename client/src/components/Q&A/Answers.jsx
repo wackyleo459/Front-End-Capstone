@@ -3,7 +3,7 @@ import Answer from './Answer.jsx';
 
 class Answers extends React.Component {
   constructor(props) {
-    super (props);
+    super(props);
 
     this.state = {
       moreAnswers: false,
@@ -40,7 +40,7 @@ class Answers extends React.Component {
           {Object.keys(this.props.questions.answers).slice(0, 2).map((keys, index) =>
             <Answer answer={this.props.questions.answers[keys]} key={index} />)}
             <button
-            style={{ border: 'none', color: 'grey', background: 'white' }}
+            className="moreAnswers"
             type="button"
             onClick={this.showMoreAnswers}
             >Load More Answers
@@ -53,7 +53,7 @@ class Answers extends React.Component {
           {Object.keys(this.props.questions.answers).map((keys, index) =>
             <Answer answer={this.props.questions.answers[keys]} key={index} />)}
             <button
-            style={{ border: 'none', color: 'grey', background: 'white' }}
+            className="moreAnswers"
             type="button"
             onClick={this.showLessAnswers}
             >Show Less Answers
