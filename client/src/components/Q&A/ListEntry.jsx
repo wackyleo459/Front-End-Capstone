@@ -3,16 +3,16 @@
 import React from 'react';
 import Modal from 'react-awesome-modal';
 import AnswersModal from './AnswersModal.jsx';
-import Answer from './Answer.jsx';
+import Answers from './Answers.jsx';
 
 class ListEntry extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      helpful: this.props.questions.question_helpfulness,
       visible: false,
-      helpful: 0,
-    };
+    }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
@@ -48,14 +48,11 @@ class ListEntry extends React.Component {
             </button>
             <button style={{ border: 'none', background: 'white' }} onClick={this.showModal} type="button">Add Answer</button>
           </span>
+            <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
+              <AnswersModal handleClose={this.hideModal} />
+            </Modal>
         </div>
-        {Object.keys(this.props.questions.answers).map((keys, index) =>
-          <Answer answer={this.props.questions.answers[keys]} key={index} />)}
-        <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
-          <AnswersModal
-            handleClose={this.hideModal}
-          />
-        </Modal>
+          <Answers questions={this.props.questions}/>
       </div>
     );
   }
