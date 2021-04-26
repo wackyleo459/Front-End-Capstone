@@ -1,10 +1,19 @@
-#app, .main {
+body {
+  margin: 0 0 auto 0;
+}
+#app {
   height: 100%;
   width: 100%;
 }
 
 .main {
+  height: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+  position: center;
+  margin: 2em;
   display: grid;
+  grid-template-rows: 10% 1fr 1fr 3%;
   grid-template-areas:
     "navbar"
     "contents"
@@ -13,7 +22,7 @@
 }
 @media (min-width: 640px) {
   .grid {
-    grid-template-columns: 5% 1fr 3%;
+    grid-template-columns: 5% 1fr 5%;
     grid-template-areas:
       "navbar navbar navbar"
       ". contents ."
@@ -27,14 +36,16 @@
 .productOverview {
   grid-area: contents;
 }
-.reviewsComponent, .ratingsComponent {
+
+.ratingsReviews {
   grid-area: ratings;
+  position: relative;
 }
 .starUserDate {
   display: flex;
-  padding: -45px;
+  /* padding: -45px;
   margin-right: 25%;
-  margin-left: -5px;
+  margin-left: -5px; */
   justify-content: space-between;
 }
 
@@ -54,9 +65,9 @@ h1 {
 
 hr {
   position: relative;
-  left: -40px;
+  /* left: -40px;
   width: 75%;
-  margin: 40px;
+  margin: 40px; */
 }
 
 .submitReviewButtonNd {
@@ -77,12 +88,12 @@ hr {
   float: right;
   width: 65%;
   margin-top: 50px;
+  position: relative;
 }
 
 
 .reviewsNd {
   margin-top: 150px;
-  position:absolute;
   bottom:0px;
   top:0px;
   overflow:auto;
@@ -117,7 +128,7 @@ hr {
 .sortNd {
   padding: 30px;
   margin-left: -33px;
-  position: fixed;
+  position: absolute;
 }
 
 .starUserDateNd {
@@ -364,11 +375,11 @@ a:hover {
 /*-----Start Rating Entry-----**-----Left Container-----*/
 
 .column1Nd {
-  margin-left: 20%;
+  margin-left: 5%;
   padding-top: 40px;
   float: left;
   margin-top: -15px;
-  position: fixed;
+  position: absolute;
 }
 
 #ratingsSummaryNd {

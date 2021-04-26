@@ -34,15 +34,15 @@ class Reviews extends React.Component {
       category = event.target.value
     }
     axios.get(`http://localhost:3000/reviews/?sort=${category}`)
-    .then((res) => {
-      let copyData = res.data.results;
-      let sliced = copyData.slice(0, 2)
-      this.setState({
+      .then((res) => {
+        let copyData = res.data.results;
+        let sliced = copyData.slice(0, 2)
+        this.setState({
           reviews: sliced,
           moreReviews: copyData.slice(2)
+        })
       })
-    })
-    .catch(err => console.error(err));
+      .catch(err => console.error(err));
   }
 
   handleHelpulChange(event) {
@@ -60,22 +60,20 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div className="reviewsComponent">
-        <div className="columnNd">
-            <Sort category={this.state.category} reviews={this.state.reviews.length} getProductInfo={this.getProductInfo}/>
-          <div className="reviewsNd">
+      <div className="columnNd reviewsComponent">
+        <Sort category={this.state.category} reviews={this.state.reviews.length} getProductInfo={this.getProductInfo} />
+        <div className="reviewsNd">
           {this.state.reviews.map((review, index) => (
-            <ReviewEntry review={review} key={index} helpfulChange={this.handleHelpulChange}/>))}
+            <ReviewEntry review={review} key={index} helpfulChange={this.handleHelpulChange} />))}
 
-            <Modals />
+          <Modals />
           <div className="reviewsbuttonsNd">
             {(this.state.moreReviews.length === 0) ? null : (
-              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
-          </div>
+              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews} />)}
           </div>
         </div>
       </div>
     )
-  }   
+  }
 }
 export default Reviews;

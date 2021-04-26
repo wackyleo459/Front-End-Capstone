@@ -1,7 +1,7 @@
 .collapsed {
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-rows: 45% auto 20%;
+  grid-template-rows: auto auto 20%;
   column-gap: 10px;
   row-gap: 10px;
   grid-template-areas:
@@ -20,11 +20,6 @@
     "image image "
     "image image"
     "image image"
-}
-
-.imageGallery {
-  grid-area: image;
-  position: relative;
 }
 
 .productInfo {
@@ -54,48 +49,61 @@
   border: 2px solid green;
 }
 
+.imageGallery {
+  grid-area: image;
+  position: relative;
+  contain: content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #edeef0;
+  margin-right: 1em;
+}
+
 .mainView {
+  width: 70vh;
+  height: 70vh;
   display: flex;
   background-color: #edeef0;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 2em 2em 4em 2em;
   cursor: crosshair;
+  justify-content: center;
 }
 
 .mainImg {
   flex: 90%;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-
+  object-fit:cover;
 }
 
 .left {
-  left: 2px;
+  left: 1px;
   padding: 1em;
-  height: 5%;
   position: absolute;
   display: grid;
   place-items: center;
   align-self: center;
+  background-color:rgb(226, 214, 226);
 }
 .right {
-  right: 2px;
+  right: 1px;
   padding: 1em;
-  height: 5%;
   position: absolute;
   display: grid;
   place-items: center;
   align-self: center;
+  background-color:rgb(226, 214, 226);
 }
 .left:hover, .right:hover {
-  border: 1px solid rgb(131, 135, 151);
+  color: rgb(33, 146, 199);
+  cursor: pointer;
 }
 .productInfo {
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: stretch;
   float: left;
+  padding: 0.5em;
 }
 .product-description {
   margin-left: 10px;
@@ -130,31 +138,41 @@
   top: 3%;
   right: 3%;
 }
+.thumbnailContainer {
+  width: 14%;
+  display: inline-block;
+}
 .thumbnail {
-  width: 8%;
+  width: 2em;
+  height: 2em;
+  object-fit: cover;
   border: .5px solid #a6a6a6; /* Gray border */
   border-radius: 25px;  /* Rounded border */
   margin: 3px;
+
 }
 .thumbnail:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 .overlay {
+  width: 20em;
   position: absolute;
-  top: 3%;
-  margin-left: -25%;
-  left: 50%;
+  bottom: 1%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #expand {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 20px;
-  height: 2em;
-  width: 2em;
+  margin: 5px;
+  height: 1.5em;
+  width: 1.5em;
   border: none;
   outline-width: 0;
+  display: flex;
+  align-content: center;
 }
 #expandFas {
   color: rgb(137, 160, 193)

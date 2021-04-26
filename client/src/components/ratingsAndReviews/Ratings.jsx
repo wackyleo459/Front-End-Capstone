@@ -33,7 +33,6 @@ class Ratings extends React.Component {
     return (
       <div className="column1Nd ratingsComponent">
         <label id="title">Ratings and Reviews</label>
-
         <div id="ratingsSummaryNd">
           <p>100% of reviews recommend this product</p>
         </div>

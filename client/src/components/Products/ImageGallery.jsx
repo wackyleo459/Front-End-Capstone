@@ -31,24 +31,28 @@ const ImageGallery = function (props) {
 
   //onHover w/ magnifying '+' symbol
   //zoom 2.5*
+  //style={{backgroundImage:`url(${props.detail[currentIndex].url})`}}
   return (
     <div className="imageGallery">
-      <div className="mainView" style={{ height: '100%' }}>
-        <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
-        <img className="mainImg" src={props.detail[currentIndex].url} />
-        <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
-      </div>
       <div className="overlay">
         {props.detail.map((item, ind) => (
-          <img className="thumbnail" key={ind} src={item.thumbnail_url} onClick={(e) => thumbnailClick(e, item, ind)} style={thumbnailStyle(ind)} />
+          <div className="thumbnailContainer">
+            <img className="thumbnail" key={ind} src={item.thumbnail_url} onClick={(e) => thumbnailClick(e, item, ind)} style={thumbnailStyle(ind)} />
+          </div>
         ))}
       </div>
       <button id="expand" type="button" onClick={props.clickExpand}>
         <i id="expandFas" className="fas fa-expand-alt fa-lg" ></i>
       </button>
-      <span className="material-icons">
+      <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
+      <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
+      <div className="mainView">
+        <img className="mainImg" src={props.detail[currentIndex].url} />
+      </div>
+
+      {/* <span className="material-icons">
         add_circle_outline
-      </span>
+      </span> */}
     </div>
   )
 }

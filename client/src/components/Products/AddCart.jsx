@@ -1,57 +1,68 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
-const pulldownQty = function(input) {
+const pulldownQty = function (input) {
   var result = [];
-  if (input < 15) {
-    for (let i = 1; i <= input; i++) {
-      result.push(<option key={i}>{i}</option>)
-    }
-  } else {
-    for (let i = 1; i <= 15; i++) {
-      result.push(<option key={i}>{i}</option>)
-    }
+  if (!input) { return null; }
+  input < 15 ? input = input : input = 15;
+
+  for (let i = 1; i <= input; i++) {
+    result.push( <option key={i}>{i}</option> )
   }
   return result;
 }
 
 const AddCart = ({ skus }) => {
-  const [selectedSize, setSize] = useState('XS');
+
+  const [selectedSize, setSize] = useState('Select Size');
+  const [qty, setQty] = useState(1);
+  const initialState = 'Select Size';
+  const isSizeSelected = selectedSize !== initialState;
+
 
   const selectSize = (event) => {
-    setSize(event.target.value);
+    let size = event.target.value;
+    setSize(size);
   };
 
-  const availQty = skus.find(item => item.size === selectedSize).quantity;
+  const selectQty = (event) => {
+    setQty(event.target.value);
+  }
+
+  const availQty = isSizeSelected ? skus.find(item => item.size === selectedSize).quantity : null;
 
   const reset = (e) => {
     e.preventDefault();
+    setSize(initialState);
     document.getElementById('selectForm').reset();
   }
 
-  //dropdown becomes inactive
   return (
     <div className="add">
       <div className='addSelect'>
         <form id="selectForm">
+
           <label id="size">{'  size  '}
-          <select onChange={selectSize}>
+            <select onChange={selectSize}>
+              <option key='0o'>Select Size</option>
               {skus.map(({ size }, ind) => (
                 <option value={size} key={ind}>{size}</option>
               ))}
             </select>
           </label>
+
           <label id="quantity">{'  quantity  '}
-          <select defaultValue="1">
-            {pulldownQty(availQty)}
-            </select>
+            {isSizeSelected ?
+              <select onChange={selectQty} defaultValue={1}>
+                {pulldownQty(availQty)}
+              </select> :
+              <select disabled={true}><option>-</option></select>}
           </label>
+
           <button id="addToBag" type="button" onClick={reset}>
             <span>Add to Bag</span>
           </button>
         </form>
-
-
       </div>
     </div>
   )

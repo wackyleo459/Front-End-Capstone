@@ -24,12 +24,12 @@ class App extends React.Component {
     this.getStyles = this.getStyles.bind(this);
   }
   componentDidMount() {
-    this.getProduct(16256);
+    this.getProduct(16060);
   }
 
   getProduct(id) {
     axios.get(url + `${id}`, auth)
-      .then(({data}) => {
+      .then(({ data }) => {
         this.setState({
           currentProduct: {
             id: data.id,
@@ -50,7 +50,7 @@ class App extends React.Component {
 
   getStyles(id) {
     axios.get(url + `${id}/styles`, auth)
-      .then( ({data}) => {
+      .then(({ data }) => {
         this.setState({
           productStyles: data.results
         });
@@ -66,11 +66,14 @@ class App extends React.Component {
         <div className="main">
           <header className="nav">Header for Navigation Bar
           </header>
-          <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles}/>
-          {/* <Reviews />
-          <Ratings /> */}
+          <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles} />
+          <div className="ratingsReviews">
+            <Ratings />
+            <Reviews />
+          </div>
+
         </div>
-        )
+      )
     } else {
       return (
         <div>App rendering</div>
