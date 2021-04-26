@@ -377,3 +377,38 @@ a:hover {
   height:auto;
   display:inline-block;
 }
+
+.yesButtonnf {
+  border-right: 1px solid;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  background: white;
+  padding: 5px;
+}
+
+.answerInfo {
+  color: grey;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.modalnf {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.questionInfo {
+  float: right;
+  margin-right: 40px;
+}
+
+.answernf {
+  padding: '10px';
+  border-left: 1px solid;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  margin-left: 10px;
+}

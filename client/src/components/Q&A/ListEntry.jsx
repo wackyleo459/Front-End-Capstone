@@ -43,18 +43,18 @@ class ListEntry extends React.Component {
           <span style={{ fontSize: '20px', fontWeight: 'bold' }}>
             Q: {this.props.questions.question_body}
           </span>
-          <span className="questionInfo" style={{ float: 'right' }}>
+          <span className="questionInfo">
             Helpful?
             <button
-              style={{ border: 'none', background: 'white' }}
+              className="yesButtonnf"
               type="button"
               onClick={this.setCount}
-            >Yes {`(${this.state.helpful}) |`}
+            >Yes {`(${this.state.helpful})`}
             </button>
             <button style={{ border: 'none', background: 'white' }} onClick={this.showModal} type="button">Add Answer</button>
           </span>
-            <Modal height="400" visible={this.state.visible} onClickAway={this.hideModal}>
-              <AnswersModal handleClose={this.hideModal} />
+            <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
+              <AnswersModal question={this.props.questions.question_body} handleClose={this.hideModal} />
             </Modal>
         </div>
           <Answers questions={this.props.questions}/>

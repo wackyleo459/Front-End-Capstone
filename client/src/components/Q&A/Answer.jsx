@@ -25,19 +25,19 @@ class Answer extends React.Component {
           <span style={{ fontSize: '20px', fontWeight: 'bold' }}>A:</span> {this.props.answer.body}
         </div>
         <div>
-          <span className="answerInfo" style={{ color: 'grey', padding: '5px', marginLeft: '5px' }}>
-            by {this.props.answer.answerer_name}, <Moment format="MMM D YYYY">{this.props.answer.date.slice(0, 10)}</Moment>
-            <span style={{ padding: '10px' }}>
-              Helpful? |
+          <span className="answerInfo">
+            by {this.props.answer.answerer_name}, <Moment format="MMM D, YYYY">{this.props.answer.date.slice(0, 10)}</Moment>
+            <span className="answernf">
+              <span style={{ padding: '5px' }}>Helpful?</span>
               <button
-                style={{ border: 'none', background: 'white' }}
+                className="yesButtonnf"
                 onClick={this.addCount}
                 type="button"
               >
                 Yes
-                {`(${this.state.count}) |`}
+                {`(${this.state.count})`}
               </button>
-              <button style={{ border: 'none', background: 'white' }} type="button">Report</button>
+              <button style={{ border: 'none', background: 'white' }} type="button" onClick={(e) => alert('This answer has been reported.')}>Report</button>
             </span>
           </span>
         </div>
