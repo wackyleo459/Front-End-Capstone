@@ -68,7 +68,7 @@ class Modals extends Component {
     return (
       <section>
         <input className="addReviewsButtonNd" type="button" value="ADD A REVIEW +" onClick={() => this.openModal()} />
-          <Modal visible={this.state.visible} width="1200" height="800" effect="fadeInUp" id="modalNd" onClickAway={() => this.closeModal()}>
+          <Modal className="modalNd" visible={this.state.visible} width="1200" height="800" effect="fadeInUp" id="modalNd" onClickAway={() => this.closeModal()}>
             <div>
                <form onSubmit={this.handleSubmit} id="modalFormNd">
                  <h2 id="reviewFormNd">Review Form</h2>

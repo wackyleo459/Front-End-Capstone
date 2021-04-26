@@ -7,12 +7,11 @@ class Ratings extends React.Component {
     super(props);
 
     this.state = {
-      results: 0,
+      ratingResult: 0,
       reviews: []
     }
 
     this.getRating = this.getRating.bind(this);
-
   }
 
   componentDidMount() {
@@ -24,7 +23,7 @@ class Ratings extends React.Component {
       .then((res) => {
         this.setState({
           reviews: res.data.results
-        }, () => console.log(res.data.results))
+        })
       })
       .catch((err) => console.error(err));
   }
@@ -33,14 +32,8 @@ class Ratings extends React.Component {
     return (
       <div className="column1Nd">
         <label id="title">Ratings and Reviews</label>
-
-        <div id="ratingsSummaryNd">
-          <p>100% of reviews recommend this product</p>
-        </div>
-        <div className="starNumberRatingNd">
-          {this.state.reviews.map((review, index) => (
-            <StarRatingEntry review={review} key={index}/>
-          ))}
+        <div>
+          <StarRatingEntry reviews={this.state.reviews}/>
         </div>
       </div>
     )
