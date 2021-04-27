@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const ImageGallery = function (props) {
   const [currentIndex, setIndex] = useState(0);
@@ -26,6 +26,16 @@ const ImageGallery = function (props) {
       return { boxShadow: '0 0 1px 1px grey' };
     }
   }
+
+  const slideThumbnails = (direction) => {
+    let container = document.querySelector('.thumbnailContainer');
+    if (direction === 'left') {
+      container.scrollLeft -= 185;
+    }
+    if (direction === 'right') {
+      container.scrollLeft += 185;
+    }
+  }
   //expanded: overlay becomes icons
   //collapsed: overlay stays as image
 
@@ -35,11 +45,17 @@ const ImageGallery = function (props) {
   return (
     <div className="imageGallery">
       <div className="overlay">
-        {props.detail.map((item, ind) => (
-          <div className="thumbnailContainer">
-            <img className="thumbnail" key={ind} src={item.thumbnail_url} onClick={(e) => thumbnailClick(e, item, ind)} style={thumbnailStyle(ind)} />
-          </div>
-        ))}
+        <button id="slideLeft" style={{fontSize: '10px'}}
+          onClick={() => slideThumbnails('left')}>{`<<`}</button>
+        <div className="thumbnailContainer" >
+          {props.detail.map((item, ind) => (
+            <img className="thumbnail" key={ind} src={item.thumbnail_url}
+              onClick={(e) => thumbnailClick(e, item, ind)}
+              style={thumbnailStyle(ind)} />
+          ))}
+        </div>
+        <button id="slideRight"  style={{fontSize: '10px'}}
+          onClick={() => slideThumbnails('right')}>{`>>`}</button>
       </div>
       <button id="expand" type="button" onClick={props.clickExpand}>
         <i id="expandFas" className="fas fa-expand-alt fa-lg" ></i>

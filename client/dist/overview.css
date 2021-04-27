@@ -12,14 +12,10 @@
 
 .expanded {
   display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 30% 30% 30%;
-  column-gap: 10px;
-  row-gap: 5px;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
   grid-template-areas:
-    "image image "
-    "image image"
-    "image image"
+    "image"
 }
 
 .productInfo {
@@ -138,28 +134,30 @@
   top: 3%;
   right: 3%;
 }
+.overlay {
+  position: absolute;
+  bottom: 2%;
+  contain: content;
+  display: flex;
+  /* scroll-snap-type: x mandatory; */
+  /* -ms-overflow-style: none; */
+}
 .thumbnailContainer {
-  width: 14%;
-  display: inline-block;
+  width: 20em;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .thumbnail {
-  width: 2em;
+  width: 2.5em;
   height: 2em;
   object-fit: cover;
   border: .5px solid #a6a6a6; /* Gray border */
-  border-radius: 25px;  /* Rounded border */
+  border-radius: 5px;  /* Rounded border */
   margin: 3px;
-
+  scroll-snap-align: center;
 }
 .thumbnail:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-.overlay {
-  width: 20em;
-  position: absolute;
-  bottom: 1%;
-  white-space: nowrap;
-  overflow: hidden;
+  box-shadow: 0 0 2px 1px rgba(45, 173, 215, 0.5);
 }
 
 #expand {
@@ -226,4 +224,13 @@ select {
   margin: 3px;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
 }
