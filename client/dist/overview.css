@@ -56,9 +56,19 @@
   margin-right: 1em;
 }
 
-.mainView {
+.mainViewCollapsed {
   width: 70vh;
   height: 70vh;
+  display: flex;
+  background-color: #edeef0;
+  padding: 2em 2em 4em 2em;
+  cursor: crosshair;
+  justify-content: center;
+}
+
+.mainViewExpanded {
+  width: 100vh;
+  height: 100vh;
   display: flex;
   background-color: #edeef0;
   padding: 2em 2em 4em 2em;

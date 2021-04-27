@@ -68,7 +68,7 @@ const ImageGallery = function (props) {
       </button>
       <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
       <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
-      <div className="mainView">
+      <div className={props.view === 'collapsed' ? 'mainViewCollapsed' : 'mainViewExpanded'}>
         <img className="mainImg" src={props.detail[currentIndex].url} />
       </div>
 
