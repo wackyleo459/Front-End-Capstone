@@ -146,6 +146,7 @@
   width: 20em;
   white-space: nowrap;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 .thumbnail {
   width: 2.5em;
