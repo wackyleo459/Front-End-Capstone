@@ -1,15 +1,10 @@
 body {
   background-color: rgb(255, 255, 240);
+
 }
 
 #title {
   font-size: 24px;
-}
-
-h1 {
-  font-size: 500%;
-  margin: 20px;
-  height: 20px;
 }
 
 hr {
@@ -47,6 +42,7 @@ hr {
   top:0px;
   overflow:auto;
   margin-bottom: 100px;
+  width: 66%;
 }
 
 .reviewsButtonsNd {
@@ -110,6 +106,10 @@ hr {
   font-size: 22px;
 }
 
+.reviewRecommendNd {
+  padding: 20px;
+}
+
 .moreReviewsButtonNd {
   padding: 25px;
   margin: 0;
@@ -117,6 +117,7 @@ hr {
   width: 15%;
   font-size: 15px;
   display: inline;
+  cursor: pointer;
 
 }
 .addReviewsButtonNd {
@@ -126,27 +127,15 @@ hr {
   width: 15%;
   font-size: 15px;
   display: inline;
+  cursor: pointer;
 }
-
-/* .reviewsButtonsNd{
-  margin-top: 10px;
-  margin: 20px;
-  margin-left: 0px;
-  display: inline-block;
-
-} */
-/* .addReviewButtonNd{
-  margin-top: 10px;
-  margin: 20px;
-  margin-right: 40px;
-  display: inline-block;
-} */
 
 /*-----Modal Component-----*/
 
 #modalFormNd {
   height: 800px;
   overflow-y: auto;
+  background-color: rgb(237, 243, 236);
 }
 
 #reviewFormNd {
@@ -160,7 +149,8 @@ hr {
 .overAllRatingNd {
   margin-left: 20px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 .modalTextAreaNd {
@@ -169,32 +159,25 @@ hr {
   outline-width: 0;
   resize: none;
   border-radius: 10%;
-  border: 3px solid rgb(138, 191, 212);
-  box-shadow: 0 15px 25px -15px rgb(138 191 212);
+
+  border: 3px solid rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
   width: 55%;
 }
 
 .recommendationNd {
   margin-left: 20px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 .characteristicsNd {
   padding: 50px;
   margin-left: 20px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
-
-/* td input{
-  visibility: hidden;
-}
-
-td input:checked:after {
-  content:"";
-
-  visibility:visible;
-} */
 
 table {
   display: grid;
@@ -227,7 +210,7 @@ td {
 th {
   position: auto;
   top: 0;
-  background: rgb(138, 191, 212);
+  background: rgb(255, 255, 240);;
   text-align: left;
   font-weight: normal;
   font-size: 1.1rem;
@@ -237,27 +220,56 @@ th {
 .reviewBodyNd {
   margin-left: 20px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+}
+
+.openModalPhotoNd {
+  font-size: 22px;
+  margin: 15px;
+  padding-right: 10px;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid;
+  background: none;
+}
+.closeModalPhotoNd {
+  font-size: 22px;
+  margin: 15px;
+  padding-right: 10px;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid;
+  background: none;
 }
 
 .uploadPhotosNd {
   margin-left: 35px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 #uploadPhotosNd {
-  border: 3px solid rgb(138, 191, 212);
+  border: 3px solid rgb(255, 255, 240);;
   padding: 10px;
   border-radius: 10%;
   outline-width: 0;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 .nicknameNd {
   margin-left: 20px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 #nicknameNd {
@@ -266,14 +278,17 @@ th {
   margin-left: 20px;
   padding: 10px;
   outline-width: 0;
-  border: 3px solid rgb(138, 191, 212);
+  border: 3px solid rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 .emailNd {
   outline-width: 0;
   margin-left: 20px;
   padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+
 }
 
 #emailNd {
@@ -281,8 +296,9 @@ th {
   width: 25%;
   margin-left: 20px;
   padding: 10px;
-  border: 3px solid rgb(138, 191, 212);
-  box-shadow: 0 15px 25px -15px rgb(138, 191, 212);
+  border: 3px solid rgb(255, 255, 240);;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
   outline-width: 0;
 }
 
@@ -297,6 +313,8 @@ th {
   font-weight: bold;
   cursor: pointer;
   outline-width: 0;
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+
 }
 
 a:hover {
@@ -324,26 +342,31 @@ a:hover {
 /*-----Start Rating Entry-----**-----Left Container-----*/
 
 .column1Nd {
-  margin-left: 20%;
+  margin-left: 17%;
   padding-top: 40px;
-  float: left;
+
   margin-top: -15px;
-  position: fixed;
+}
+
+.numberStarRatingNd {
+  font-size: 80px;
+  font-weight: 900;
+  padding-top: 20px;
+}
+
+.starsOverallNd {
+  font-size: 30px;
+  margin-right: 10px;
 }
 
 #ratingsSummaryNd {
-  margin-top: 55%;
-}
-
-.barChartNd {
-  margin-right: 25;
-  padding-right: -40px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
 .starNumberRatingNd {
   margin-left: 150px;
-  margin-bottom: 60px;
+  margin-bottom: -50px;
 }
 
 /*-----End Rating Entry-----*/

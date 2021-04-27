@@ -8,10 +8,10 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      something: []
+      selectedReview: {}
     }
-  }
 
+  }
 
   render() {
     return (
