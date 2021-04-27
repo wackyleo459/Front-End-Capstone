@@ -25,6 +25,11 @@ class Answer extends React.Component {
           <span style={{ fontSize: '20px', fontWeight: 'bold' }}>A:</span> {this.props.answer.body}
         </div>
         <div>
+          {this.props.answer.photos.map((img, index) => {
+            return <img className="answerImgnf" src={img} key={index} alt="image" />
+          })}
+        </div>
+        <div>
           <span className="answerInfo">
             by {this.props.answer.answerer_name}, <Moment format="MMM D, YYYY">{this.props.answer.date.slice(0, 10)}</Moment>
             <span className="answernf">
@@ -35,9 +40,9 @@ class Answer extends React.Component {
                 type="button"
               >
                 Yes
-                {`(${this.state.count})`}
+                {` (${this.state.count})`}
               </button>
-              <button style={{ border: 'none', background: 'white' }} type="button" onClick={(e) => alert('This answer has been reported.')}>Report</button>
+              <button style={{ border: 'none', background: 'rgb(255, 255, 240)' }} type="button" onClick={(e) => alert('This answer has been reported.')}>Report</button>
             </span>
           </span>
         </div>

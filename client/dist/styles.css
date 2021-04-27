@@ -349,8 +349,8 @@ a:hover {
 /*-----End Rating Entry-----*/
 
 .moreQuestions {
-  padding: 12px;
-  background: white;
+  padding: 16px;
+  background: rgb(255, 255, 240);
   margin-left: 50px;
   font-size: 16px;
   font-weight: 400;
@@ -359,7 +359,7 @@ a:hover {
 .moreAnswers {
   border: none;
   color: rgb(87, 86, 86);
-  background: white;
+  background: rgb(255, 255, 240);
   margin-left: 12px;
   font-size: 15px;
   font-weight: 100;
@@ -367,7 +367,7 @@ a:hover {
 
 .submitQuestion {
   padding: 12px;
-  background: white;
+  background: rgb(255, 255, 240);
   font-size: 16px;
   font-weight: 400;
 }
@@ -383,7 +383,7 @@ a:hover {
   border-top: none;
   border-bottom: none;
   border-left: none;
-  background: white;
+  background: rgb(255, 255, 240);
   padding: 5px;
 }
 
@@ -405,10 +405,26 @@ a:hover {
 }
 
 .answernf {
-  padding: '10px';
   border-left: 1px solid;
   border-top: none;
   border-bottom: none;
   border-right: none;
   margin-left: 10px;
 }
+
+.questionEntry {
+  padding: 10px;
+  border-left: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-right: none;
+}
+
+.answerImgnf {
+  padding: 15px;
+  max-width: 150px;
+  max-height: 100px;
+}
+/* .qandanf {
+  margin-top: 500px;
+} */

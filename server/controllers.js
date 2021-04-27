@@ -23,7 +23,7 @@ controllers = {
   },
 
   getQuestions: (req, res) => {
-    axios.get(`${URL}/qa/questions?page=1&count=10&sort=${req.query.sort}&product_id=17057`, { headers: {Authorization: token}})
+    axios.get(`${URL}/qa/questions?page=1&count=10&sort=${req.query.sort}&product_id=16060`, { headers: {Authorization: token}})
       .then(results => {
         res.status(200).send(results.data)
       })

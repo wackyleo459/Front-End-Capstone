@@ -38,7 +38,7 @@ class ListEntry extends React.Component {
 
   render() {
     return (
-      <div style={{ padding: '10px' }}>
+      <div className="questionEntry">
         <div>
           <span style={{ fontSize: '20px', fontWeight: 'bold' }}>
             Q: {this.props.questions.question_body}
@@ -51,13 +51,13 @@ class ListEntry extends React.Component {
               onClick={this.setCount}
             >Yes {`(${this.state.helpful})`}
             </button>
-            <button style={{ border: 'none', background: 'white' }} onClick={this.showModal} type="button">Add Answer</button>
+            <button style={{ border: 'none', background: 'rgb(255, 255, 240)' }} onClick={this.showModal} type="button">Add Answer</button>
           </span>
             <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
               <AnswersModal question={this.props.questions.question_body} handleClose={this.hideModal} />
             </Modal>
         </div>
-          <Answers questions={this.props.questions}/>
+          <Answers answers={this.props.questions.answers}/>
       </div>
     );
   }

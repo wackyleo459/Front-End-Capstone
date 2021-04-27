@@ -7,17 +7,34 @@ class Answers extends React.Component {
 
     this.state = {
       moreAnswers: false,
-      answersLength: Object.keys(this.props.questions.answers).length
+      answersLength: Object.keys(this.props.answers).length,
+      sortedAnswers: [],
     };
 
     this.showMoreAnswers = this.showMoreAnswers.bind(this);
     this.showLessAnswers = this.showLessAnswers.bind(this);
+    this.sortAnswers = this.sortAnswers.bind(this);
+  }
+
+  componentDidMount() {
+    this.sortAnswers(this.props.answers)
+  }
+
+  sortAnswers(answers) {
+    var res = [];
+    for (var key in answers) {
+      res.push(answers[key])
+    };
+    res.sort((a, b) => (a.helpfulness > b.helpfulness) ? -1 : 1);
+    this.setState({
+      sortedAnswers: res
+    });
   }
 
   showLessAnswers() {
     this.setState({
       moreAnswers: false
-    })
+    });
   }
 
   showMoreAnswers() {
@@ -27,18 +44,11 @@ class Answers extends React.Component {
   }
 
   render() {
-    if (this.state.answersLength < 2) {
+    if (this.state.moreAnswers === false && this.state.answersLength > 2) {
       return (
         <div>
-          {Object.keys(this.props.questions.answers).slice(0, 2).map((keys, index) =>
-            <Answer answer={this.props.questions.answers[keys]} key={index} />)}
-        </div>
-      )
-    } else if (this.state.moreAnswers === false && this.state.answersLength > 2) {
-      return (
-        <div>
-          {Object.keys(this.props.questions.answers).slice(0, 2).map((keys, index) =>
-            <Answer answer={this.props.questions.answers[keys]} key={index} />)}
+          {this.state.sortedAnswers.slice(0, 2).map((answers, index) =>
+            <Answer answer={answers} key={index} />)}
             <button
             className="moreAnswers"
             type="button"
@@ -47,11 +57,18 @@ class Answers extends React.Component {
             </button>
         </div>
       )
+    } else if (this.state.answersLength <= 2) {
+      return (
+        <div>
+          {this.state.sortedAnswers.slice(0, 2).map((answers, index) =>
+            <Answer answer={answers} key={index} />)}
+        </div>
+      )
     } else {
       return (
         <div>
-          {Object.keys(this.props.questions.answers).map((keys, index) =>
-            <Answer answer={this.props.questions.answers[keys]} key={index} />)}
+          {this.state.sortedAnswers.map((answers, index) =>
+            <Answer answer={answers} key={index} />)}
             <button
             className="moreAnswers"
             type="button"
