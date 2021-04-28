@@ -16,7 +16,7 @@ const ProductInfo = ({ product, selectedStyle }) => {
           <StarRatings
             className='starRating'
             numberOfStars={5}
-            rating={3.5}
+            rating={3.12}
             starDimension="18px"
             starSpacing="1px"
             starRatedColor='black'

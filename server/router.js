@@ -6,4 +6,7 @@ router
   .get(controllers.getReviews)
   .post(controllers.postReviews)
 
+
+router.get('/qa/questions', controllers.getQuestions)
+  // .post(controllers.postQuestions)
 module.exports = router

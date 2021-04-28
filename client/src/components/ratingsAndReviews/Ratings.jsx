@@ -32,9 +32,7 @@ class Ratings extends React.Component {
     return (
       <div className="column1Nd ratingsComponent">
         <label id="title">Ratings and Reviews</label>
-        <div>
           <StarRatingEntry reviews={this.state.reviews}/>
-        </div>
       </div>
     )
   }

@@ -4,6 +4,7 @@ import Reviews from './ratingsAndReviews/Reviews.jsx'
 import Ratings from './ratingsAndReviews/Ratings.jsx'
 import axios from 'axios';
 import API_KEY from '../../../config.js';
+import QandA from './Q&A/q&a.jsx'
 
 const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/';
 const auth = {
@@ -11,6 +12,7 @@ const auth = {
     Authorization: API_KEY
   }
 };
+
 
 class App extends React.Component {
   constructor(props) {
@@ -72,7 +74,8 @@ class App extends React.Component {
             <Ratings />
             <Reviews />
           </div>
-
+          <br/>
+          <QandA />
         </div>
       )
     } else {
@@ -80,6 +83,7 @@ class App extends React.Component {
         <div>App rendering</div>
       )
     }
+
   }
 };
 

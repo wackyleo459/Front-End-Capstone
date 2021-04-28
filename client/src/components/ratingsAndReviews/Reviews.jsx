@@ -83,7 +83,9 @@ class Reviews extends React.Component {
           {this.state.reviews.map((review, index) => (
             <ReviewEntry reviews={this.state.reviews} review={review} key={index} helpfulChange={this.handleHelpulChange} openImageModal={this.openImageModal} closeImageModal={this.closeImageModal} visible={this.state.visible} />
           ))}
-            <Modals />
+        </div>
+        <div id="reviewsButtonContainer">
+          <Modals />
           <div className="reviewsbuttonsNd">
             {(this.state.moreReviews.length === 0) ? null : (
               <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews} />)}
