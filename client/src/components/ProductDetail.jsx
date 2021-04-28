@@ -12,7 +12,7 @@ export default class ProductDetail extends React.Component {
     this.state = {
       view: 'collapsed',
       stylePhotos: '',
-      styleInfo : ''
+      styleInfo: ''
     };
     this.expandView = this.expandView.bind(this);
     this.setStyle = this.setStyle.bind(this);
@@ -21,16 +21,16 @@ export default class ProductDetail extends React.Component {
     this.setStyle(0);
   }
 
-  expandView (e) {
+  expandView(e) {
     e.preventDefault();
     this.state.view === 'collapsed' ?
-      this.setState({view: 'expanded'}) : this.setState({view: 'collapsed'});
-    }
+      this.setState({ view: 'expanded' }) : this.setState({ view: 'collapsed' });
+  }
 
 
   setStyle(index) {
     const currentStyle = this.props.productStyles[index];
-    const {name, original_price, sale_price, skus} = currentStyle;
+    const { name, original_price, sale_price, skus } = currentStyle;
 
     this.setState({
       stylePhotos: currentStyle.photos,
@@ -43,24 +43,20 @@ export default class ProductDetail extends React.Component {
     });
   }
 
-  render () {
-    console.log('from productDetail productStyles', this.props.productStyles);
-    console.log('from productDetail product', this.props.product);
+  render() {
 
     if (this.state.styleInfo && this.state.stylePhotos) {
       return (
-        <div className="productDetail">
-          <div className={this.state.view}>
-            <ImageGallery detail={this.state.stylePhotos} clickExpand={this.expandView} view={this.state.view}/>
+        <div className={this.state.view}>
+          <ImageGallery detail={this.state.stylePhotos} clickExpand={this.expandView} view={this.state.view} />
 
           {this.state.view === 'collapsed' ?
             <React.Fragment>
-              <ProductInfo product={this.props.product} selectedStyle={this.state.styleInfo}/>
+              <ProductInfo product={this.props.product} selectedStyle={this.state.styleInfo} />
               <StyleSelector styles={this.props.productStyles} setStyle={this.setStyle} />
-              <AddCart skus={this.state.styleInfo.skus}/>
-             </React.Fragment>
-              : null }
-          </div>
+              <AddCart skus={this.state.styleInfo.skus} />
+            </React.Fragment>
+            : null}
         </div>
       )
     } else {

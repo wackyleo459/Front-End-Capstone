@@ -12,16 +12,9 @@ body {
   margin-left: 10px;
   position: center;
   margin: 2em;
-  display: grid;
-  grid-template-rows: 5% 1fr 1fr 3%;
-  grid-template-areas:
-    "navbar"
-    "contents"
-    "ratings"
-    "footer"
 }
 @media (min-width: 640px) {
-  .grid {
+  .main{
     grid-template-columns: 5% 1fr 5%;
     grid-template-areas:
       "navbar navbar navbar"
@@ -393,10 +386,10 @@ a:hover {
 /*-----Start Rating Entry-----**-----Left Container-----*/
 
 .column1Nd {
-  margin-left: 17%;
+  /* margin-left: 17%; */
   padding-top: 40px;
 
-  margin-top: -15px;
+  /* margin-top: -15px; */
 }
 
 .numberStarRatingNd {
