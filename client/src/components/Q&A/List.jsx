@@ -4,7 +4,7 @@ import Modal from 'react-awesome-modal';
 import QuestionsModal from './QuestionsModal.jsx';
 import ListEntry from './ListEntry.jsx';
 import axios from 'axios';
-import API_KEY from '../../../../server/config.js';
+import API_KEY from '../../../../config.js';
 
 const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/';
 
