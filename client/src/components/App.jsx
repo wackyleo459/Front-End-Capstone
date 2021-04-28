@@ -1,6 +1,7 @@
 import React from 'react';
 import Reviews from './ratingsAndReviews/Reviews.jsx'
 import Ratings from './ratingsAndReviews/Ratings.jsx'
+import QandA from './Q&A/q&a.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,8 +16,14 @@ class App extends React.Component {
   render() {
     return (
     <div>
-      <Reviews />
-      <Ratings />
+      {/* <div>
+        <Reviews />
+        <Ratings />
+      </div>
+      <br/> */}
+      <div className="qandanf">
+        <QandA />
+      </div>
     </div>
     )
   }
