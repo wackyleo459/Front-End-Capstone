@@ -54,7 +54,7 @@ class ListEntry extends React.Component {
             <button style={{ border: 'none', background: 'rgb(255, 255, 240)' }} onClick={this.showModal} type="button">Add Answer</button>
           </span>
             <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-              <AnswersModal question={this.props.questions.question_body} handleClose={this.hideModal} />
+              <AnswersModal name={this.props.name} question={this.props.questions.question_body} handleClose={this.hideModal} />
             </Modal>
         </div>
           <Answers answers={this.props.questions.answers}/>

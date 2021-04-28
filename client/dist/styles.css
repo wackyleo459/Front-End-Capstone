@@ -377,6 +377,7 @@ a:hover {
   margin-left: 50px;
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .moreAnswers {
@@ -448,6 +449,9 @@ a:hover {
   max-width: 150px;
   max-height: 100px;
 }
-/* .qandanf {
-  margin-top: 500px;
-} */
+.qandanf {
+  max-height: 600px;
+  overflow: scroll;
+  margin-left: 150px;
+  margin-right: 150px;
+}

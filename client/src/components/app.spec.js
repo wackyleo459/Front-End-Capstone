@@ -5,6 +5,7 @@ import App from './App.jsx';
 import Modal from './RatingsAndReviews/Modals.jsx';
 import Reviews from './RatingsAndReviews/Reviews.jsx';
 import Ratings from './RatingsAndReviews/Ratings.jsx';
+import List from './Q&A/List.jsx';
 
 configure({ adapter: new Adapter() });
 
@@ -23,5 +24,11 @@ describe('Reviews Component', () => {
 describe('Ratings Component', () => {
   it('Should render the Rating component without crashing', () => {
     shallow(<Ratings/>);
+  });
+});
+
+describe('Questions List', () => {
+  it('Should render the Questions List component without crashing', () => {
+    shallow(<List/>);
   });
 });

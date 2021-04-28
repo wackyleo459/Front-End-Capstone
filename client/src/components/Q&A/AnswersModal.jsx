@@ -20,7 +20,7 @@ class AnswersModal extends React.Component {
     return (
       <div>
         <h2 style={{ textAlign: "center", textDecoration: "underline" }}>Submit your Answer</h2>
-        <span style={{ marginLeft: '65px', fontSize: '20px' }}>ProductName: {this.props.question}</span>
+        <span style={{ marginLeft: '65px', fontSize: '20px' }}>{this.props.name}: {this.props.question}</span>
         <div className="modalnf">
           <textarea rows="15" cols="80" maxLength="1000" onChange={this.handleChange} value={this.state.answer} />
         </div>

@@ -20,7 +20,7 @@ class QuestionsModal extends React.Component {
     return (
       <div>
         <h2 style={{ textAlign: "center", textDecoration: "underline" }}>Ask Your Question</h2>
-        <span style={{ marginLeft: '65px', fontSize: '20px' }} >About the ProductName</span>
+        <span style={{ marginLeft: '65px', fontSize: '20px' }} >About the {this.props.name}</span>
         <div className="modalnf">
           <textarea rows="15" cols="80" fontSize="20px" maxLength="1000" onChange={this.handleChange} value={this.state.question} />
         </div>
@@ -38,7 +38,7 @@ class QuestionsModal extends React.Component {
         <button type="submit" style={{ padding: '10px', marginLeft: '20px', background: 'white' }}>
           Submit
         </button>
-        <button type="button" style={{ padding: '10px', float: 'right', marginRight: '20px', background: 'white' }} onClick={this.props.handleClose }>
+        <button type="button" style={{ padding: '10px', float: 'right', marginRight: '20px', background: 'white' }} onClick={this.props.handleClose}>
           Cancel
         </button>
       </div>

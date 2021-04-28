@@ -4,6 +4,15 @@ import Modal from 'react-awesome-modal';
 import QuestionsModal from './QuestionsModal.jsx';
 import ListEntry from './ListEntry.jsx';
 import axios from 'axios';
+import API_KEY from '../../../../server/config.js';
+
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/';
+
+const auth = {
+  headers: {
+    Authorization: API_KEY
+  }
+};
 
 class List extends React.Component {
   // console.log(dummyData.results)
@@ -15,6 +24,7 @@ class List extends React.Component {
       questions: [],
       visible: false,
       moreQuestions: false,
+      name: '',
     }
     this.getQuestions = this.getQuestions.bind(this);
     this.showModal = this.showModal.bind(this);
@@ -22,10 +32,12 @@ class List extends React.Component {
     this.showMoreQuestions = this.showMoreQuestions.bind(this);
     this.showLessQuestions = this.showLessQuestions.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
+    this.getProduct = this.getProduct.bind(this);
   }
 
   componentDidMount() {
     this.getQuestions();
+    this.getProduct(16060);
   }
 
   getQuestions() {
@@ -34,6 +46,16 @@ class List extends React.Component {
       questions: res.data
     }))
     .catch((err) => console.error(err))
+  }
+
+  getProduct(id) {
+    axios.get(url + `${id}`, auth)
+    .then((res) => {
+      this.setState({
+        name: res.data.name
+      })
+    })
+    .catch((err) => console.error(err));
   }
 
   showModal() {
@@ -67,7 +89,7 @@ class List extends React.Component {
   }
 
   render() {
-    if (this.state.questions.length === 0) {
+    if (this.state.questions.length === 0 || this.state.name.length === 0) {
       return <h2>Loading...</h2>
     } else if (this.state.searchValue.length >= 3) {
       return (
@@ -79,22 +101,22 @@ class List extends React.Component {
             onChange={(e) => this.changeHandler(e)}
             value={this.state.searchValue}
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            size="100"
-            style={{ height: '45px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
+            size="120"
+            style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '23px', marginLeft: '770px' }}></i>
+          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '20px', marginLeft: '930px' }}></i>
         </div>
           <ul>
             {this.state.questions.results.filter((question) => {
               return question.question_body.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1
-            }).map((question, index) => <ListEntry questions={question} key={index} />)}
+            }).map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
           </ul>
           <button type="button" onClick={this.showLessQuestions} className="moreQuestions">Less Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
           <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-            <QuestionsModal handleClose={this.hideModal} />
+            <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
         </div>
       )
@@ -108,20 +130,20 @@ class List extends React.Component {
             onChange={(e) => this.changeHandler(e)}
             value={this.state.searchValue}
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            size="100"
-            style={{ height: '45px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
+            size="120"
+            style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '23px', marginLeft: '770px' }}></i>
+          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '20px', marginLeft: '930px' }}></i>
         </div>
           <ul>
-            {this.state.questions.results.map((question, index) => <ListEntry questions={question} key={index} />)}
+            {this.state.questions.results.map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
           </ul>
           <button type="button" className="moreQuestions">More Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
           <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-            <QuestionsModal handleClose={this.hideModal} />
+            <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
         </div>
       )
@@ -135,20 +157,20 @@ class List extends React.Component {
             onChange={(e) => this.changeHandler(e)}
             value={this.state.searchValue}
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            size="100"
-            style={{ height: '45px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
+            size="120"
+            style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '23px', marginLeft: '770px' }}></i>
+          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '20px', marginLeft: '930px' }}></i>
         </div>
           <ul>
-            {this.state.questions.results.slice(0, 4).map((question, index) => <ListEntry questions={question} key={index} />)}
+            {this.state.questions.results.slice(0, 4).map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
           </ul>
           <button type="button" onClick={this.showMoreQuestions} className="moreQuestions">More Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
           <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-            <QuestionsModal handleClose={this.hideModal} />
+            <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
         </div>
       )
@@ -162,20 +184,20 @@ class List extends React.Component {
             onChange={(e) => this.changeHandler(e)}
             value={this.state.searchValue}
             placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            size="100"
-            style={{ height: '45px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
+            size="120"
+            style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '23px', marginLeft: '770px' }}></i>
+          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey', top: '20px', marginLeft: '930px' }}></i>
         </div>
           <ul>
-            {this.state.questions.results.map((question, index) => <ListEntry questions={question} key={index} />)}
+            {this.state.questions.results.map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
           </ul>
           <button type="button" onClick={this.showLessQuestions} className="moreQuestions">Less Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
           <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-            <QuestionsModal handleClose={this.hideModal} />
+            <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
         </div>
       )

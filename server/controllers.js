@@ -27,6 +27,10 @@ const controllers = {
       })
       .catch((err) => console.error(err))
   }
+
+  // postQuestions: (req, res) => {
+  //   axios.post(`${URL}/qa/questions?)
+  // }
 }
 
 module.exports = controllers;
