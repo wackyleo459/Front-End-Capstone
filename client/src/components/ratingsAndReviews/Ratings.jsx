@@ -30,11 +30,9 @@ class Ratings extends React.Component {
 
   render() {
     return (
-      <div className="column1Nd">
+      <div className="column1Nd ratingsComponent">
         <label id="title">Ratings and Reviews</label>
-        <div>
           <StarRatingEntry reviews={this.state.reviews}/>
-        </div>
       </div>
     )
   }
