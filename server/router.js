@@ -10,4 +10,7 @@ router
   .route('/reviews/meta')
   .get(controllers.getReviewsMeta)
 
+
+router.get('/qa/questions', controllers.getQuestions)
+  // .post(controllers.postQuestions)
 module.exports = router

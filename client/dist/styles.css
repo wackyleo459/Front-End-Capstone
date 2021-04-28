@@ -345,8 +345,60 @@ a:hover {
 }
 
 /*  */
+.starNumberRatingNd {
+  margin-left: 150px;
+  margin-bottom: -50px;
+}
 
-.sizeCharacteristicsNd {
+/*-----End Rating Entry-----*/
+
+.moreQuestions {
+  padding: 16px;
+  background: rgb(255, 255, 240);
+  margin-left: 50px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.moreAnswers {
+  border: none;
+  color: rgb(87, 86, 86);
+  background: rgb(255, 255, 240);
+  margin-left: 12px;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.submitQuestion {
+  padding: 12px;
+  background: rgb(255, 255, 240);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.dividernf {
+  width:10px;
+  height:auto;
+  display:inline-block;
+}
+
+.yesButtonnf {
+  border-right: 1px solid;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  background: rgb(255, 255, 240);
+  padding: 5px;
+}
+
+.answerInfo {
+  color: grey;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.modalnf {
   display: flex;
   justify-content:left;
   font-size: 18px;
@@ -412,4 +464,39 @@ a:hover {
   padding-right: 85px;
   margin-bottom: 10px;
   font-size: 20px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.questionInfo {
+  float: right;
+  margin-right: 40px;
+}
+
+.answernf {
+  border-left: 1px solid;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  margin-left: 10px;
+}
+
+.questionEntry {
+  padding: 10px;
+  border-left: none;
+  border-top: none;
+  border-bottom: 1px solid;
+  border-right: none;
+}
+
+.answerImgnf {
+  padding: 15px;
+  max-width: 150px;
+  max-height: 100px;
+}
+.qandanf {
+  max-height: 600px;
+  overflow: scroll;
+  margin-left: 150px;
+  margin-right: 150px;
 }
