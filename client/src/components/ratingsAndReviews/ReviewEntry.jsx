@@ -1,10 +1,10 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
-import { ImStarFull, ImStarHalf, ImStarEmpty } from 'react-icons/im'
+import Stars from '../styles/Stars.js';
 import Modal from 'react-awesome-modal';
 
 
-const ReviewEntry = ({ reviews, review, helpfulChange, openImageModal, closeImageModal, visible }) => {
+const ReviewEntry = ({ reviews, review, stars, helpfulChange, openImageModal, closeImageModal, visible }) => {
   let ratingResult = 0;
   ratingResult += review.rating / reviews.length;
   let ratingRounded = Math.round(ratingResult * 10) / 10;
@@ -13,19 +13,8 @@ const ReviewEntry = ({ reviews, review, helpfulChange, openImageModal, closeImag
   <div>
     <div className="starUserDateNd">
       <span>
-        <StarRatingComponent
-            name="rate2"
-            editing={false}
-            starCount={5}
-            value={review.rating}
-            renderStarIcon={review.rating <= 1 ? () => <span><ImStarFull/></span> : () => <span><ImStarEmpty/></span>}
-            renderStarIcon={review.rating <= 2 ? () => <span><ImStarFull/></span> : () => <span><ImStarEmpty/></span>}
-            renderStarIcon={review.rating <= 3 ? () => <span><ImStarFull/></span> : () => <span><ImStarEmpty/></span>}
-            renderStarIcon={review.rating <= 4 ? () => <span><ImStarFull/></span> : () => <span><ImStarEmpty/></span>}
-            renderStarIcon={review.rating <= 5 ? () => <span><ImStarFull/></span> : () => <span><ImStarEmpty/></span>}
-            renderStarIconHalf={() => <span><ImStarHalf/></span>}
-        />
-      </span>
+        <Stars>{stars}</Stars>
+        </span>
       <span>{review.reviewer_name}, {new Date(review.date).toString().slice(0, 16)}</span>
     </div>
     <div>
@@ -39,14 +28,14 @@ const ReviewEntry = ({ reviews, review, helpfulChange, openImageModal, closeImag
       <p className="reviewRecommendNd">{review.recommend}</p>
       <input className="openModalPhotoNd" type="button" value="Profile Picture" onClick={() => openImageModal()}/>
       <Modal visible={visible} width="800" height="500" effect="fadeInUp" onClickAway={() => closeImageModal()}>
-        {/* {!review.photos ? null :
-        <img src={review.photos}/>} */}
+        {!review.photos ? null :
+        <img src={review.photos}/>}
       </Modal>
       {!review.response ? null :
       <div className="reviewResponseNd">
         <b>Response:{review.response}</b>
         </div>}
-      <a onClick={(event) => helpfulChange(event)}>Helpful? <u>Yes</u>({review.helpfulness}) | <u>Report</u></a>
+      <a onClick={helpfulChange}>Helpful? <u>Yes</u>({review.helpfulness}) | <u>Report</u></a>
     </div>
     <hr/>
   </div>

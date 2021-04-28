@@ -1,31 +1,16 @@
 body {
   background-color: rgb(255, 255, 240);
-
-}
-
-#title {
-  font-size: 24px;
 }
 
 hr {
   position: relative;
+
   left: -40px;
   width: 75%;
   margin: 40px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
-
-.submitReviewButtonNd {
-  font-size: 22px;
-  font-family: sans-serif;
-  font-weight: 700;
-  color: #444;
-  border: 0px solid;
-  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
-  background-color: transparent;
-  cursor: pointer;
-  border-bottom: 2px solid;
-}
-
 
 /*-----Start Reviews Entry-----**-----Right Container-----*/
 .columnNd {
@@ -33,8 +18,6 @@ hr {
   width: 65%;
   margin-top: 50px;
 }
-
-
 .reviewsNd {
   margin-top: 150px;
   position:absolute;
@@ -43,10 +26,6 @@ hr {
   overflow:auto;
   margin-bottom: 100px;
   width: 66%;
-}
-
-.reviewsButtonsNd {
-  margin-top: 100%;
 }
 
 .selectButtonNd {
@@ -62,10 +41,6 @@ hr {
   background: none;
 }
 
-#dropdownNd {
-  margin-left: 20px;
-}
-
 #labelNd {
   font-size: 25px;
 }
@@ -73,7 +48,7 @@ hr {
 .sortNd {
   padding: 30px;
   margin-left: -33px;
-  position: fixed;
+  position: absolute;
 }
 
 .starUserDateNd {
@@ -146,12 +121,6 @@ hr {
   margin-left: 28%;
 }
 
-.overAllRatingNd {
-  margin-left: 20px;
-  padding: 50px;
-  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
-  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
-}
 
 .modalTextAreaNd {
   margin-left: 20px;
@@ -210,11 +179,9 @@ td {
 th {
   position: auto;
   top: 0;
-  background: rgb(255, 255, 240);;
-  text-align: left;
+  text-align: center;
   font-weight: normal;
   font-size: 1.1rem;
-  color: white;
 }
 
 .reviewBodyNd {
@@ -349,211 +316,100 @@ a:hover {
 }
 
 .numberStarRatingNd {
-  font-size: 80px;
-  font-weight: 900;
-  padding-top: 20px;
+  font-size: 100px;
+  font-weight: 200;
+  padding-top: 5px;
 }
 
-.starsOverallNd {
-  font-size: 30px;
-  margin-right: 10px;
+
+.ratingNumberNd {
+  font-weight: 800;
+  display: inline;
 }
 
-#ratingsSummaryNd {
-  margin-top: 20px;
-  font-size: 20px;
+.bigStarsNd {
+  font-size: 25px;
+  display: inline;
 }
-
-.starNumberRatingNd {
-  margin-left: 150px;
-  margin-bottom: -50px;
-}
-
-.bar1TitleNd {
-  margin-bottom: -25px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.bar2TitleNd {
-  margin-bottom: -25px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.bar3TitleNd {
-  margin-bottom: -25px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.bar4TitleNd {
-  margin-bottom: -25px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.bar5TitleNd {
-  margin-bottom: -25px;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 20px;
-  margin-right: 10px;
-}
-
-.totalRating1Nd {
-  float: right;
-  margin-left: 15px;
-}
-.totalRating2Nd {
-  float: right;
-  margin-left: 15px;
-}
-.totalRating3Nd {
-  float: right;
-  margin-left: 15px;
-}
-.totalRating4Nd {
-  float: right;
-  margin-left: 15px;
-}
-.totalRating5Nd {
-  float: right;
-  margin-left: 15px;
-}
-
-.bar1Nd {
-  color: ligh
-}
-
 
 .progressBarNd {
-  background-color: rgb(38, 63, 38);
-  height: 10px;
-  margin-bottom: 4px;
+  height: 35px;
+  margin-left: -50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+.charBarsNd {
+  margin-top: 257px;
+  margin-left: -55px;
+  height: 41px;
 }
 
-progress[value] {
-  width: 335px;
-}
-
-
-.scaleSizeNd {
-  font-size: 25px;
-}
-
-.ratingCharacteristicsNd {
-  float: left;
-  margin-top: -30px;
-  margin-bottom: 10px;
-  font-weight: 100px;
-}
+/*  */
 
 .sizeCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .widthCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .comfortCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .qualityCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .lengthCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .fitCharacteristicsNd {
   display: flex;
-  justify-content: space-between;
-  margin-right: 10px;
-  font-size: 22px;
-  margin: 0px;
-  margin-bottom: -20px;
+  justify-content:left;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.firstCharOptionNd {
-  margin-left: 0px;
+.firstCharRatingNd {
+  margin-left: 8px;
+  padding-right: 85px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
-
-.secondCharOptionNd {
-  margin-left: 55px;
+.secondCharRatingNd {
+  margin-left: 8px;
+  padding-right: 85px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
-.secondCharOptionOkNd {
-  margin-left: 85px;
+.thirdCharRatingNd {
+  margin-left: 8px;
+  padding-right: 85px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
-
-.thirdCharOptionNd {
-  float: right;
-  margin-left: 60px;
+.fourthCharRatingNd {
+  margin-left: 8px;
+  padding-right: 85px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
-
-.range {
-  background: grey;
-  height: 1rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-input[type="range"] {
-  margin: auto;
-  -webkit-appearance: none;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  outline: none;
-}
-
-::-webkit-slider-runnable-track {
-  background: lightgrey;
-}
-
-::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 40px;
-  background-image: url("https://img.icons8.com/ios-filled/2x/sort-down.png");
-  box-shadow: -100vw 0 0 100vw lightgrey;
-  background-size: 33px;
-  width: 8%;
+.fifthCharRatingNd {
+  margin-left: 8px;
+  padding-right: 85px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }

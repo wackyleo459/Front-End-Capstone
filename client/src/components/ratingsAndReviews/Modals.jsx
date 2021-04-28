@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import Rating from 'react-rating';
 import axios from 'axios';
-
+import MetaChars from './helper.js'
 
 class Modals extends Component {
     constructor(props) {
@@ -12,7 +12,15 @@ class Modals extends Component {
         visible: false,
         charRequired: 50 + ' Characters Required',
         charExceeded: false,
-        text: ''
+        newReview: [],
+        product_id: 0,
+        rating: null,
+        summary: null,
+        body: '',
+        recommend: null,
+        name: null,
+        email: null,
+        photos: []
       }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,12 +29,22 @@ class Modals extends Component {
     }
 
     handleSubmit(event) {
-      event.preventDefault();
-      axios.post('http://localhost:3000/reviews', {modalData: this.state.modalData})
-        .then((res) => {
+      event.preventDefault()
+      let reviewData = {
+        rating: this.state.rating,
+        summary: this.state.summary,
+        body: this.state.body,
+        recommend: (this.state.recommend === "yes") ? "true" : "false",
+        name: this.state.name,
+        email: this.state.email,
+        photos: this.state.photos,
+        characteristics: {}
+      };
+      axios.post(`http://localhost:3000/reviews/?${this.props.productId}`, reviewData)
+        .then((data) => {
           this.setState({
-            newReview: res.data
-          }, () => console.log(this.state))
+            newReview: data.data
+          }, () => console.log(data.data))
         })
         .catch((err) => console.error(err))
     }
@@ -48,8 +66,8 @@ class Modals extends Component {
       event.preventDefault()
       let name = event.target.name;
       this.setState({
-        [name]: Number(event.target.value)
-      })
+        [name]: event.target.value
+      }, () => console.log(this.state))
     }
 
     openModal() {
@@ -64,28 +82,28 @@ class Modals extends Component {
       });
     }
 
-    render() {
+  render() {
     return (
       <section>
         <input className="addReviewsButtonNd" type="button" value="ADD A REVIEW +" onClick={() => this.openModal()} />
           <Modal className="modalNd" visible={this.state.visible} width="1200" height="800" effect="fadeInUp" id="modalNd" onClickAway={() => this.closeModal()}>
             <div>
-               <form onSubmit={this.handleSubmit} id="modalFormNd">
-                 <h2 id="reviewFormNd">Review Form</h2>
-                 <div className="overAllRatingNd">
-                   <label id="labelNd"><b>* Overall Rating:</b></label>
-                   <select name="rating" onChange={(event) => this.handleChange(event)}>
+              <form onSubmit={this.handleSubmit} id="modalFormNd">
+                <h2 id="reviewFormNd">Review Form</h2>
+                <div className="overAllRatingNd">
+                  <label id="labelNd"><b>* Overall Rating:</b></label>
+                  <select name="rating" onChange={(event) => this.handleChange(event)}>
                     <option name="rating" value={5}>5stars "Great"</option>
                     <option name="rating" value={4}>4stars "Good"</option>
                     <option name="rating" value={3}>3stars "Average"</option>
                     <option name="rating" value={2}>2stars "Fair"</option>
                     <option name="rating" value={1}>1star "Poor"</option>
-                   </select>
+                  </select>
                   </div>
                   <div className="recommendationNd">
                     <label id="labelNd"><b>* Do you recommend this product?</b></label>
                     <br/>
-                    <textarea maxLength="1000" onChange={this.handleCharChange} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
+                    <textarea maxLength="1000" name="summary" onChange={(event) => {this.handleChange(event); this.handleCharChange(event)}} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
                     <p>{this.state.charRequired}</p>
                   </div>
                   <div className="characteristicsNd">
@@ -101,94 +119,92 @@ class Modals extends Component {
                         <th>5</th>
                       </tr>
                     </thead>
-                    <tbody>
+                  <tbody>
+                    <tr>
+                      <td><b>Size</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="size" value="1"/>A size to small</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="size" value="2"/>1/2 a size too small</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="size" value="3"/>Perfect</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="size" value="4"/>1/2 a size too big</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="size" value="5"/>A size too wide</label></td>
+                    </tr>
+                    <tr>
+                      <td><b>Width</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="width" value="1"/>Too narrow</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="width" value="2"/>Slightly narrow</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="width" value="3"/>Perfect</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="width" value="4"/>Slightly wide</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="width" value="5"/>Too wide</label></td>
+                    </tr>
+                    <tr>
+                      <td><b>Comfort</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="comfort" value="1"/>Uncomfortable</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="comfort" value="2"/>Slightly Uncomfortable</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="comfort" value="3"/>Ok</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="comfort" value="4"/>Comfortable</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="comfort" value="5"/>Perfect</label></td>
+                    </tr>
+                    <tr>
+                      <td><b>Quality</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Quality" value="1"/>Poor</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Quality" value="2"/>Below Average</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Quality" value="3"/>What I expected</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Quality" value="4"/>Pretty great</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Quality" value="5"/>Perfect</label></td>
+                    </tr>
+                    <tr>
+                      <td><b>Length</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Length" value="1"/>Runs Short</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Length" value="2"/>Runs slightly short</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Length" value="3"/>Perfect</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Length" value="4"/>Runs slightly long</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Length" value="5"/>Runs long</label></td>
+                    </tr>
+                    <tr>
+                      <td><b>Fit</b></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Fit" value="1"/>Runs tight</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Fit" value="2"/>Runs slightly tight</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Fit" value="3"/>Perfect</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Fit" value="4"/>Runs slightly long</label></td>
+                      <td><label><input onChange={(event) => this.handleChange(event)} type="radio" name="Fit" value="5"/>Runs long</label></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="reviewBodyNd">
+                  <label id="labelNd"><b>* Review</b></label>
+                  <br/>
+                  <textarea maxLength="1000" name="body" onChange={(event) => {this.handleChange(event); this.handleCharChange(event)}} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
+                <p>{this.state.charRequired}</p>
+              </div>
+                  <button name="recommend" onChange={(event) => this.handleChange(event)}>yes</button>
+              <div className="uploadPhotosNd">
+                  <label id="labelNd"><b>Upload your photos</b></label>
+                  <br/>
+                  <input type="file" id="uploadPhotosNd" accept="image/*" name="photos" onChange={(event) => this.handleChange(event)} />
+              </div>
 
-                      <tr>
-                        <td><b>Size</b></td>
-                        <td><label><input type="radio" name="size" value="A size to small"/>A size to small</label></td>
-                        <td><label><input type="radio" name="size" value="A size to small"/>1/2 a size too small</label></td>
-                        <td><label><input type="radio" name="size" value="A size to small"/>Perfect</label></td>
-                        <td><label><input type="radio" name="size" value="A size to small"/>1/2 a size too big</label></td>
-                        <td><label><input type="radio" name="size" value="A size to small"/>A size too wide</label></td>
-                      </tr>
-                      <tr>
-                        <td><b>Width</b></td>
-                        <td><label><input type="radio" name="width" value="A size to small"/>Too narrow</label></td>
-                        <td><label><input type="radio" name="width" value="A size to small"/>Slightly narrow</label></td>
-                        <td><label><input type="radio" name="width" value="A size to small"/>Perfect</label></td>
-                        <td><label><input type="radio" name="width" value="A size to small"/>Slightly wide</label></td>
-                        <td><label><input type="radio" name="width" value="A size to small"/>Too wide</label></td>
-                      </tr>
-                      <tr>
-                        <td><b>Comfort</b></td>
-                        <td><label><input type="radio" name="comfort" value="A size to small"/>Uncomfortable</label></td>
-                        <td><label><input type="radio" name="comfort" value="A size to small"/>Slightly Uncomfortable</label></td>
-                        <td><label><input type="radio" name="comfort" value="A size to small"/>Ok</label></td>
-                        <td><label><input type="radio" name="comfort" value="A size to small"/>Comfortable</label></td>
-                        <td><label><input type="radio" name="comfort" value="A size to small"/>Perfect</label></td>
-                      </tr>
-                      <tr>
-                        <td><b>Quality</b></td>
-                        <td><label><input type="radio" name="Quality" value="A size to small"/>Poor</label></td>
-                        <td><label><input type="radio" name="Quality" value="A size to small"/>Below Average</label></td>
-                        <td><label><input type="radio" name="Quality" value="A size to small"/>What I expected</label></td>
-                        <td><label><input type="radio" name="Quality" value="A size to small"/>Pretty great</label></td>
-                        <td><label><input type="radio" name="Quality" value="A size to small"/>Perfect</label></td>
-                      </tr>
-                      <tr>
-                        <td><b>Length</b></td>
-                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs Short</label></td>
-                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs slightly short</label></td>
-                        <td><label><input type="radio" name="Length" value="A size to small"/>Perfect</label></td>
-                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs slightly long</label></td>
-                        <td><label><input type="radio" name="Length" value="A size to small"/>Runs long</label></td>
-                      </tr>
-                      <tr>
-                        <td><b>Fit</b></td>
-                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs tight</label></td>
-                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs slightly tight</label></td>
-                        <td><label><input type="radio" name="Fit" value="A size to small"/>Perfect</label></td>
-                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs slightly long</label></td>
-                        <td><label><input type="radio" name="Fit" value="A size to small"/>Runs long</label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </div>
-                 <div className="reviewBodyNd">
-                     <label id="labelNd"><b>* Review</b></label>
-                     <br/>
-                     <textarea maxLength="1000" onChange={this.handleCharChange} rows="5" cols="60" width="20" className="modalTextAreaNd"></textarea>
-                    <p>{this.state.charRequired}</p>
-                 </div>
-                 <div className="uploadPhotosNd">
-                     <label id="labelNd"><b>Upload your photos</b></label>
-                     <br/>
-                     <input type="file" id="uploadPhotosNd" accept="image/*"/>
-                 </div>
-
-                 <div className="nicknameNd">
-                     <label id="labelNd"><b>* Nickname</b></label>
-                     <br/>
-                     <input type="text" id="nicknameNd"/>
-                 </div>
-                     <div className="emailNd">
-                     <label id="labelNd"><b>* email</b></label>
-                     <br/>
-                     <input type="text" id="emailNd"/>
-
-                     </div>
-
-                 <div className="submitButtonNd">
-                     <input type="button" value="submit" id="submitButtonNd" onClick={this.handleSubmit}/>
-                 </div>
-                <div className="closeModalNd">
-                  <a id="cancelButtonNd" onClick={() => this.closeModal()}>Cancel</a>
-                </div>
-               </form>
+              <div className="nicknameNd">
+                  <label id="labelNd"><b>* Nickname</b></label>
+                  <br/>
+                  <input type="text" id="nicknameNd" name="name" onChange={(event) => this.handleChange(event)} />
+              </div>
+                  <div className="emailNd">
+                  <label id="labelNd"><b>* email</b></label>
+                  <br/>
+                  <input type="text" id="emailNd" name="email" onChange={(event) => this.handleChange(event)} />
+              </div>
+              <div className="submitButtonNd">
+                  <input type="submit" id="submitButtonNd" onClick={(event) => this.handleChange(event)} />
+              </div>
+              <div className="closeModalNd">
+                <a id="cancelButtonNd" onClick={() => this.closeModal()}>Cancel</a>
+              </div>
+            </form>
             </div>
-           </Modal>
+          </Modal>
       </section>
     );
-    }
+  }
 }
 export default Modals;

@@ -6,4 +6,8 @@ router
   .get(controllers.getReviews)
   .post(controllers.postReviews)
 
+router
+  .route('/reviews/meta')
+  .get(controllers.getReviewsMeta)
+
 module.exports = router

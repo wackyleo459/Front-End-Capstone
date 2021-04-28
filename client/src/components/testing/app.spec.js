@@ -1,10 +1,10 @@
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from 'react';
-import App from './App.jsx';
-import Modal from './RatingsAndReviews/Modals.jsx';
-import Reviews from './RatingsAndReviews/Reviews.jsx';
-import Ratings from './RatingsAndReviews/Ratings.jsx';
+import App from '../App.jsx';
+import Modal from '../RatingsAndReviews/Modals.jsx';
+import Reviews from '../RatingsAndReviews/Reviews.jsx';
+import Ratings from '../RatingsAndReviews/Ratings.jsx';
 
 configure({ adapter: new Adapter() });
 
@@ -19,7 +19,6 @@ describe('Reviews Component', () => {
     shallow(<Reviews/>);
   });
 });
-
 describe('Ratings Component', () => {
   it('Should render the Rating component without crashing', () => {
     shallow(<Ratings/>);
