@@ -39,31 +39,27 @@ const AddCart = ({ skus }) => {
 
   return (
     <div className="add">
-      <div className='addSelect'>
+      <form id="selectForm" style={{ display: 'inline-flex' }}>
+        <label id="size">{'  size  '}
+          <select onChange={selectSize}>
+            <option key='0o'>Select Size</option>
+            {skus.map(({ size }, ind) => (
+              <option value={size} key={ind}>{size}</option>
+            ))}
+          </select>
+        </label>
+        <label id="quantity">{'  quantity  '}
+          {isSizeSelected ?
+            <select onChange={selectQty} defaultValue={1}>
+              {pulldownQty(availQty)}
+            </select> :
+            <select disabled={true}><option>-</option></select>}
+        </label>
+      </form>
 
-        <form id="selectForm" style={{display: 'inline-flex'}}>
-          <label id="size">{'  size  '}
-            <select onChange={selectSize}>
-              <option key='0o'>Select Size</option>
-              {skus.map(({ size }, ind) => (
-                <option value={size} key={ind}>{size}</option>
-              ))}
-            </select>
-          </label>
-          <label id="quantity">{'  quantity  '}
-            {isSizeSelected ?
-              <select onChange={selectQty} defaultValue={1}>
-                {pulldownQty(availQty)}
-              </select> :
-              <select disabled={true}><option>-</option></select>}
-          </label>
-        </form>
-
-        <button id="addToBag" type="button" onClick={reset}>
-          <span>Add to Bag</span>
-        </button>
-
-      </div>
+      <button id="addToBag" className="btn btn-dark" type="button" onClick={reset}>
+        <span>Add to Bag</span>
+      </button>
     </div>
   )
 }

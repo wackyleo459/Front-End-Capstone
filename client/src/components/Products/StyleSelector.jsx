@@ -17,11 +17,18 @@ const StyleSelector = ({styles, setStyle}) => {
   }
 
   return (
-    <div className="selectStyles">
+    <div className="stylesDisplay">Style: {styles[currentIndex].name}
+      <div className="selectStyles">
       {styles.map(({style_id, name, photos}, ind) => (
-        <img className="selectStyle" key={ind} src={photos[0].thumbnail_url} alt={name} onClick={(e) => { select(e, ind) }} style={highlightStyle(ind)}/>
+        <img className="selectStyle" key={ind}
+            src={photos[0].thumbnail_url}
+            alt={name}
+            onClick={(e) => { select(e, ind) }}
+            style={highlightStyle(ind)}/>
       ))}
+      </div>
     </div>
+
   )
 };
 
