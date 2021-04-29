@@ -25,7 +25,6 @@ class Ratings extends React.Component {
   componentDidMount() {
     this.getRating()
     this.getRatingMeta()
-
   }
 
 
@@ -44,7 +43,7 @@ class Ratings extends React.Component {
     .then((res) => {
       this.setState({
         reviewsMeta: res.data
-      }, console.log(res.data.ratings))
+      })
     })
     .catch((err) => console.error(err));
   }
@@ -64,7 +63,10 @@ class Ratings extends React.Component {
   fillRatingStars(num) {
     const rating = Array(5).fill(<i className="far fa-star"></i>);
     for (let i = 0; i < num; i++) {
-      rating[i] = <i className="fas fa-star"></i>
+      rating[i] = <i key={i * 10} className="fas fa-star"></i>
+      if (num % 1 !== 0) {
+        rating[Math.floor(Math.abs(num))] = <i key={i * 10} className="fas fa-star-half-alt"></i>
+      }
     }
     return rating;
   }
@@ -89,6 +91,7 @@ class Ratings extends React.Component {
         <div>
             <StarRatingEntry
               reviews={this.state.reviews}
+              key={this.state.reviews.id}
               stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
               averageStars={this.getAverageRating(this.state.reviews)}
               numOfEachcRating={this.countNumOfEachRating(this.state.reviews)}

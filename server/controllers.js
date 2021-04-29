@@ -24,6 +24,7 @@ const controllers = {
     axios.post(`${URL}/reviews/?product_id=16060`, req.body, { headers: {Authorization: token }})
       .then((response) => {
         res.status(200).send(response.data)
+        console.log(response.data)
       })
       .catch((err) => console.error(err))
   },

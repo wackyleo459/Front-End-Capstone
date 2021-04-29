@@ -16,13 +16,13 @@ class App extends React.Component {
   render() {
     return (
     <div>
-      {/* <div>
+        {/* <div className="qandanf">
+        <QandA />
+      </div> */}
+      <br/>
+      <div className="ratingsAndReviews">
         <Reviews />
         <Ratings />
-      </div>
-      <br/> */}
-      <div className="qandanf">
-        <QandA />
       </div>
     </div>
     )

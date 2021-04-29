@@ -6,14 +6,9 @@ import Stars from '../styles/Stars.js';
 import Progress from '../styles/Progress.js';
 import Bar from '../styles/Bar.js';
 
-const StarRatingEntry = ({ reviews, reviewsMeta, stars, averageStars, numOfEachcRating, getPercentage, carets, getMetaAverage, getMetaPercentage }) => {
+const StarRatingEntry = ({ reviews, stars, averageStars, numOfEachcRating, getPercentage, carets }) => {
   let rating = 0;
   let recommended = 0;
-  let charOne = 0;
-  let charTwo = 0;
-  let charThree = 0;
-  let charFour = 0;
-  let charFive = 0;
 
   for (let i = 0; i < reviews.length; i++) {
     recommended += (reviews[i].recommend) / reviews.length;

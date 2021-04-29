@@ -9,6 +9,7 @@ class Reviews extends React.Component {
     super(props);
 
     this.state = {
+      id: 16060,
       helpfulness: 0,
       visible: false,
       reviews: [],
@@ -54,21 +55,25 @@ class Reviews extends React.Component {
   handleHelpfulChange() {
     this.setState({
       helpfulness: this.state.helpfulness + 1
-    })
+    }, () => console.log(this.state))
   }
 
   fillRatingStars(num) {
     const rating = Array(5).fill(<i className="far fa-star"></i>);
     for (let i = 0; i < num; i++) {
-      rating[i] = <i className="fas fa-star"></i>
+      rating[i] = <i key={i} className="fas fa-star"></i>
+      if (num % 1 !== 0) {
+        rating[Math.floor(Math.abs(num))] = <i key={i} className="fas fa-star-half-alt"></i>
+      }
     }
     return rating;
   }
 
-  getAverageRating(list) {
-    const avg = list.reduce((avg, review) => avg += review.rating, 0) / this.state.reviews.length;
+  getAverageRating(ratings) {
+    const avg = ratings.reduce((avg, review) => avg += review.rating, 0) / this.state.reviews.length;
     return Math.max(Math.round(avg * 10) / 10)
   };
+
 
   handleMoreReviews(event) {
     this.setState({
@@ -104,8 +109,8 @@ class Reviews extends React.Component {
           <div className="reviewsNd">
           {this.state.reviews.map((review, index) => (
             <ReviewEntry
-              reviews={this.state.reviews}
-              review={review} key={index}
+              review={review}
+              key={index.toString()}
               helpfulChange={this.handleHelpfulChange}
               openImageModal={this.openImageModal}
               closeImageModal={this.closeImageModal}
@@ -113,7 +118,7 @@ class Reviews extends React.Component {
               stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
             />
           ))}
-            <Modals productId={this.state.product_id}/>
+            <Modals productId={this.state.product_id} reviews={this.state.reviews}/>
             <div className="reviewsbuttonsNd">
               {(this.state.moreReviews.length === 0) ? null : (
                 <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}

@@ -4,7 +4,6 @@ body {
 
 hr {
   position: relative;
-
   left: -40px;
   width: 75%;
   margin: 40px;
@@ -16,10 +15,10 @@ hr {
 .columnNd {
   float: right;
   width: 65%;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .reviewsNd {
-  margin-top: 150px;
+  margin-top: 10%;
   position:absolute;
   bottom:0px;
   top:0px;
@@ -108,9 +107,23 @@ hr {
 /*-----Modal Component-----*/
 
 #modalFormNd {
-  height: 800px;
-  overflow-y: auto;
+  height: 1000px;
+  overflow: scroll;
   background-color: rgb(237, 243, 236);
+}
+
+.selectRatingNd {
+  font-size: 22px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  border: 0px solid;
+  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid;
+  background: none;
+  outline-width: 0;
 }
 
 #reviewFormNd {
@@ -121,17 +134,29 @@ hr {
   margin-left: 28%;
 }
 
-
 .modalTextAreaNd {
   margin-left: 20px;
   padding: 20px;
   outline-width: 0;
   resize: none;
   border-radius: 10%;
-
   border: 3px solid rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
   width: 55%;
+}
+
+.overAllRatingNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+}
+
+.reviewSummaryNd {
+  margin-left: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
 .recommendationNd {
@@ -146,6 +171,28 @@ hr {
   margin-left: 20px;
   box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+}
+
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: black;
+}
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: white;
 }
 
 table {
@@ -182,6 +229,16 @@ th {
   text-align: center;
   font-weight: normal;
   font-size: 1.1rem;
+}
+
+.recommendButtonsNd {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  padding: initial;
+  border: initial;
 }
 
 .reviewBodyNd {
@@ -270,39 +327,32 @@ th {
 }
 
 #submitButtonNd {
-  size: 10px;
-  border-radius: 10px;
-  margin-left: 85px;
-  width: 100px;
-  margin-top: 40px;
-  height: 40px;
-  font-size: larger;
-  font-weight: bold;
-  cursor: pointer;
-  outline-width: 0;
+  display: inline;
+  padding-top: 40px;
+  font-size: 70px;
+}
+.submitButtonNd {
+  display: inline;
+  margin-left: 32%;
+  padding-right: 10px;
+  font-size: 30px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
-
+  border-radius: 10px;
+}
+.closeModalNd {
+  display: inline;
+  margin-left: 90px;
+  font-size: 30px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+  border-radius: 10px;
 }
 
 a:hover {
   cursor: pointer;
 }
 
-#cancelButtonNd {
-  size: 10px;
-  border-radius: 10px;
-  margin-left: 5px;
-  width: 100px;
-  margin-top: 40px;
-  height: 40px;
-  font-size: larger;
-  font-weight: bold;
-}
-
-.closeModalNd {
-  margin-left: 35px;
-  padding: 50px;
-}
 
 /*-----End Review Entry-----*/
 
@@ -342,12 +392,6 @@ a:hover {
   margin-top: 257px;
   margin-left: -55px;
   height: 41px;
-}
-
-/*  */
-.starNumberRatingNd {
-  margin-left: 150px;
-  margin-bottom: -50px;
 }
 
 /*-----End Rating Entry-----*/
@@ -404,68 +448,34 @@ a:hover {
   font-size: 18px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.widthCharacteristicsNd {
-  display: flex;
-  justify-content:left;
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.comfortCharacteristicsNd {
-  display: flex;
-  justify-content:left;
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.qualityCharacteristicsNd {
-  display: flex;
-  justify-content:left;
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.lengthCharacteristicsNd {
-  display: flex;
-  justify-content:left;
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.fitCharacteristicsNd {
-  display: flex;
-  justify-content:left;
-  font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
 .firstCharRatingNd {
   margin-left: 8px;
-  padding-right: 85px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  padding-right: 67px;
+  font-size: 30px;
 }
 .secondCharRatingNd {
   margin-left: 8px;
-  padding-right: 85px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  padding-right: 67px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 .thirdCharRatingNd {
   margin-left: 8px;
-  padding-right: 85px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  padding-right: 67px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 .fourthCharRatingNd {
   margin-left: 8px;
-  padding-right: 85px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  padding-right: 67px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 .fifthCharRatingNd {
   margin-left: 8px;
-  padding-right: 85px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  justify-content: center;
-  padding: 15px;
+  padding-right: 67px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 
 .questionInfo {
