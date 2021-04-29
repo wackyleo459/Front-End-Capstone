@@ -7,7 +7,7 @@ const pulldownQty = function (input) {
   input < 15 ? input = input : input = 15;
 
   for (let i = 1; i <= input; i++) {
-    result.push( <option key={i}>{i}</option> )
+    result.push(<option key={i}>{i}</option>)
   }
   return result;
 }
@@ -40,8 +40,8 @@ const AddCart = ({ skus }) => {
   return (
     <div className="add">
       <div className='addSelect'>
-        <form id="selectForm">
 
+        <form id="selectForm" style={{display: 'inline-flex'}}>
           <label id="size">{'  size  '}
             <select onChange={selectSize}>
               <option key='0o'>Select Size</option>
@@ -50,7 +50,6 @@ const AddCart = ({ skus }) => {
               ))}
             </select>
           </label>
-
           <label id="quantity">{'  quantity  '}
             {isSizeSelected ?
               <select onChange={selectQty} defaultValue={1}>
@@ -58,11 +57,12 @@ const AddCart = ({ skus }) => {
               </select> :
               <select disabled={true}><option>-</option></select>}
           </label>
-
-          <button id="addToBag" type="button" onClick={reset}>
-            <span>Add to Bag</span>
-          </button>
         </form>
+
+        <button id="addToBag" type="button" onClick={reset}>
+          <span>Add to Bag</span>
+        </button>
+
       </div>
     </div>
   )

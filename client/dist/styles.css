@@ -67,12 +67,21 @@ hr {
 }
 
 .reviewsNd {
-  width: 55vw;
-  margin-top: 100px;
-  margin-left: 4vw;
-  overflow: scroll;
+  width: 90%;
   height: 900px;
+  margin-top: 5px;
+  margin-left: 4vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: teal;
+  scrollbar-width: 12px;
 }
+.body::-webkit-scrollbar {
+  background-color: #bbbbbb;
+  height: 13px;
+  width: 16px;
+}
+
 #reviewsButtonContainer {
   display: flex;
   width: 40vw;
@@ -101,7 +110,6 @@ hr {
 
 .sortNd {
   padding: 30px;
-  position: absolute;
 }
 
 .starUserDateNd {
