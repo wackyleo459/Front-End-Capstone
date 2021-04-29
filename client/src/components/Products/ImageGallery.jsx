@@ -30,7 +30,7 @@ const ImageGallery = function (props) {
 
   const thumbnailStyle = (ind) => {
     if (ind === currentIndex) {
-      return { boxShadow: '2px 2px teal' };
+      return { boxShadow: '2px 2px #33cccc' };
     }
   }
 
@@ -58,8 +58,6 @@ const ImageGallery = function (props) {
       return {display: 'none'}
     }
   }
-  //onHover w/ magnifying '+' symbol
-  //zoom 2.5*
 
   return (
     <div className="imageGallery">
@@ -117,7 +115,7 @@ const ImageGallery = function (props) {
 
         : (<InnerImageZoom className="mainImg"
           src={props.detail[currentIndex].url}
-          zoomScale={2.5}
+          zoomScale={2}
           hasSpacer={true} />)
         }
 

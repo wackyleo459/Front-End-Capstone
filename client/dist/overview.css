@@ -212,14 +212,14 @@
 }
 
 div.category {
-  font-size: 14px;
+  font-size: 2vh;
 }
 div.title {
   font-size: 26px;
   font-weight: 600;
 }
 div.overview {
-  font-size: 12px;
+  font-size: 1.8vh;
 }
 .price {
   font-size: 18px;
