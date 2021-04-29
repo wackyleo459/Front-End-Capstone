@@ -30,15 +30,12 @@ class QuestionsModal extends React.Component {
           </div>
           <div style={{ padding: '10px', marginLeft: '55px'}}>Your Email:
             <input type="text" maxLength="60"/>
-          <form style={{ marginTop: '10px' }} action="/action_page.php"> Upload a picture:
-            <input type="file" name="filename" />
-          </form>
           </div>
         </div>
-        <button type="submit" style={{ padding: '10px', marginLeft: '20px', background: 'white' }}>
+        <button type="submit" style={{ padding: '10px', marginLeft: '20px', background: 'white', marginTop: '30px' }}>
           Submit
         </button>
-        <button type="button" style={{ padding: '10px', float: 'right', marginRight: '20px', background: 'white' }} onClick={this.props.handleClose}>
+        <button type="button" style={{ padding: '10px', float: 'right', marginRight: '20px', background: 'white', marginTop: '30px', border: 'none', textDecoration: 'underline', color: 'rgb(87, 86, 86)' }} onClick={this.props.handleClose}>
           Cancel
         </button>
       </div>
