@@ -11,14 +11,14 @@ const ImageGallery = function (props) {
   const arrowsClick = (e, direction) => {
     e.preventDefault();
     if (direction === 'left' && currentIndex > 0) {
-      if (currentIndex === 7) {
+      if (currentIndex === 7 && props.view === 'collapsed') {
         slideThumbnails('left');
       }
       setIndex((prevInd) => {
         return prevInd - 1;
       })
     } else if (direction === 'right' && currentIndex < props.detail.length - 1) {
-      if (currentIndex === 6) {
+      if (currentIndex === 6 && props.view === 'collapsed') {
         slideThumbnails('right');
       }
       setIndex((prevInd) => {
@@ -29,7 +29,7 @@ const ImageGallery = function (props) {
 
   const thumbnailStyle = (ind) => {
     if (ind === currentIndex) {
-      return { boxShadow: '0 0 1px 1px grey' };
+      return { border: '2px solid teal' };
     }
   }
 
@@ -42,6 +42,7 @@ const ImageGallery = function (props) {
       container.scrollLeft += 185;
     }
   }
+
   //expanded: overlay becomes icons
   //collapsed: overlay stays as image
 
@@ -50,31 +51,47 @@ const ImageGallery = function (props) {
 
   return (
     <div className="imageGallery">
-      <div className="overlay">
-        <button id="slideLeft" style={{fontSize: '10px'}}
-          onClick={() => slideThumbnails('left')}>{`<<`}</button>
-        <div className="thumbnailContainer" >
-          {props.detail.map((item, ind) => (
-            <img className="thumbnail" key={ind} src={item.thumbnail_url}
-              onClick={(e) => thumbnailClick(e, ind)}
-              style={thumbnailStyle(ind)} />
+
+      {props.view === 'collapsed' ?
+        (<div className="overlay">
+          <button id="slideLeft"
+              style={{fontSize: '10px'}}
+              onClick={() => slideThumbnails('left')}>{`<<`}
+          </button>
+
+          <div className="thumbnailContainer" >
+            {props.detail.map((item, ind) => (
+              <img className="thumbnail" key={ind}
+                src={item.thumbnail_url}
+                onClick={(e) => thumbnailClick(e, ind)}
+                style={thumbnailStyle(ind)} />
+            ))}
+          </div>
+
+          <button id="slideRight"
+              style={{fontSize: '10px'}}
+              onClick={() => slideThumbnails('right')}>{`>>`}
+          </button>
+        </div>)
+
+      : (<div className="overlay">
+         {props.detail.map((item, ind) => (
+              <span class="material-icons md-48"
+                  onClick={(e) => thumbnailClick(e, ind)}
+                  style={thumbnailStyle(ind)}>horizontal_rule</span>
           ))}
-        </div>
-        <button id="slideRight"  style={{fontSize: '10px'}}
-          onClick={() => slideThumbnails('right')}>{`>>`}</button>
-      </div>
+        </div>)
+      }
+
       <button id="expand" type="button" onClick={props.clickExpand}>
         <i id="expandFas" className="fas fa-expand-alt fa-lg" ></i>
       </button>
       <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
       <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
-      <div className={props.view === 'collapsed' ? 'mainViewCollapsed' : 'mainViewExpanded'}>
+      <div className=
+        {props.view === 'collapsed' ? 'mainViewCollapsed' : 'mainViewExpanded'}>
         <img className="mainImg" src={props.detail[currentIndex].url} />
       </div>
-
-      {/* <span className="material-icons">
-        add_circle_outline
-      </span> */}
     </div>
   )
 }
