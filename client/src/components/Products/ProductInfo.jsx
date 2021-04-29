@@ -25,9 +25,9 @@ const ProductInfo = ({ product, selectedStyle }) => {
             <a href='https://www.w3schools.com/cssref/pr_dim_min-width.asp'>Read all reviews</a>
           </span>
         </div>
-        <div className="category">{product.category}</div>
+        <div className="category">Category: {product.category}</div>
         <div className="title">{product.name}</div>
-        <div className='style'>{selectedStyle.name}</div>
+        <div className='style'>Style: {selectedStyle.name}</div>
         <div className="price">
           {sale ? <span className="salePrice" style={{ color: 'maroon' }}>{sale}</span> : null}
           <span className="originalPrice" style={checkSale(sale)}>

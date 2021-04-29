@@ -15,7 +15,7 @@
 @media (max-width: 767px) {
   .collapsed {
     display: grid;
-    grid-template-rows: auto 25vh auto 10vh;
+    grid-template-rows: auto auto auto 10vh;
     row-gap: 10px;
     grid-template-areas:
       "image"
@@ -27,7 +27,7 @@
 
 .productInfo {
   grid-area: info;
-  background-color: cadetblue;
+  background-color:rgba(95,158,160, .9);
 }
 
 .selectStyles {
@@ -36,7 +36,6 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid orange;
 }
 
 .selectStyles>* {
@@ -63,12 +62,12 @@
 }
 
 .mainViewCollapsed {
-  min-width: 50vh;
+  min-width: 60vh;
   width: 70vh;
   height: 70vh;
   display: flex;
   background-color: #edeef0;
-  padding: 2em 2em 4em 2em;
+  padding: 2em 2em 5em 2em;
   cursor: crosshair;
   justify-content: center;
 }
@@ -125,6 +124,10 @@
   justify-content: space-evenly;
 
 }
+.product-description>* {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 .share {
   font-size: 0.95em;
   text-align: left;
@@ -136,6 +139,7 @@
   display: flex;
   justify-content: space-evenly;
   padding: 0 1em;
+  align-items: center;
 }
 .fa-facebook-square {
   position: relative;
@@ -153,7 +157,7 @@
 }
 .overlay {
   position: absolute;
-  bottom: 2%;
+  bottom: 4%;
   contain: content;
   display: flex;
   /* scroll-snap-type: x mandatory; */
@@ -164,6 +168,7 @@
   white-space: nowrap;
   overflow: hidden;
   scroll-behavior: smooth;
+  justify-content: center;
 }
 .thumbnail {
   width: 2.5em;
@@ -235,6 +240,9 @@ label {
 #addToBag {
   margin: 3px;
   font-size: 0.9em;
+  display: block;
+  width: 90%;
+  margin: auto;
 }
 select {
   width : auto;
@@ -243,12 +251,9 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+.md-48:hover {
+  color: teal;
+  cursor: pointer;
+}
 
-::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
-}
-/* Optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-  background: #FF0000;
-}
+/* .material-icons.md-48 { font-size: 36px; } */
