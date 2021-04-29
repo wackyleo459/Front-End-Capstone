@@ -48,35 +48,35 @@ const StarRatingEntry = ({ reviews }) => {
       <div id="ratingsSummaryNd">
           <p>{recommendRounded * 100}% of reviews recommend this product</p>
       </div>
-      <div className="bar1TitleNd">
+      <div className="bar1TitleNd starBars">
         <u>1 Stars</u>
         <div className="bar1Nd">
           <progress className="progressBarNd" value={oneStar} max="100"></progress>
         </div>
           <p className="totalRating1Nd">{oneStar} Stars</p>
        </div>
-      <div className="bar2TitleNd">
+      <div className="bar2TitleNd starBars">
         <u>2 Stars</u>
         <div className="bar2Nd">
         <progress className="progressBarNd" value={twoStars} max="100"></progress>
         </div>
-        <p className="totalRating2Nd">{twoStars} Stars</p>
+        <p className="totalRating2Nd starBars">{twoStars} Stars</p>
        </div>
-      <div className="bar3TitleNd">
+      <div className="bar3TitleNd starBars">
         <u>3 Stars</u>
         <div className="bar3Nd">
         <progress className="progressBarNd" value={threeStars} max="100"></progress>
         </div>
         <p className="totalRating3Nd">{threeStars} Stars</p>
        </div>
-      <div className="bar4TitleNd">
+      <div className="bar4TitleNd starBars">
         <u>4 Stars</u>
         <div className="bar4Nd">
           <progress className="progressBarNd" value={fourStars} max="100"></progress>
         </div>
         <p className="totalRating4Nd">{fourStars} Stars</p>
        </div>
-      <div className="bar5TitleNd">
+      <div className="bar5TitleNd starBars">
         <u>5 Stars</u>
         <div className="bar5Nd">
           <progress className="progressBarNd" value={fiveStars} max="100"></progress>

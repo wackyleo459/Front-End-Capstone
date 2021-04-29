@@ -10,8 +10,8 @@ class QandA extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2 style={{ marginLeft: '60px' }}>Questions &amp; Answers</h2>
+      <div className="qandanf">
+        <h2>Questions &amp; Answers</h2>
         <List />
       </div>
     );
