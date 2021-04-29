@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 const ImageGallery = function (props) {
   const [currentIndex, setIndex] = useState(0);
@@ -29,7 +30,13 @@ const ImageGallery = function (props) {
 
   const thumbnailStyle = (ind) => {
     if (ind === currentIndex) {
-      return { border: '2px solid teal' };
+      return { boxShadow: '2px 2px teal' };
+    }
+  }
+
+  const iconStyle = (ind) => {
+    if (ind === currentIndex) {
+      return { color: '#33cccc'};
     }
   }
 
@@ -43,9 +50,14 @@ const ImageGallery = function (props) {
     }
   }
 
-  //expanded: overlay becomes icons
-  //collapsed: overlay stays as image
-
+  const firstOrLast = (direction) => {
+    if (direction === 'left' && currentIndex === 0) {
+      return {display: 'none'};
+    }
+    if (direction === 'right' && currentIndex === props.detail.length - 1) {
+      return {display: 'none'}
+    }
+  }
   //onHover w/ magnifying '+' symbol
   //zoom 2.5*
 
@@ -54,9 +66,9 @@ const ImageGallery = function (props) {
 
       {props.view === 'collapsed' ?
         (<div className="overlay">
-          <button id="slideLeft"
+          <button id="slideLeft" className="btn btn-light"
               style={{fontSize: '10px'}}
-              onClick={() => slideThumbnails('left')}>{`<<`}
+              onClick={() => slideThumbnails('left')}>{`<`}
           </button>
 
           <div className="thumbnailContainer" >
@@ -68,9 +80,9 @@ const ImageGallery = function (props) {
             ))}
           </div>
 
-          <button id="slideRight"
+          <button id="slideRight" className="btn btn-light"
               style={{fontSize: '10px'}}
-              onClick={() => slideThumbnails('right')}>{`>>`}
+              onClick={() => slideThumbnails('right')}>{`>`}
           </button>
         </div>)
 
@@ -78,7 +90,7 @@ const ImageGallery = function (props) {
          {props.detail.map((item, ind) => (
               <span class="material-icons md-48"
                   onClick={(e) => thumbnailClick(e, ind)}
-                  style={thumbnailStyle(ind)}>horizontal_rule</span>
+                  style={iconStyle(ind)}>horizontal_rule</span>
           ))}
         </div>)
       }
@@ -86,11 +98,23 @@ const ImageGallery = function (props) {
       <button id="expand" type="button" onClick={props.clickExpand}>
         <i id="expandFas" className="fas fa-expand-alt fa-lg" ></i>
       </button>
-      <div className="left" onClick={(e) => arrowsClick(e, 'left')}>{`<`}</div>
-      <div className="right" onClick={(e) => arrowsClick(e, 'right')}>{`>`}</div>
+      {/* left & right arrow buttons for main image */}
+      <div className="left"
+            onClick={(e) => arrowsClick(e, 'left')}
+            style={firstOrLast('left')}>{`<`}
+      </div>
+      <div className="right"
+            onClick={(e) => arrowsClick(e, 'right')}
+            style={firstOrLast('right')}>{`>`}
+      </div>
       <div className=
         {props.view === 'collapsed' ? 'mainViewCollapsed' : 'mainViewExpanded'}>
         <img className="mainImg" src={props.detail[currentIndex].url} />
+        <InnerImageZoom
+          src={props.detail[currentIndex].url}
+          width={750}
+          height={500}
+          hasSpacer={true} />
       </div>
     </div>
   )
