@@ -26,9 +26,9 @@ const ReviewEntry = ({ reviews, review, helpfulChange, openImageModal, closeImag
             renderStarIconHalf={() => <span><ImStarHalf/></span>}
         />
       </span>
-      <span>{review.reviewer_name}, {new Date(review.date).toString().slice(0, 16)}</span>
+      <span className="starUser">{review.reviewer_name}, {new Date(review.date).toString().slice(0, 16)}</span>
     </div>
-    <div>
+    <div style={{fontSize: '12px'}}>
       {review.summary.length > 50 ?
       <h2 className="reviewTitleNd">{review.summary.slice(0, 57)}...</h2>
       :

@@ -1,6 +1,38 @@
 body {
+  margin: 0 0 auto 0;
   background-color: rgb(255, 255, 240);
+}
+#app {
+  height: 100%;
+  width: 100%;
+}
 
+.main {
+  height: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+  position: center;
+  margin: 2em;
+}
+
+.ratingsReviews {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .ratingsReviews {
+    display: grid;
+    grid-template-columns: 33vw 62vw;
+    grid-column-gap: 5px;
+    grid-template-areas:
+      "ratings reviews"
+  }
+}
+.starUserDate {
+  display: flex;
+  justify-content: space-between;
+}
+.starUser {
+  font-size: 11px;
 }
 
 #title {
@@ -9,9 +41,9 @@ body {
 
 hr {
   position: relative;
-  left: -40px;
+  /* left: -40px;
   width: 75%;
-  margin: 40px;
+  margin: 40px; */
 }
 
 .submitReviewButtonNd {
@@ -28,25 +60,31 @@ hr {
 
 
 /*-----Start Reviews Entry-----**-----Right Container-----*/
-.columnNd {
-  float: right;
-  width: 65%;
-  margin-top: 50px;
+.columnNd, .reviewsComponent {
+  grid-area: reviews;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .reviewsNd {
-  margin-top: 150px;
-  position:absolute;
-  bottom:0px;
-  top:0px;
-  overflow:auto;
-  margin-bottom: 100px;
-  width: 66%;
+  width: 90%;
+  height: 900px;
+  margin-top: 5px;
+  margin-left: 4vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: teal;
+  scrollbar-width: 12px;
+}
+.body::-webkit-scrollbar {
+  background-color: #bbbbbb;
+  height: 13px;
+  width: 16px;
 }
 
-.reviewsButtonsNd {
-  margin-top: 100%;
+#reviewsButtonContainer {
+  display: flex;
+  width: 40vw;
 }
 
 .selectButtonNd {
@@ -72,28 +110,25 @@ hr {
 
 .sortNd {
   padding: 30px;
-  margin-left: -33px;
-  position: fixed;
 }
 
 .starUserDateNd {
   display: flex;
-  padding: -45px;
-  margin-right: 25%;
-  margin-left: -1px;
+  /* padding: -45px; */
   justify-content: space-between;
 }
 
 .reviewTitleNd {
   padding: 10px;
   margin-left: -10px;
+  font-size: x-large;
 }
 
 .reviewFeedBodyNd {
   padding: 10px;
   margin-left: -10px;
-  width: 76%;
-  font-size: 22px;
+  width: 90%;
+  font-size: 14px;
 }
 
 .reviewResponseNd {
@@ -114,7 +149,6 @@ hr {
   padding: 25px;
   margin: 0;
   margin-left: 20px;
-  width: 15%;
   font-size: 15px;
   display: inline;
   cursor: pointer;
@@ -124,7 +158,6 @@ hr {
   padding: 25px;
   float: left;
   margin: 0;
-  width: 15%;
   font-size: 15px;
   display: inline;
   cursor: pointer;
@@ -342,16 +375,19 @@ a:hover {
 /*-----Start Rating Entry-----**-----Left Container-----*/
 
 .column1Nd {
-  margin-left: 17%;
+  grid-area: ratings;
+  margin-left: 5px;
   padding-top: 40px;
+  /* float: left;
+  width: 30% */
 
-  margin-top: -15px;
 }
 
 .numberStarRatingNd {
-  font-size: 80px;
+  font-size: 14px;
   font-weight: 900;
   padding-top: 20px;
+  margin-left: 20px;
 }
 
 .starsOverallNd {
@@ -450,8 +486,27 @@ a:hover {
   max-height: 100px;
 }
 .qandanf {
+  padding-top: 50px;
+  clear: both;
   max-height: 600px;
-  overflow: scroll;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin: inherit;
+}
+
+.QAlist {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.starBars {
+  display: flex;
+  justify-content: space-evenly;
+}
+.questionInput {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.questionSearch {
+  width: 90%;
 }
