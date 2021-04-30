@@ -8,13 +8,30 @@ class Answer extends React.Component {
 
     this.state = {
       count: this.props.answer.helpfulness,
+      lightBoxDisplay: false,
+      imageToShow: '',
     }
-    this.addCount = this.addCount.bind(this)
+    this.addCount = this.addCount.bind(this);
+    this.showImage = this.showImage.bind(this);
+    this.hideImage = this.hideImage.bind(this);
   }
 
   addCount() {
     this.setState({
       count: this.state.count + 1
+    });
+  }
+
+  showImage(image) {
+    this.setState({
+      imageToShow: image,
+      lightBoxDisplay: true
+    });
+  }
+
+  hideImage() {
+    this.setState({
+      lightBoxDisplay: false
     });
   }
 
@@ -26,8 +43,13 @@ class Answer extends React.Component {
         </div>
         <div>
           {this.props.answer.photos.map((img, index) => {
-            return <img className="answerImgnf" src={img} key={index} alt="image" />
+            return <img className="answerImgnf" onClick={() => this.showImage(img)} src={img} key={index} alt="image" />
           })}
+          {this.state.lightBoxDisplay ?
+            <div className="lightbox">
+              <img className="lightbox-img" onClick={this.hideImage} src={this.state.imageToShow}></img>
+            </div>
+          : ''}
         </div>
         <div>
           <span className="answerInfo">
