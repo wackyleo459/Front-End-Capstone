@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import ReviewEntry from './ReviewEntry.jsx';
 import Ratings from './Ratings.jsx';
-import Modals from './Modals.jsx';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -51,7 +50,6 @@ class Reviews extends React.Component {
     })
     .catch(err => console.error(err));
   }
-
   handleHelpfulChange() {
     this.setState({
       helpfulness: this.state.helpfulness + 1
@@ -118,11 +116,10 @@ class Reviews extends React.Component {
               stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
             />
           ))}
-            <Modals productId={this.state.product_id} reviews={this.state.reviews}/>
-            <div className="reviewsbuttonsNd">
-              {(this.state.moreReviews.length === 0) ? null : (
-                <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
             </div>
+          <div>
+            {(this.state.moreReviews.length === 0) ? null : (
+              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
           </div>
         </div>
       </div>

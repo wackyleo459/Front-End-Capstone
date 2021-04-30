@@ -3,6 +3,7 @@ import axios from 'axios';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import CharProductBreakDown from './CharProductBreakDown.jsx';
 
+
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +58,7 @@ class Ratings extends React.Component {
   }
 
   handleRatingCaret(num) {
-    return <i className="fas fa-caret-down fa-lg"></i>
+    return <i className="fas fa-star"></i>
   }
 
   fillRatingStars(num) {
@@ -87,6 +88,7 @@ class Ratings extends React.Component {
   render() {
     return (
       <div className="column1Nd">
+        <div className="ratingsNd">
         <h1>Ratings and Reviews</h1>
         <div>
             <StarRatingEntry
@@ -97,12 +99,14 @@ class Ratings extends React.Component {
               numOfEachcRating={this.countNumOfEachRating(this.state.reviews)}
               getPercentage={this.getPercentage}
             />
-
             <CharProductBreakDown
               reviewsMeta={this.state.reviewsMeta}
+              getAverageRating={this.getAverageRating}
               getMetaPercentage={this.getMetaPercentage}
               carets={this.handleRatingCaret}
             />
+
+        </div>
         </div>
       </div>
     )

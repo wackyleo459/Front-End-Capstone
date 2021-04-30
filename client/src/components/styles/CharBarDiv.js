@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
-export default styled.div`
+export default Styled.div`
 padding: 10px;
 width: 17.4%;
-height: 71%;
+height: ;
 font-size: 25px;
+
 `

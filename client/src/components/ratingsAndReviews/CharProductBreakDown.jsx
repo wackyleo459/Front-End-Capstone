@@ -2,63 +2,28 @@ import React from "react";
 import styled from 'styled-components'
 import CharBar from '../styles/CharBar.js';
 import CharBarDiv from '../styles/CharBarDiv.js';
-import CharProgress from '../styles/CharProgress.js';
 import CharLink from '../styles/CharLink.js';
 
-const CharProductBreakDown = ({ getMetaAverage, getMetaPercentage, carets}) => {
+const CharProductBreakDown = ({ getMetaAverage, getMetaPercentage, reviewsMeta}) => {
+  let ratingsResult = 0;
+  console.log('Before', reviewsMeta)
+  for (let key in reviewsMeta) {
+    let ratingsObject = reviewsMeta[key]
+    for (let key1 in ratingsObject) {
+      console.log('First Iteration', ratingsObject)
+      console.log('Ratings', reviewsMeta.ratings)
+      console.log('Characteristics', reviewsMeta.characteristics)
+      if (ratingsObject[key1] === ratingsObject.ratings) {
 
+      }
+    }
+  }
 
   return (
     <div className="charBarsNd">
-      <CharLink><CharBarDiv>Size<CharProgress className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-      <div className="sizeCharacteristicsNd">
-        <label className="firstCharRatingNd">1</label>
-        <label className="secondCharRatingNd">2</label>
-        <label className="thirdCharRatingNd">3</label>
-        <label className="fourthCharRatingNd">4</label>
-        <label className="fifthCharRatingNd">5</label>
-      </div>
-      <CharLink><CharBarDiv>Width<CharProgress  className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-        <div className="widthCharacteristicsNd">
-        <label className="firstCharRatingNd">1</label>
-        <label className="secondCharRatingNd">2</label>
-        <label className="thirdCharRatingNd">3</label>
-        <label className="fourthCharRatingNd">4</label>
-        <label className="fifthCharRatingNd">5</label>
-        </div>
-      <CharLink><CharBarDiv>Comfort<CharProgress  className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-        <div className="comfortCharacteristicsNd">
-        <label className="firstCharRatingNd">1</label>
-        <label className="secondCharRatingNd">2</label>
-        <label className="thirdCharRatingNd">3</label>
-        <label className="fourthCharRatingNd">4</label>
-        <label className="fifthCharRatingNd">5</label>
-        </div>
-      <CharLink><CharBarDiv>Quality<CharProgress  className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-        <div className="qualityCharacteristicsNd">
-        <label className="firstCharRatingNd">1</label>
-        <label className="secondCharRatingNd">2</label>
-        <label className="thirdCharRatingNd">3</label>
-        <label className="fourthCharRatingNd">4</label>
-        <label className="fifthCharRatingNd">5</label>
-        </div>
-      <CharLink><CharBarDiv>Length<CharProgress  className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-        <div className="lengthCharacteristicsNd">
-        <label className="firstCharRatingNd">1</label>
-        <label className="secondCharRatingNd">2</label>
-        <label className="thirdCharRatingNd">3</label>
-        <label className="fourthCharRatingNd">4</label>
-        <label className="fifthCharRatingNd">5</label>
-        </div>
-      <CharLink><CharBarDiv>Fit<CharProgress  className="fas fa-caret-down fa-lg"><CharBar></CharBar></CharProgress></CharBarDiv></CharLink>
-        <div className="fitCharacteristicsNd">
-          <label className="firstCharRatingNd">1</label>
-          <label className="secondCharRatingNd">2</label>
-          <label className="thirdCharRatingNd">3</label>
-          <label className="fourthCharRatingNd">4</label>
-          <label className="fifthCharRatingNd">5</label>
-        </div>
-    </div>
+      <CharLink><CharBarDiv className="fas fa-star">{ratingsResult} Size</CharBarDiv></CharLink>
+      <CharLink><CharBarDiv className="fas fa-star">{ratingsResult} Width</CharBarDiv></CharLink>
+   </div>
   )
 }
 

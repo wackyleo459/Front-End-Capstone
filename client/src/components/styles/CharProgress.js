@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
-export default styled.div`
+export default Styled.div`
 margin-right: 10px;
-width: 105%;
+width: 560%;
 height: 15px;
 background-color: lightgrey;
 outline: none;
 transition: opacity .2s;
+
 `

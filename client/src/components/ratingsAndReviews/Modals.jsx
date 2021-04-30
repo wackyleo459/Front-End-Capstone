@@ -36,13 +36,14 @@ class Modals extends Component {
     }
 
     handleSubmit(event) {
+      console.log('HEllo')
       event.preventDefault()
       let reviewData = {
         product_id: this.state.product_id,
         rating: Number(this.state.rating),
         summary: this.state.summary,
         body: this.state.body,
-        recommend: this.state.recommend,
+        recommend: this.state.recommend === 'true' ? true : false,
         name: this.state.name,
         email: this.state.email,
         photos: this.state.photos,
@@ -51,8 +52,7 @@ class Modals extends Component {
       axios.post(`http://localhost:3000/reviews/`, reviewData)
         .then((res) => {
           this.setState({
-            newReview: res.data,
-            photos: res.data
+            newReview: res.data
           }, () => console.log(res.data))
         })
         .catch((err) => console.error(err))
@@ -81,7 +81,7 @@ class Modals extends Component {
     }
 
     handleChange(event) {
-      event.preventDefault()
+
       let name = event.target.name;
       this.setState({
         [name]: event.target.value
@@ -103,8 +103,8 @@ class Modals extends Component {
   render() {
     return (
       <section>
-        <input className="addReviewsButtonNd" width="1200" height="900" effect="fadeInUp" type="button" value="ADD A REVIEW +" onClick={() => this.openModal()}/>
-          <Modal className="modalNd" visible={this.state.visible} onClickAway={() => this.closeModal()}>
+        <input className="addReviewsButtonNd" type="button" value="ADD A REVIEW +" height="1000" onClick={() => this.openModal()}/>
+          <Modal className="modalNd" visible={this.state.visible} width="1200" height="1000" effect="fadeInUp" onClickAway={() => this.closeModal()}>
             <form onSubmit={(event) => this.handleSubmit(event)} id="modalFormNd">
                 <div>
                   <ModalAddReview
@@ -116,7 +116,7 @@ class Modals extends Component {
                     closeModal={this.closeModal}/>
                 </div>
                 <div id="submitButtonNd">
-                  <input className="submitButtonNd" type="submit" onClick={(event) => this.handleChange((event))}/>
+                  <input className="submitButtonNd" type="submit" />
                   <input className="closeModalNd" type="button" value="Cancel" onClick={() => this.closeModal()}/>
                 </div>
               </form>

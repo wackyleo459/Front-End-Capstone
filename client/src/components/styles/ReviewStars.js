@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import Styled from 'styled-components';
 
-export default styled.div`
+export default Styled.div`
   display: inline;
   font-size: 20px;
   color: black;
+  width: 10px
 `

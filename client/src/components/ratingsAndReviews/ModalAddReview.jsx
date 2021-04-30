@@ -4,8 +4,8 @@ import ModalChars from './ModalChars.jsx';
 const ModalAddReview = ({ handleChange, handleBodyCharChange, handleSummaryCharChange, bodyCharsRequired, summaryCharsRequired, closeModal }) => {
   return (
     <div>
-
         <h2 id="reviewFormNd">Review Form</h2>
+
         <div className="overAllRatingNd">
           <label id="labelNd"><b>* Rating:</b></label>
           <select className="selectRatingNd" name="rating" onChange={(event) => handleChange(event)}>
@@ -30,19 +30,19 @@ const ModalAddReview = ({ handleChange, handleBodyCharChange, handleSummaryCharC
           <p>{bodyCharsRequired}</p>
         </div>
         <ModalChars handleChange={handleChange}/>
+          <br/>
         <div className="recommendationNd">
           <label id="labelNd"><b>* Do you recommend this product?</b></label>
           <br/>
-          <label className="radio">
+          <label htmlFor="recommend" className="radio">
           <input onClick={(event) => handleChange(event)} type="radio" value={true} name="recommend"/>
               Yes
           </label>
-          <label className="radio">
+          <label htmlFor="recommend"className="radio">
           <input onClick={(event) => handleChange(event)} type="radio" value={false} name="recommend"/>
               No
           </label>
         </div>
-          <br/>
         <div className="nicknameNd">
           <label id="labelNd"><b>* Name</b></label>
           <br/>
