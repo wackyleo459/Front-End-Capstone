@@ -1,5 +1,5 @@
 import React from 'react';
-import { storage } from '../../../../firebase.js';
+// import { storage } from '../../../../firebase.js';
 
 class AnswersModal extends React.Component {
   constructor(props) {
