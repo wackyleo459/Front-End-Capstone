@@ -61,7 +61,9 @@
   grid-area: image;
   position: relative;
   contain: content;
+  display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #edeef0;
 }
 
@@ -69,7 +71,7 @@
   min-width: 60vh;
   width: 70vh;
   height: 70vh;
-  /* display: flex; */
+  display: flex;
   background-color: #edeef0;
   padding: 2em 2em 5em 2em;
   cursor: zoom-in;
@@ -87,8 +89,8 @@
 }
 
 .mainImg {
-  width: 168%;
-  height: 106%;
+  flex: 90%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -225,7 +227,7 @@ div.overview {
   font-weight: 300;
 }
 .salePrice {
-  padding-right: 30px;
+  padding-right: 1em;
 }
 
 .fab:hover {

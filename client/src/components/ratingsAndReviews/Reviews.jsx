@@ -39,16 +39,16 @@ class Reviews extends React.Component {
       category = event.target.value
     }
     axios.get(`http://localhost:3000/reviews/?&sort=${category}`)
-    .then((res) => {
-      let copyData = res.data.reviews.results;
-      let sliced = copyData.slice(0, 2);
-      this.setState({
-        reviews: sliced,
-        moreReviews: copyData.slice(2),
-        product_id: res.data.product_id
+      .then((res) => {
+        let copyData = res.data.reviews.results;
+        let sliced = copyData.slice(0, 2);
+        this.setState({
+          reviews: sliced,
+          moreReviews: copyData.slice(2),
+          product_id: res.data.product_id
+        })
       })
-    })
-    .catch(err => console.error(err));
+      .catch(err => console.error(err));
   }
   handleHelpfulChange() {
     this.setState({
@@ -94,17 +94,16 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="columnNd">
-          <div className="sortNd">
-            <label id="labelNd"><b>{this.state.reviews.length} Reviews sorted by</b></label>
-            <select className="selectButtonNd" onChange={(event) => this.getProductInfo(event)}>
-              <option id="text-decoration-style: underline" value="helpfulness" >Helpfulness</option>
-              <option value="relevance">Relevance</option>
-              <option value="newest">Newest</option>
-            </select>
-          </div>
-          <div className="reviewsNd">
+      <div className="columnNd">
+        <div className="sortNd">
+          <label id="labelNd"><b>{this.state.reviews.length} Reviews sorted by</b></label>
+          <select className="selectButtonNd" onChange={(event) => this.getProductInfo(event)}>
+            <option id="text-decoration-style: underline" value="helpfulness" >Helpfulness</option>
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+        <div className="reviewsNd">
           {this.state.reviews.map((review, index) => (
             <ReviewEntry
               review={review}
@@ -116,11 +115,10 @@ class Reviews extends React.Component {
               stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
             />
           ))}
-            </div>
-          <div>
-            {(this.state.moreReviews.length === 0) ? null : (
-              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
-          </div>
+        </div>
+        <div>
+          {(this.state.moreReviews.length === 0) ? null : (
+            <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews} />)}
         </div>
       </div>
     )
