@@ -5,7 +5,6 @@ const StyleSelector = ({styles, setStyle}) => {
 
   const select = (event, index) => {
     event.preventDefault();
-    document.getElementById('selectForm').reset();
     setStyle(index); //updates parent's state
     setIndex(index); //updates current component state
   };

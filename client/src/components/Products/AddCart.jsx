@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
+import React, { useState, useEffect, useRef } from 'react';
+import Overlay from 'react-bootstrap/Overlay';
 
 const pulldownQty = function (input) {
   var result = [];
-  if (!input) { return null; }
+  if (!input) { return <option>N/A</option>; }
+
   input < 15 ? input = input : input = 15;
 
   for (let i = 1; i <= input; i++) {
@@ -15,67 +16,105 @@ const pulldownQty = function (input) {
 const AddCart = ({ skus }) => {
 
   const [selectedSize, setSize] = useState('Select Size');
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState();
   const initialState = 'Select Size';
   const isSizeSelected = selectedSize !== initialState;
-
+  const target = useRef(null);
+  const [show, setShow] = useState(false);
 
   const selectSize = (event) => {
     let size = event.target.value;
     setSize(size);
+    setShow(false);
   };
 
   const selectQty = (event) => {
     setQty(event.target.value);
   }
 
-  const availQty = isSizeSelected ? skus.find(item => item.size === selectedSize).quantity : null;
+  const availQty = isSizeSelected ?
+    skus.find(item => item.size === selectedSize).quantity
+    : null;
 
-  const reset = (e) => {
+  const checkOut = (e) => {
     e.preventDefault();
+    if(!isSizeSelected) {
+      document.getElementById('selectQty').click();
+      setShow(true);
+    }
+    reset();
+  }
+
+  const reset = () => {
     setSize(initialState);
     document.getElementById('selectForm').reset();
   }
+
+  const buttonHide = () => {
+    if (!qty) { //refactor to check if ALL SIZES for one style is out of stock
+      return {display: 'none'}
+    }
+  }
+
+  useEffect(() => {
+    if (!availQty) {
+      setQty(0);
+    } else if (qty === 0 && availQty) {
+      setQty(1);
+    } else {
+      setQty(qty);
+    }
+  });
 
   return (
     <div className="add">
       <form id="selectForm" style={{ display: 'inline-flex' }}>
         <label id="size">{'  size  '}
-          <select onChange={selectSize}>
+          <select id="selectSize"onChange={selectSize}>
             <option key='0o'>Select Size</option>
             {skus.map(({ size }, ind) => (
               <option value={size} key={ind}>{size}</option>
             ))}
           </select>
         </label>
-        <label id="quantity">{'  quantity  '}
+        <label id="quantity">{'  Quantity  '}
           {isSizeSelected ?
-            <select onChange={selectQty} defaultValue={1}>
+            <select id="selectQty" onChange={selectQty} defaultValue={1}>
               {pulldownQty(availQty)}
-            </select> :
-            <select disabled={true}><option>-</option></select>}
+            </select>
+          : <select id="selectQty" disabled={true}><option>-</option></select>}
         </label>
       </form>
 
-      <button id="addToBag" className="btn btn-dark" type="button" onClick={reset}>
+      <button id="addToBag" className="btn btn-dark"
+              type="button" onClick={checkOut}
+              ref={target}>
         <span>Add to Bag</span>
       </button>
+      <Overlay target={target.current} show={show}
+            placement='bottom-end'
+            >
+        {({ placement, arrowProps, show: _show, popper, ...props}) => (
+          <div
+            {...props}
+            style={{
+              backgroundColor: 'darkgray',
+              padding: '4px',
+              color: 'white',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            Please select size
+          </div>
+        )}
+      </Overlay>
     </div>
   )
 }
 
 export default AddCart;
-{/*<Form>
-  <Form.Group controlId="selectForm">
-    <Form.Label>size</Form.Label>
-    <Form.Control as="select" size="sm" custom>
-      <option>1</option>
 
-    </Form.Control>
-    <Form.Label>quantity</Form.Label>
-    <Form.Control as="select" size="sm" custom>
-      <option>1</option>
-
-    </Form.Control>
-  </Form.Group>
-</Form> */}
+// onHide={() => {
+//   selectSize.bind(document.getElementById('selectSize'))();
+// }}
