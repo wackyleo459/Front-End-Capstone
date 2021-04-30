@@ -30,7 +30,7 @@ const ImageGallery = function (props) {
 
   const thumbnailStyle = (ind) => {
     if (ind === currentIndex) {
-      return { boxShadow: '2px 2px teal' };
+      return { boxShadow: '2px 2px #33cccc' };
     }
   }
 
@@ -58,8 +58,6 @@ const ImageGallery = function (props) {
       return {display: 'none'}
     }
   }
-  //onHover w/ magnifying '+' symbol
-  //zoom 2.5*
 
   return (
     <div className="imageGallery">
@@ -88,7 +86,7 @@ const ImageGallery = function (props) {
 
       : (<div className="overlay">
          {props.detail.map((item, ind) => (
-              <span class="material-icons md-48"
+              <span class="material-icons md-48" key={ind}
                   onClick={(e) => thumbnailClick(e, ind)}
                   style={iconStyle(ind)}>horizontal_rule</span>
           ))}
@@ -109,12 +107,18 @@ const ImageGallery = function (props) {
       </div>
       <div className=
         {props.view === 'collapsed' ? 'mainViewCollapsed' : 'mainViewExpanded'}>
-        <img className="mainImg" src={props.detail[currentIndex].url} />
-        <InnerImageZoom
+
+        {props.view === 'collapsed' ?
+          (<img className="mainImg"
+              src={props.detail[currentIndex].url}
+              onClick={props.clickExpand}/>)
+
+        : (<InnerImageZoom className="mainImg"
           src={props.detail[currentIndex].url}
-          width={750}
-          height={500}
-          hasSpacer={true} />
+          zoomScale={2}
+          hasSpacer={true} />)
+        }
+
       </div>
     </div>
   )
