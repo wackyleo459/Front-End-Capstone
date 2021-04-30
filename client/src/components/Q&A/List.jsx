@@ -41,7 +41,7 @@ class List extends React.Component {
   }
 
   getQuestions() {
-    axios.get('/qa/questions')
+    axios.get('http://localhost:3000/qa/questions')
     .then((res) => this.setState({
       questions: res.data
     }))
@@ -104,7 +104,7 @@ class List extends React.Component {
             size="120"
             style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
+          <i className="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
         </div>
           <ul className="QAlist">
             {this.state.questions.results.filter((question) => {
@@ -114,7 +114,7 @@ class List extends React.Component {
           <button type="button" onClick={this.showLessQuestions} className="moreQuestions">Less Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
-          <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
+          <i style={{ padding: '5px' }} className="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
@@ -133,7 +133,7 @@ class List extends React.Component {
             size="120"
             style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
+          <i className="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
         </div>
           <ul className="QAlist">
             {this.state.questions.results.map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
@@ -141,7 +141,7 @@ class List extends React.Component {
           <button type="button" className="moreQuestions">More Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
-          <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
+          <i style={{ padding: '5px' }} className="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
@@ -160,7 +160,7 @@ class List extends React.Component {
             size="120"
             style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
+          <i className="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
         </div>
           <ul className="QAlist">
             {this.state.questions.results.slice(0, 4).map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
@@ -168,7 +168,7 @@ class List extends React.Component {
           <button type="button" onClick={this.showMoreQuestions} className="moreQuestions">More Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
-          <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
+          <i style={{ padding: '5px' }} className="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
@@ -187,7 +187,7 @@ class List extends React.Component {
             size="120"
             style={{ height: '40px', padding: '5px', fontSize: '15px', textIndent: '17px' }}
           />
-          <i class="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
+          <i className="fas fa-search fa-lg" style={{ position: 'absolute', color: 'grey',  marginLeft: '80%' }}></i>
         </div>
           <ul className="QAlist">
             {this.state.questions.results.map((question, index) => <ListEntry name={this.state.name} questions={question} key={index} />)}
@@ -195,7 +195,7 @@ class List extends React.Component {
           <button type="button" onClick={this.showLessQuestions} className="moreQuestions">Less Answered Questions</button>
           <div className="dividernf" />
           <button type="submit" onClick={() => this.showModal()} className="submitQuestion">Add A Question
-          <i style={{ padding: '5px' }} class="fas fa-plus"></i></button>
+          <i style={{ padding: '5px' }} className="fas fa-plus"></i></button>
           <Modal height="500" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
             <QuestionsModal name={this.state.name} handleClose={this.hideModal} />
           </Modal>
