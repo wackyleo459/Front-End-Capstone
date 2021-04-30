@@ -27,28 +27,16 @@ const ProductInfo = ({ product, selectedStyle }) => {
         </div>
         <div className="category">Category: {product.category}</div>
         <div className="title">{product.name}</div>
-        <div className='style'>Style: {selectedStyle.name}</div>
         <div className="price">
-          {sale ? <span className="salePrice" style={{ color: 'maroon' }}>{sale}</span> : null}
+          {sale ? <span className="salePrice" style={{ color: 'maroon' }}>${sale}</span> : null}
           <span className="originalPrice" style={checkSale(sale)}>
-            {selectedStyle.original_price}
+            ${selectedStyle.original_price}
           </span>
         </div>
         <div className="overview">{product.description}</div>
-        <div className="share">Share
-          <span id='SNS'>
-            <i className="fab fa-facebook-square"></i>
-            <a className="twitter-share-button" href="https://twitter.com/intent/tweet">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <i className="fab fa-instagram"></i>
-            <i className="fab fa-pinterest"></i>
-          </span>
-        </div>
       </div>
     </div >
   )
 }
 
 export default ProductInfo;
-//BORDER: 2PX SOLID GREEN
