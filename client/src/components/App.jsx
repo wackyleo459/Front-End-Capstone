@@ -67,7 +67,7 @@ class App extends React.Component {
     if (this.state.currentProduct && this.state.productStyles) {
       return (
         <div className="main">
-          <header className="nav">Header for Navigation Bar
+          <header className="nav">
           </header>
           <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles} />
           <div className="ratingsReviews">

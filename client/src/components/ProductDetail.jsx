@@ -3,8 +3,8 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-
 import styles from '../../data/styles.js';
+import Share from './Products/Share.jsx';
 
 export default class ProductDetail extends React.Component {
   constructor(props) {
@@ -55,6 +55,7 @@ export default class ProductDetail extends React.Component {
               <ProductInfo product={this.props.product} selectedStyle={this.state.styleInfo} />
               <StyleSelector styles={this.props.productStyles} setStyle={this.setStyle} />
               <AddCart skus={this.state.styleInfo.skus} />
+              <Share />
             </React.Fragment>
             : null}
         </div>

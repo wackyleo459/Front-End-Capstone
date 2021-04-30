@@ -485,10 +485,31 @@ a:hover {
   max-width: 150px;
   max-height: 100px;
 }
+
 .qandanf {
   padding-top: 50px;
   clear: both;
-  max-height: 600px;
+  max-height: 950px;
+  margin-left: 100px;
+  margin-right: 100px;
+  overflow-x: hidden;
+}
+
+.modalPic {
+  max-height: 100px;
+  max-width: 100px;
+  padding: 10px;
+}
+
+.cancelButtonnf {
+  padding: 10px;
+  right: 20px;
+  top: 675px;
+  background: white;
+  position: absolute;
+  border: none;
+  text-decoration: underline;
+  color:rgb(87, 86, 86);
   margin: inherit;
 }
 
@@ -506,7 +527,27 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 .questionSearch {
   width: 90%;
+}
+
+.lightbox {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*optional bg color*/
+  /*the following isn't necessary but will help center everything once we add buttons*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  height: 400px;
+  width: auto;
 }

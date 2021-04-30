@@ -22,15 +22,11 @@ const controllers = {
 
   getQuestions: (req, res) => {
     axios.get(`${URL}/qa/questions?page=1&count=10&sort=${req.query.sort}&product_id=16060`, { headers: {Authorization: token}})
-      .then(results => {
-        res.status(200).send(results.data)
+      .then(response => {
+        res.status(200).send(response.data)
       })
       .catch((err) => console.error(err))
-  }
-
-  // postQuestions: (req, res) => {
-  //   axios.post(`${URL}/qa/questions?)
-  // }
+  },
 }
 
 module.exports = controllers;
