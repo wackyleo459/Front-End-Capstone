@@ -6,13 +6,10 @@ import CharLink from '../styles/CharLink.js';
 
 const CharProductBreakDown = ({ getMetaAverage, getMetaPercentage, reviewsMeta}) => {
   let ratingsResult = 0;
-  console.log('Before', reviewsMeta)
   for (let key in reviewsMeta) {
     let ratingsObject = reviewsMeta[key]
     for (let key1 in ratingsObject) {
-      console.log('First Iteration', ratingsObject)
-      console.log('Ratings', reviewsMeta.ratings)
-      console.log('Characteristics', reviewsMeta.characteristics)
+
       if (ratingsObject[key1] === ratingsObject.ratings) {
 
       }

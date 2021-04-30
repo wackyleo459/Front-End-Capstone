@@ -133,12 +133,8 @@
   font-size: 20px;
 }
 .share {
-<<<<<<< HEAD
-  font-size: 30px;
-=======
   grid-area: share;
   font-size: 2.5vh;
->>>>>>> 945de0e6485d095fbcd7878ec823ca0eb06a2570
   text-align: left;
   display: inline-flex;
   padding: 5px;
@@ -215,20 +211,6 @@
 }
 
 div.category {
-<<<<<<< HEAD
-  font-size: 30px;
-}
-div.title {
-  font-size: 30px;
-  font-weight: 600;
-}
-div.overview {
-  font-size: 12px;
-  font-size: 20px;
-}
-.price {
-  font-size: 30px;
-=======
   font-size: 2vh;
 }
 div.title {
@@ -240,7 +222,6 @@ div.overview {
 }
 .price {
   font-size: 18px;
->>>>>>> 945de0e6485d095fbcd7878ec823ca0eb06a2570
   font-weight: 300;
 }
 .salePrice {
