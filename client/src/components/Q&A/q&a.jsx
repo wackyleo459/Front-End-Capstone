@@ -11,7 +11,7 @@ class QandA extends React.Component {
   render() {
     return (
       <div className="qandanf">
-        <h2>Questions &amp; Answers</h2>
+        <h3>Questions &amp; Answers</h3>
         <List />
       </div>
     );

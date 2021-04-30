@@ -3,10 +3,9 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-
 import styles from '../../data/styles.js';
 
-class ProductDetail extends React.Component {
+export default class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,5 +66,3 @@ class ProductDetail extends React.Component {
 
   }
 }
-
-export default ProductDetail;

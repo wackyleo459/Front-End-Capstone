@@ -62,7 +62,7 @@ class AnswersModal extends React.Component {
   render() {
     if (this.state.pictures.length === 0) {
       return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', background: 'white' }}>
           <h2 style={{ textAlign: "center", textDecoration: "underline" }}>Submit your Answer</h2>
           <span style={{ marginLeft: '65px', fontSize: '20px' }}>{this.props.name}: {this.props.question}</span>
           <div className="modalnf">
@@ -79,7 +79,7 @@ class AnswersModal extends React.Component {
             </form>
             </div>
           </div>
-          <button style={{ padding: '10px', left: '20px', top: '574px', background: 'white', position: 'absolute' }} type="submit">
+          <button style={{ padding: '10px', left: '20px', top: '670px', background: 'white', position: 'absolute' }} type="submit">
             Submit
           </button>
           <button type="button" className="cancelButtonnf" onClick={this.props.handleClose}>
@@ -111,7 +111,7 @@ class AnswersModal extends React.Component {
             </form>
             </div>
           </div>
-          <button style={{ padding: '10px', left: '20px', top: '574px', background: 'white', position: 'absolute' }} type="submit">
+          <button style={{ padding: '10px', left: '20px', top: '675px', background: 'white', position: 'absolute' }} type="submit">
             Submit
           </button>
           <button type="button" className="cancelButtonnf" onClick={this.props.handleClose}>
