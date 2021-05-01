@@ -1,5 +1,5 @@
 import React from "react";
-import Styled from 'styled-components'
+import Styled from 'styled-components';
 import BarDiv from '../styles/BarDiv.js';
 import Link from '../styles/Link.js';
 import Stars from '../styles/Stars.js';

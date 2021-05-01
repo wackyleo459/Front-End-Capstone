@@ -65,26 +65,36 @@ class App extends React.Component {
   render() {
     if (this.state.currentProduct && this.state.productStyles) {
       return (
-        <div className="main">
-          <header className="nav">
-          </header>
-          <ProductDetail className="productOverview"
+        <React.Fragment>
+          <nav className="navbar sticky-top navbar-light">
+            <span className="navbar-brand mb-0 h1">NNS</span>
+            <a className="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a className="nav-link" href="#productInfo">Product Info</a>
+            <a className="nav-link" href="#">Sale</a>
+            <a className="nav-link" href="#">{`Check Out `}
+              <i className="fas fa-shopping-cart"></i>
+              <span className="cartItems">{2}</span>
+            </a>
+          </nav>
+
+          <div className="main"data-spy="scroll" data-target="navbar" data-offset="0" >
+            <ProductDetail
               product={this.state.currentProduct}
               productStyles={this.state.productStyles} />
-          <div className="ratingsReviews">
-            <Ratings />
-            <Reviews />
+            <div id="ratingsReviews">
+              <Ratings />
+              <Reviews />
+            </div>
+            <br />
+            <QandA />
           </div>
-          <br/>
-          <QandA />
-        </div>
+        </React.Fragment>
       )
     } else {
       return (
         <div>App rendering</div>
       )
     }
-
   }
 };
 

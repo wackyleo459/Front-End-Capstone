@@ -61,15 +61,17 @@
   grid-area: image;
   position: relative;
   contain: content;
+  display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #edeef0;
 }
 
 .mainViewCollapsed {
   min-width: 60vh;
-  width: 70vh;
-  height: 70vh;
-  /* display: flex; */
+  width: 600px;
+  height: 600px;
+  display: flex;
   background-color: #edeef0;
   padding: 2em 2em 5em 2em;
   cursor: zoom-in;
@@ -87,9 +89,9 @@
 }
 
 .mainImg {
-  width: 168%;
-  height: 106%;
-  object-fit: cover;
+  flex: 90%;
+  width: 100%;
+  object-fit:cover;
 }
 
 .left {
@@ -114,7 +116,7 @@
   color: rgb(33, 146, 199);
   cursor: pointer;
 }
-.productInfo {
+#productInfo {
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: stretch;
@@ -134,7 +136,7 @@
 }
 .share {
   grid-area: share;
-  font-size: 2.5vh;
+  font-size: 18px;
   text-align: left;
   display: inline-flex;
   padding: 5px;
@@ -211,21 +213,21 @@
 }
 
 div.category {
-  font-size: 2vh;
+  font-size: 24px;
 }
 div.title {
   font-size: 26px;
   font-weight: 600;
 }
 div.overview {
-  font-size: 1.8vh;
+  font-size: 13px;
 }
 .price {
   font-size: 18px;
   font-weight: 300;
 }
 .salePrice {
-  padding-right: 30px;
+  padding-right: 1em;
 }
 
 .fab:hover {
@@ -242,7 +244,7 @@ div.add {
 #selectForm {
   width: 100%;
   padding: 0.5em;
-  font-size: 2.5vh;
+  font-size: 16px;
 }
 
 label {
@@ -254,7 +256,7 @@ label {
 }
 #addToBag {
   margin: 3px;
-  font-size: 2.5vh;
+  font-size: 18px;
   display: block;
   width: 90%;
   margin: auto;
@@ -271,4 +273,20 @@ select {
   cursor: pointer;
 }
 
-/* .material-icons.md-48 { font-size: 36px; } */
+.productOverview {
+  padding-bottom: 2vh;
+  padding-right: 1vw
+}
+
+.cartItems {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  padding: 5px;
+  height: 25px;
+  width: 25px;
+  border-radius: 20px;
+  background-color: yellow;
+  font-size: 14px;
+  text-align: justify;
+}

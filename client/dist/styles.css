@@ -3,52 +3,48 @@ body {
   background-color: rgb(245, 245, 245);
 }
 #app {
-  height: 200%;
-  width: 100%;
-  min-width: 50%;
-}
-
-.style {
-  font-size: 20px;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: 700;
-  margin-left: 35px;
-  margin-top: 10px;
-}
-
-.category {
-  font-size: 20px;
-}
-.salePrice {
-  font-size: 20px;
-}
-.title {
-  font-size: 20px;
-}
-
-.main {
   height: 100%;
-  margin-right: 10px;
-  margin-left: 10px;
+  width: 100%;
+}
+.navbar {
+  font-size: 2vh;
+  background-color: #e3f2fd;;
+}
+.navbar-brand {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 3.5vh;
+}
+.nav-link {
+  font-size: 15px;
+}
+.main {
+  margin-top: 60px;
+  height: 100%;
+  margin-right: 40px;
+  margin-left: 40px;
   position: center;
-  margin: 2em;
 }
 
-.ratingsReviews {
-  position: relative;
+#ratingsReviews {
+  /* position: relative; */
   padding-bottom: 500px;
-  height: 1500px;
+  /* height: 1500px; */
 }
 @media (min-width: 768px) {
-  .ratingsReviews {
+  #ratingsReviews {
     display: grid;
     grid-template-columns: 33vw 62vw;
     grid-column-gap: 5px;
     grid-template-areas:
     "ratings reviews"
+  }
+}
+@media (max-width: 767px) {
+  #ratingsReviews {
+    display: grid;
+    grid-template-areas:
+    "ratings"
+    "reviews"
   }
 }
 .starUserDate {
@@ -75,21 +71,20 @@ hr {
 
 /*-----Start Reviews Entry-----**-----Right Container-----*/
 .columnNd {
-  width: 5%;
-  margin-top: 100px;
-  margin-right: 50%;
+  grid-area: reviews;
+  display: flex;
+  flex-direction: column;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 
 }
 .reviewsNd {
-  min-width: 50%;
   margin-top: 8%;
-  height: 60%;
-  position:absolute;
-  padding-right: 166px;
+  /* height: 60%; */
+  /* position:absolute;
+  padding-right: 166px; */
   overflow:auto;
   margin-bottom: 10px;
-  width: 56%;
+  /* width: 56%; */
   padding: 0px;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 }
@@ -113,9 +108,9 @@ hr {
 }
 
 .sortNd {
-  margin-top: 85px;
+  margin-top: 20px;
   margin-left: 5px;
-  position: absolute;
+  /* position: absolute; */
   border: 0px solid;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 
@@ -126,7 +121,7 @@ hr {
   margin-top: 20px;
   justify-content: space-between;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
-  margin-right: 250px;
+  /* margin-right: 250px; */
 }
 
 .reviewTitleNd {
@@ -140,7 +135,7 @@ hr {
   padding: 10px;
   margin-left: -10px;
   width: 90%;
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-top: 40px;
 }
 
@@ -169,9 +164,9 @@ hr {
   border-bottom: 2px solid black;
   background-color: none;
   background: transparent;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0px;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
 
 }
 .addReviewsButtonNd {
@@ -419,10 +414,10 @@ a:hover {
 
 .column1Nd {
   grid-area: ratings;
-  margin-left: 260px;
-  padding-top: 140px;
-  height: 113%;
-  min-width: 50%;
+  margin-left: 5px;
+  padding-top: 40px;
+  height: 100%;
+  min-width: 65%;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 }
 
@@ -441,7 +436,7 @@ a:hover {
 
 .ratingsNd {
   border: 0px solid;
-
+  width: 100%;
   /* height: 180%; */
   margin-right: 150px;
   /* padding: 13px; */
@@ -467,19 +462,20 @@ a:hover {
 }
 
 .starsAndAverageNd {
+  position: relative;
   background-color: #2ADA71;
-  margin-right: -45px;
+  /* margin-right: -45px; */
   height: 120px;
   width: 92%;
-  margin: -80px 20px;
-  margin-top: -10px;
+  /* margin: -80px 20px;
+  margin-top: -10px; */
 }
 
 .progressBarNd {
-  height: 47px;
+  /* height: 47px; */
   margin-left: 10px;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
-  width: 2000px;
+  width: 100%;
   margin-top: 200px;
 }
 
@@ -579,7 +575,6 @@ a:hover {
   height: 950px;
   margin-left: 100px;
   margin-right: 100px;
-  overflow-x: hidden;
 }
 
 .modalPic {

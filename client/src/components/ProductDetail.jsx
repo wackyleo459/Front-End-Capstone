@@ -3,7 +3,6 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-import styles from '../../data/styles.js';
 import Share from './Products/Share.jsx';
 import captureData from './clickData/captureData.jsx';
 
@@ -48,7 +47,7 @@ class ProductDetail extends React.Component {
 
     if (this.state.styleInfo && this.state.stylePhotos) {
       return (
-        <div className={this.state.view}>
+        <div className={`productOverview ${this.state.view}`}>
           <ImageGallery detail={this.state.stylePhotos} clickExpand={this.expandView} view={this.state.view} />
 
           {this.state.view === 'collapsed' ?
