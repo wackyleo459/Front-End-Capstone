@@ -21,6 +21,7 @@ const AddCart = ({ skus }) => {
   const isSizeSelected = selectedSize !== initialState;
   const target = useRef(null);
   const [show, setShow] = useState(false);
+  const [cart, addToCart] = useState(null);
 
   const selectSize = (event) => {
     let size = event.target.value;
@@ -42,6 +43,7 @@ const AddCart = ({ skus }) => {
       document.getElementById('selectSize').click();
       setShow(true);
     }
+    addToCart(cart + Number(qty));
     reset();
   }
 
@@ -109,6 +111,7 @@ const AddCart = ({ skus }) => {
           </div>
         )}
       </Overlay>
+      <span className="cartItems" style={!cart ? {display: 'none'}: null}>{cart}</span>
     </div>
   )
 }

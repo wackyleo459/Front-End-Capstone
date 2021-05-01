@@ -73,7 +73,6 @@ class App extends React.Component {
             <a className="nav-link" href="#">Sale</a>
             <a className="nav-link" href="#">{`Check Out `}
               <i className="fas fa-shopping-cart"></i>
-              <span className="cartItems">{2}</span>
             </a>
           </nav>
 

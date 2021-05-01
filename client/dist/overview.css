@@ -279,14 +279,19 @@ select {
 }
 
 .cartItems {
-  position: absolute;
-  top: 3px;
+  position: fixed;
+  top: 5px;
   right: 8px;
   padding: 5px;
-  height: 25px;
-  width: 25px;
-  border-radius: 20px;
-  background-color: yellow;
   font-size: 14px;
-  text-align: justify;
+  text-align: center;
+  height: 23px;
+  width: 23px;
+  border-radius: 100px;
+  color:rgb(16, 173, 42);
+  z-index: 1021;
+  border: 1px solid #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
