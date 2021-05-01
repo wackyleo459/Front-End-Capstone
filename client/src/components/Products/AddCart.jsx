@@ -39,7 +39,7 @@ const AddCart = ({ skus }) => {
   const checkOut = (e) => {
     e.preventDefault();
     if(!isSizeSelected) {
-      document.getElementById('selectQty').click();
+      document.getElementById('selectSize').click();
       setShow(true);
     }
     reset();

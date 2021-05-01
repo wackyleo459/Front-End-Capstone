@@ -4,8 +4,9 @@ import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
 import Share from './Products/Share.jsx';
+import captureData from './clickData/captureData.jsx';
 
-export default class ProductDetail extends React.Component {
+class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,3 +68,5 @@ export default class ProductDetail extends React.Component {
 
   }
 }
+
+export default ProductDetail;
