@@ -61,9 +61,7 @@
   grid-area: image;
   position: relative;
   contain: content;
-  display: flex;
   align-items: center;
-  justify-content: center;
   background-color: #edeef0;
 }
 
@@ -71,7 +69,7 @@
   min-width: 60vh;
   width: 70vh;
   height: 70vh;
-  display: flex;
+  /* display: flex; */
   background-color: #edeef0;
   padding: 2em 2em 5em 2em;
   cursor: zoom-in;
@@ -89,9 +87,9 @@
 }
 
 .mainImg {
-  flex: 90%;
-  width: 100%;
-  object-fit:cover;
+  width: 168%;
+  height: 106%;
+  object-fit: cover;
 }
 
 .left {
@@ -132,6 +130,7 @@
 .product-description>* {
   padding-top: 2px;
   padding-bottom: 2px;
+  font-size: 20px;
 }
 .share {
   grid-area: share;
@@ -226,7 +225,7 @@ div.overview {
   font-weight: 300;
 }
 .salePrice {
-  padding-right: 1em;
+  padding-right: 30px;
 }
 
 .fab:hover {

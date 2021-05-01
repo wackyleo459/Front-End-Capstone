@@ -3,6 +3,7 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
+import styles from '../../data/styles.js';
 import Share from './Products/Share.jsx';
 import captureData from './clickData/captureData.jsx';
 
