@@ -68,9 +68,10 @@ class App extends React.Component {
         <React.Fragment>
           <nav className="navbar sticky-top navbar-light">
             <span className="navbar-brand mb-0 h1">NNS</span>
-            <a className="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            {/* <a className="nav-link active" href="#">Home <span class="sr-only">(current)</span></a> */}
             <a className="nav-link" href="#productInfo">Product Info</a>
-            <a className="nav-link" href="#">Sale</a>
+            <a className="nav-link" href="#ratingsReviews">Reviews</a>
+            <a className="nav-link" href="#QA">Q and A</a>
             <a className="nav-link" href="#">{`Check Out `}
               <i className="fas fa-shopping-cart"></i>
             </a>

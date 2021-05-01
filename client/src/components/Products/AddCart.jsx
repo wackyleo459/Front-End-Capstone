@@ -71,7 +71,7 @@ const AddCart = ({ skus }) => {
   return (
     <div className="add">
       <form id="selectForm" style={{ display: 'inline-flex' }}>
-        <label id="size">{'  size  '}
+        <label id="size">{'  Size  '}
           <select id="selectSize"onChange={selectSize}>
             <option key='0o'>Select Size</option>
             {skus.map(({ size }, ind) => (
