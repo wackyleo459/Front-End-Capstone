@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 
 export default Styled.text`
 
-  font-size: 25px;
+  font-size: 2vh;
   font-weight: 600;
   margin-left: 25px;
   padding-right: 100px;
