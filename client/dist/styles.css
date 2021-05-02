@@ -1,10 +1,32 @@
 body {
   margin: 0 0 auto 0;
-  background-color: rgb(255, 255, 240);
+  background-color: rgb(245, 245, 245);
 }
 #app {
-  height: 100%;
+  height: 200%;
   width: 100%;
+  min-width: 50%;
+}
+
+.style {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-left: 35px;
+  margin-top: 10px;
+}
+
+.category {
+  font-size: 20px;
+}
+.salePrice {
+  font-size: 20px;
+}
+.title {
+  font-size: 20px;
 }
 
 .main {
@@ -17,6 +39,8 @@ body {
 
 .ratingsReviews {
   position: relative;
+  padding-bottom: 200px;
+  height: 1500px;
 }
 @media (min-width: 768px) {
   .ratingsReviews {
@@ -24,7 +48,7 @@ body {
     grid-template-columns: 33vw 62vw;
     grid-column-gap: 5px;
     grid-template-areas:
-      "ratings reviews"
+    "ratings reviews"
   }
 }
 .starUserDate {
@@ -43,48 +67,31 @@ hr {
   position: relative;
   /* left: -40px;
   width: 75%;
-  margin: 40px; */
-}
-
-.submitReviewButtonNd {
-  font-size: 22px;
-  font-family: sans-serif;
-  font-weight: 700;
-  color: #444;
-  border: 0px solid;
-  box-shadow: 0 1px 0 1px rgb(0 0 0 / 4%);
-  background-color: transparent;
-  cursor: pointer;
-  border-bottom: 2px solid;
+  margin: 40px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);*/
 }
 
 
 /*-----Start Reviews Entry-----**-----Right Container-----*/
-.columnNd, .reviewsComponent {
-  grid-area: reviews;
-  display: flex;
-  flex-direction: column;
-}
+.columnNd {
+  width: 5%;
+  margin-top: 100px;
+  margin-right: 50%;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 
+}
 .reviewsNd {
-  width: 90%;
-  height: 900px;
-  margin-top: 5px;
-  margin-left: 4vw;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-color: teal;
-  scrollbar-width: 12px;
-}
-.body::-webkit-scrollbar {
-  background-color: #bbbbbb;
-  height: 13px;
-  width: 16px;
-}
-
-#reviewsButtonContainer {
-  display: flex;
-  width: 40vw;
+  min-width: 50%;
+  margin-top: 8%;
+  height: 60%;
+  position:absolute;
+  padding-right: 166px;
+  overflow:auto;
+  margin-bottom: 10px;
+  width: 56%;
+  padding: 0px;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 }
 
 .selectButtonNd {
@@ -98,10 +105,7 @@ hr {
   cursor: pointer;
   border-bottom: 2px solid;
   background: none;
-}
-
-#dropdownNd {
-  margin-left: 20px;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 }
 
 #labelNd {
@@ -109,26 +113,40 @@ hr {
 }
 
 .sortNd {
-  padding: 30px;
+  margin-top: 85px;
+  margin-left: 5px;
+  position: absolute;
+  border: 0px solid;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+
 }
 
 .starUserDateNd {
   display: flex;
-  /* padding: -45px; */
+  margin-top: 20px;
   justify-content: space-between;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  margin-right: 250px;
 }
 
 .reviewTitleNd {
   padding: 10px;
   margin-left: -10px;
-  font-size: x-large;
+  font-size: 30px;
+  font-weight: 900;
 }
 
 .reviewFeedBodyNd {
   padding: 10px;
   margin-left: -10px;
   width: 90%;
-  font-size: 14px;
+  font-size: 25px;
+  margin-top: 40px;
+}
+
+.helpfulNd {
+  margin-bottom: 45px;
+  font-size: 30px;
 }
 
 .reviewResponseNd {
@@ -138,7 +156,7 @@ hr {
   background-color: lightgrey;
   background-size: auto;
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 25px;
 }
 
 .reviewRecommendNd {
@@ -146,27 +164,32 @@ hr {
 }
 
 .moreReviewsButtonNd {
-  padding: 25px;
-  margin: 0;
-  margin-left: 20px;
-  font-size: 15px;
-  display: inline;
+  font-size: 20px;
   cursor: pointer;
+  border-bottom: 2px solid black;
+  background-color: none;
+  background: transparent;
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 200px;
 
 }
 .addReviewsButtonNd {
-  padding: 25px;
-  float: left;
-  margin: 0;
-  font-size: 15px;
-  display: inline;
-  cursor: pointer;
+    font-size: 20px;
+    margin-left: 62%;
+    font-family: sans-serif;
+    background-color: transparent;
+    cursor: pointer;
+    border-bottom: 3px solid black;
+    background: none;
+    vertical-align: text-top;
+    margin-top: -8%;
 }
 
 /*-----Modal Component-----*/
 
 #modalFormNd {
-  height: 800px;
+  height: 1200px;
   overflow-y: auto;
   background-color: rgb(237, 243, 236);
 }
@@ -175,8 +198,20 @@ hr {
   font-size: 500%;
   margin: 20px;
   padding: 21px;
-  height: 20px;
+  height: 100px;
   margin-left: 28%;
+  border-collapse: collapse;
+}
+
+.modalTextAreaNd {
+  margin-left: 20px;
+  padding: 20px;
+  outline-width: 0;
+  resize: none;
+  border-radius: 10%;
+  border: 3px solid rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+  width: 55%;
 }
 
 .overAllRatingNd {
@@ -186,16 +221,11 @@ hr {
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
 }
 
-.modalTextAreaNd {
+.reviewSummaryNd {
   margin-left: 20px;
-  padding: 20px;
-  outline-width: 0;
-  resize: none;
-  border-radius: 10%;
-
-  border: 3px solid rgb(255, 255, 240);
+  padding: 50px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
-  width: 55%;
 }
 
 .recommendationNd {
@@ -210,6 +240,15 @@ hr {
   margin-left: 20px;
   box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+}
+
+.radio {
+  margin-left: 20px;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+
+    color: black;
 }
 
 table {
@@ -243,11 +282,19 @@ td {
 th {
   position: auto;
   top: 0;
-  background: rgb(255, 255, 240);;
-  text-align: left;
+  text-align: center;
   font-weight: normal;
   font-size: 1.1rem;
-  color: white;
+}
+
+.recommendButtonsNd {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  padding: initial;
+  border: initial;
 }
 
 .reviewBodyNd {
@@ -321,7 +368,6 @@ th {
   padding: 50px;
   box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
-
 }
 
 #emailNd {
@@ -336,39 +382,36 @@ th {
 }
 
 #submitButtonNd {
-  size: 10px;
-  border-radius: 10px;
-  margin-left: 85px;
-  width: 100px;
-  margin-top: 40px;
-  height: 40px;
-  font-size: larger;
-  font-weight: bold;
-  cursor: pointer;
-  outline-width: 0;
+  display: inline;
+  padding-top: 40px;
+  font-size: 70px;
+}
+.submitButtonNd {
+  display: inline;
+  padding-top: 10px;
+  margin-left: 32%;
+  padding-right: 10px;
+  font-size: 30px;
+  margin-bottom: 120px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
   box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
-
+  border-radius: 10px;
+}
+.closeModalNd {
+  display: inline;
+  margin-left: 90px;
+  font-size: 30px;
+  box-shadow: 0 15px 25px -15px rgb(255, 255, 240);
+  box-shadow: 0 15px 25px -15px rgb(87, 87, 3);
+  border-radius: 10px;
+  padding-top: 10px;
+  margin-bottom: 120px;
 }
 
 a:hover {
   cursor: pointer;
 }
 
-#cancelButtonNd {
-  size: 10px;
-  border-radius: 10px;
-  margin-left: 5px;
-  width: 100px;
-  margin-top: 40px;
-  height: 40px;
-  font-size: larger;
-  font-weight: bold;
-}
-
-.closeModalNd {
-  margin-left: 35px;
-  padding: 50px;
-}
 
 /*-----End Review Entry-----*/
 
@@ -376,40 +419,83 @@ a:hover {
 
 .column1Nd {
   grid-area: ratings;
-  margin-left: 5px;
-  padding-top: 40px;
-  /* float: left;
-  width: 30% */
-
+  margin-left: 260px;
+  padding-top: 140px;
+  height: 113%;
+  min-width: 50%;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
 }
 
 .numberStarRatingNd {
-  font-size: 14px;
-  font-weight: 900;
-  padding-top: 20px;
-  margin-left: 20px;
+  font-weight: 200;
+  padding-top: 85px;
 }
 
-.starsOverallNd {
-  font-size: 30px;
-  margin-right: 10px;
+.charSizeNd {
+  margin-bottom: 20px;
 }
 
-#ratingsSummaryNd {
-  margin-top: 20px;
-  font-size: 20px;
+.charWidthNd {
+  margin-bottom: 20px;
 }
 
-.starNumberRatingNd {
-  margin-left: 150px;
-  margin-bottom: -50px;
+.ratingsNd {
+  border: 0px solid;
+
+  /* height: 180%; */
+  margin-right: 150px;
+  /* padding: 13px; */
+  /* margin-top: -20px; */
+  min-width: 50%;
+}
+
+.ratingNumberNd {
+  font-weight: 600;
+  display: inline;
+  font-size: 60px;
+  /* margin-top: 10px; */
+  margin-left: 130px;
+  margin-bottom: 100px;
+  position: absolute;
+  bottom: 64.5%;
+}
+
+.bigStarsNd {
+  font-size: 25px;
+  display: inline;
+  margin-left: 110px;
+}
+
+.starsAndAverageNd {
+  background-color: #2ADA71;
+  margin-right: -45px;
+  height: 120px;
+  width: 92%;
+  margin: -80px 20px;
+  margin-top: -10px;
+}
+
+.progressBarNd {
+  height: 47px;
+  margin-left: 10px;
+  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  width: 2000px;
+  margin-top: 200px;
+}
+
+.charBarsNd {
+  margin-top: -140px;
+  margin-left: 175px;
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*-----End Rating Entry-----*/
 
 .moreQuestions {
   padding: 16px;
-  background: rgb(255, 255, 240);
+  background: rgb(245, 245, 245);
   margin-left: 50px;
   font-size: 16px;
   font-weight: 400;
@@ -419,15 +505,15 @@ a:hover {
 .moreAnswers {
   border: none;
   color: rgb(87, 86, 86);
-  background: rgb(255, 255, 240);
+  background: rgb(245, 245, 245);
   margin-left: 12px;
   font-size: 15px;
   font-weight: 100;
 }
 
 .submitQuestion {
-  padding: 12px;
-  background: rgb(255, 255, 240);
+  padding: 15px;
+  background: rgb(245, 245, 245);
   font-size: 16px;
   font-weight: 400;
 }
@@ -443,7 +529,7 @@ a:hover {
   border-top: none;
   border-bottom: none;
   border-left: none;
-  background: rgb(255, 255, 240);
+  background: rgb(245, 245, 245);
   padding: 5px;
 }
 
@@ -455,8 +541,9 @@ a:hover {
 
 .modalnf {
   display: flex;
-  justify-content: center;
-  padding: 15px;
+  justify-content:center;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .questionInfo {
@@ -487,12 +574,12 @@ a:hover {
 }
 
 .qandanf {
-  padding-top: 50px;
   clear: both;
-  height: 900px;
+  height: 800px;
   margin-left: 100px;
   margin-right: 100px;
   overflow-x: hidden;
+  overflow-y:hidden;
 }
 
 .modalPic {
@@ -504,7 +591,7 @@ a:hover {
 .cancelButtonnf {
   padding: 10px;
   right: 20px;
-  top: 675px;
+  top: 695px;
   background: white;
   position: absolute;
   border: none;
@@ -515,7 +602,7 @@ a:hover {
 
 .QAlist {
   overflow-y: scroll;
-  height: 900px;
+  height: 600px;
 }
 
 .starBars {
@@ -540,8 +627,6 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  /*optional bg color*/
-  /*the following isn't necessary but will help center everything once we add buttons*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -550,4 +635,21 @@ a:hover {
 .lightbox-img {
   height: 400px;
   width: auto;
+}
+
+.questionsModalnf {
+  background-color: white;
+  display: flex;
+  justify-content:center;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  max-height: 500;
+}
+
+.nicknamenf{
+  size: 50vw;
+}
+
+.emailnf{
+  size: 50vw;
 }
