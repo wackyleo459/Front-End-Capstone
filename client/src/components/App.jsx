@@ -72,8 +72,9 @@ class App extends React.Component {
           <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles} />
           <div className="ratingsReviews">
             <Ratings />
-            <Reviews />
+            <Reviews productId={this.state.currentProduct.id}/>
           </div>
+          <hr/>
           <br/>
           <QandA />
         </div>

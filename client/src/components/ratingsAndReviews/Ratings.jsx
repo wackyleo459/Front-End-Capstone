@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import CharProductBreakDown from './CharProductBreakDown.jsx';
-
+import FilterStarRating from './FilterStarRating.jsx';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -105,7 +105,11 @@ class Ratings extends React.Component {
               getMetaPercentage={this.getMetaPercentage}
               carets={this.handleRatingCaret}
             />
-
+        </div>
+        <div className="outerFilterNd">
+            <FilterStarRating
+              stars={Array(5).fill(<i className="fas fa-star"></i>)}
+            />
         </div>
         </div>
       </div>
