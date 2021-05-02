@@ -36,8 +36,6 @@ class Modals extends Component {
     }
 
     handleSubmit(event) {
-      console.log('HEllo')
-      event.preventDefault()
       let reviewData = {
         product_id: this.state.product_id,
         rating: Number(this.state.rating),
@@ -69,8 +67,8 @@ class Modals extends Component {
           bodyCharsRequired: (1000 - input.length) + ' Characters Remaining'
         })
       }
-
     }
+
     handleSummaryCharChange(event) {
       let input = event.target.value;
       if (input.length <= 60) {
@@ -81,7 +79,6 @@ class Modals extends Component {
     }
 
     handleChange(event) {
-
       let name = event.target.name;
       this.setState({
         [name]: event.target.value
@@ -104,7 +101,7 @@ class Modals extends Component {
     return (
       <section>
         <input className="addReviewsButtonNd" type="button" value="ADD A REVIEW +" height="1000" onClick={() => this.openModal()}/>
-          <Modal className="modalNd" visible={this.state.visible} width="1200" height="1000" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+          <Modal className="modalNd" visible={this.state.visible} width="2300" height="1700" effect="fadeInUp" onClickAway={() => this.closeModal()}>
             <form onSubmit={(event) => this.handleSubmit(event)} id="modalFormNd">
                 <div>
                   <ModalAddReview
@@ -116,7 +113,7 @@ class Modals extends Component {
                     closeModal={this.closeModal}/>
                 </div>
                 <div id="submitButtonNd">
-                  <input className="submitButtonNd" type="submit" />
+                  <input className="submitButtonNd" type="submit"/>
                   <input className="closeModalNd" type="button" value="Cancel" onClick={() => this.closeModal()}/>
                 </div>
               </form>

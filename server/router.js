@@ -9,6 +9,9 @@ router
 router
   .route('/reviews/meta')
   .get(controllers.getReviewsMeta)
+router
+  .route('/reviews/:review_id/helpful')
+  .put(controllers.updateReviews)
 
 
 router.get('/qa/questions', controllers.getQuestions)
