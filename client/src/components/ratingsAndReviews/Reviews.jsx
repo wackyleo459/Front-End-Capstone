@@ -50,15 +50,15 @@ class Reviews extends React.Component {
     }
 
     axios.get(`http://localhost:3000/reviews/?&sort=${category}`)
-    .then((res) => {
-      let copyData = res.data.reviews.results;
-      let sliced = copyData.slice(0, 2);
-      this.setState({
-        reviews: sliced,
-        moreReviews: copyData.slice(2)
+      .then((res) => {
+        let copyData = res.data.reviews.results;
+        let sliced = copyData.slice(0, 2);
+        this.setState({
+          reviews: sliced,
+          moreReviews: copyData.slice(2)
+        })
       })
-    })
-    .catch(err => console.error(err));
+      .catch(err => console.error(err));
   }
 
   getProduct() {
@@ -75,7 +75,7 @@ class Reviews extends React.Component {
   updateProductHelpfulness(event) {
     event.preventDefault();
     let reviewId = event.target.value
-      axios.put(`http://localhost:3000/reviews/:${reviewId}/helpful`, {data: this.state.helpfulness})
+    axios.put(`http://localhost:3000/reviews/:${reviewId}/helpful`, { data: this.state.helpfulness })
       .then(() => {
         this.setState({
           reviews: res.data.reviews
@@ -122,17 +122,16 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="columnNd">
-          <div className="sortNd">
-            <label id="labelNd"><b>{this.state.reviews.length} Reviews sorted by</b></label>
-            <select className="selectButtonNd" onChange={(event) => this.getProductInfo(event)}>
-              <option id="text-decoration-style: underline" value="helpfulness" >Helpfulness</option>
-              <option value="relevance">Relevance</option>
-              <option value="newest">Newest</option>
-            </select>
-          </div>
-          <div className="reviewsNd">
+      <div className="columnNd">
+        <div className="sortNd">
+          <label id="labelNd"><b>{this.state.reviews.length} Reviews sorted by</b></label>
+          <select className="selectButtonNd" onChange={(event) => this.getProductInfo(event)}>
+            <option id="text-decoration-style: underline" value="helpfulness" >Helpfulness</option>
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+        <div className="reviewsNd">
           {this.state.reviews.map((review, index) => (
             <ReviewEntry
               review={review}
@@ -145,11 +144,10 @@ class Reviews extends React.Component {
               helpful={this.state.helpfulness}
             />
           ))}
-            </div>
-          <div className="moreReviewsButtonNd">
-            {(this.state.moreReviews.length === 0) ? <b>No more reviews</b> : (
-              <input  type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
-          </div>
+        </div>
+        <div className="moreReviewsButtonNd">
+          {(this.state.moreReviews.length === 0) ? <b>No more reviews</b> : (
+            <input type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews} />)}
         </div>
       </div>
     )

@@ -86,7 +86,6 @@ class App extends React.Component {
   render() {
     if (this.state.currentProduct && this.state.productStyles && this.state.availProducts) {
       return (
-<<<<<<< HEAD
         <React.Fragment>
           <nav className="navbar sticky-top navbar-light">
             <span className="navbar-brand mb-0 h1">NNS</span>
@@ -119,20 +118,6 @@ class App extends React.Component {
             <QandA />
           </div>
         </React.Fragment>
-=======
-        <div className="main">
-          <header className="nav">
-          </header>
-          <ProductDetail className="productOverview" product={this.state.currentProduct} productStyles={this.state.productStyles} />
-          <div className="ratingsReviews">
-            <Ratings />
-            <Reviews productId={this.state.currentProduct.id}/>
-          </div>
-          <hr/>
-          <br/>
-          <QandA />
-        </div>
->>>>>>> aa2cc111313531a7ec59bcd3badb52cf3cee6cc7
       )
     } else {
       return (
