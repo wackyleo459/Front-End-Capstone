@@ -5,8 +5,11 @@ import App from '../App.jsx';
 import Modal from '../RatingsAndReviews/Modals.jsx';
 import Reviews from '../RatingsAndReviews/Reviews.jsx';
 import Ratings from '../RatingsAndReviews/Ratings.jsx';
-// import List from './Q&A/List.jsx';
-// import Answers from './Q&A/Answers.jsx';
+import List from '../Q&A/List.jsx';
+import Answers from '../Q&A/Answers.jsx';
+import ListEntry from '../Q&A/ListEntry.jsx';
+import Answer from '../Q&A/Answer.jsx';
+import QandA from '../Q&A/q&a.jsx';
 
 configure({ adapter: new Adapter() });
 
@@ -27,8 +30,20 @@ describe('Ratings Component', () => {
   });
 });
 
-// describe('Questions List', () => {
-//   it('Should render the Questions List component without crashing', () => {
-//     shallow(<List/>);
-//   });
-// });
+describe('Questions List', () => {
+  it('Should render the q&a component without crashing', () => {
+    shallow(<QandA />);
+  });
+  it('Should render the Questions List component without crashing', () => {
+    shallow(<List/>);
+  });
+  it('Should render the List entries component without crashing', () => {
+    shallow(<ListEntry />);
+  });
+  it('Should render the Answers list component without crashing', () => {
+    shallow(<Answers />);
+  });
+  it('Should render individual answer components without crashing', () => {
+    shallow(<Answer />);
+  });
+});

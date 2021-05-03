@@ -1,9 +1,13 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import axios from 'axios';
 import Modal from 'react-awesome-modal';
 import AnswersModal from './AnswersModal.jsx';
 import Answers from './Answers.jsx';
+
+const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
+const TOKEN = require('../../../../config.js');
 
 class ListEntry extends React.Component {
   constructor(props) {
@@ -12,6 +16,7 @@ class ListEntry extends React.Component {
     this.state = {
       helpful: this.props.questions.question_helpfulness,
       visible: false,
+      voted: false,
     }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -31,10 +36,23 @@ class ListEntry extends React.Component {
   }
 
   setCount() {
-    this.setState({
-      helpful: this.state.helpful + 1
-    });
+    axios({
+      method: 'put',
+      url: `${url}/qa/questions/${16060}/helpful`,
+      data: {
+        question_id: this.props.questions.question_id
+      },
+      headers: {
+        Authorization: TOKEN,
+      },
+    })
+    .then(this.setState({
+      helpful: this.state.helpful + 1,
+      voted: true,
+    }))
+    .catch(err => console.error(err));
   }
+
 
   render() {
     return (
@@ -49,12 +67,13 @@ class ListEntry extends React.Component {
               className="yesButtonnf"
               type="button"
               onClick={this.setCount}
+              disabled={this.state.voted}
             >Yes {`(${this.state.helpful})`}
             </button>
-            <button style={{ border: 'none', background: 'rgb(255, 255, 240)' }} onClick={this.showModal} type="button">Add Answer</button>
+            <button style={{ border: 'none', background: 'rgb(245, 245, 245)' }} onClick={this.showModal} type="button">Add Answer</button>
           </span>
-            <Modal height="740" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
-              <AnswersModal name={this.props.name} question={this.props.questions.question_body} handleClose={this.hideModal} />
+            <Modal height="760" width="800" visible={this.state.visible} onClickAway={this.hideModal}>
+              <AnswersModal name={this.props.name} id={this.props.questions.question_id} question={this.props.questions.question_body} handleClose={this.hideModal} />
             </Modal>
         </div>
           <Answers answers={this.props.questions.answers}/>
