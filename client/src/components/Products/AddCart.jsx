@@ -117,7 +117,3 @@ const AddCart = ({ skus }) => {
 }
 
 export default AddCart;
-
-// onHide={() => {
-//   selectSize.bind(document.getElementById('selectSize'))();
-// }}

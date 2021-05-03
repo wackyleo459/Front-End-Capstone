@@ -19,18 +19,39 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      selected: 16072,
       currentProduct: '',
-      productStyles: ''
+      productStyles: '',
+      availProducts: ''
     }
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
+    this.getProducts = this.getProducts.bind(this);
+    this.selectId = this.selectId.bind(this);
   }
   componentDidMount() {
-    this.getProduct(16060);
+    this.getProducts();
+    this.getProduct();
   }
 
-  getProduct(id) {
-    axios.get(url + `${id}`, auth)
+  selectId(e) {
+    this.setState({
+      selected: e.target.value
+    });
+  }
+  getProducts() {
+    axios.get(url, auth)
+      .then(({ data }) => {
+        this.setState({
+          availProducts: data
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  getProduct() {
+    axios.get(url + `${this.state.selected}`, auth)
       .then(({ data }) => {
         this.setState({
           currentProduct: {
@@ -43,7 +64,7 @@ class App extends React.Component {
             features: data.features
           }
         });
-        this.getStyles(id);
+        this.getStyles(this.state.selected);
       })
       .catch(err => {
         console.log(err);
@@ -63,12 +84,20 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.currentProduct && this.state.productStyles) {
+    if (this.state.currentProduct && this.state.productStyles && this.state.availProducts) {
       return (
         <React.Fragment>
           <nav className="navbar sticky-top navbar-light">
             <span className="navbar-brand mb-0 h1">NNS</span>
-            {/* <a className="nav-link active" href="#">Home <span class="sr-only">(current)</span></a> */}
+            <div className="nav-item input-group" style={{ width: 'fit-content'}}>
+              <select onChange={this.selectId}>
+                <option selected>Select Product</option>
+                {this.state.availProducts.map(({ name, id }, ind) => (
+                  <option value={id} key={ind}>{name}</option>
+                ))}
+              </select>
+              <button onClick={this.getProduct}>Get Product</button>
+            </div>
             <a className="nav-link" href="#productInfo">Product Info</a>
             <a className="nav-link" href="#ratingsReviews">Reviews</a>
             <a className="nav-link" href="#QA">Q and A</a>
@@ -77,7 +106,7 @@ class App extends React.Component {
             </a>
           </nav>
 
-          <div className="main"data-spy="scroll" data-target="navbar" data-offset="0" >
+          <div className="main" data-spy="scroll" data-target="navbar" data-offset="0" >
             <ProductDetail
               product={this.state.currentProduct}
               productStyles={this.state.productStyles} />
