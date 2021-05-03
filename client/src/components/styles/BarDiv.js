@@ -7,5 +7,5 @@ export default Styled.div`
   padding-bottom: 2px;
   font-size: 25px;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
-  margin: 10px
+  margin-top: 5vh;
 `

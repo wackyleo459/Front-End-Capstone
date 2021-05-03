@@ -8,7 +8,8 @@ class Reviews extends React.Component {
     super(props);
 
     this.state = {
-      id: 16060,
+      id: this.props.productId,
+      review_id: 0,
       helpfulness: 0,
       visible: false,
       reviews: [],
@@ -19,15 +20,24 @@ class Reviews extends React.Component {
 
     this.handleMoreReviews = this.handleMoreReviews.bind(this);
     this.getProductInfo = this.getProductInfo.bind(this);
-    this.handleHelpulChange = this.handleHelpfulChange.bind(this);
+    this.handleHelpfulChange = this.handleHelpfulChange.bind(this);
     this.openImageModal = this.openImageModal.bind(this);
     this.closeImageModal = this.closeImageModal.bind(this);
     this.fillRatingStars = this.fillRatingStars.bind(this);
     this.getAverageRating = this.getAverageRating.bind(this);
+    this.updateProductHelpfulness = this.updateProductHelpfulness.bind(this);
+    this.getProduct = this.getProduct.bind(this);
   }
 
   componentDidMount() {
-    this.getProductInfo();
+
+    this.getProductInfo()
+  }
+
+  handleHelpfulChange(index) {
+    this.setState({
+      helpfulness: this.state.helpfulness + 1
+    }, console.log(() => this.state));
   }
 
   getProductInfo(event) {
@@ -38,22 +48,40 @@ class Reviews extends React.Component {
       })
       category = event.target.value
     }
+
     axios.get(`http://localhost:3000/reviews/?&sort=${category}`)
     .then((res) => {
       let copyData = res.data.reviews.results;
       let sliced = copyData.slice(0, 2);
       this.setState({
         reviews: sliced,
-        moreReviews: copyData.slice(2),
-        product_id: res.data.product_id
+        moreReviews: copyData.slice(2)
       })
     })
     .catch(err => console.error(err));
   }
-  handleHelpfulChange() {
-    this.setState({
-      helpfulness: this.state.helpfulness + 1
-    }, () => console.log(this.state))
+
+  getProduct() {
+    console.log(this.props.productId)
+    axios.get(`http://localhost:3000/reviews/?product_id=${this.state.productId}`)
+      .then((res) => {
+        this.setState({
+          reviews: res.data
+        })
+      })
+      .catch((err) => console.error(err));
+  }
+
+  updateProductHelpfulness(event) {
+    event.preventDefault();
+    let reviewId = event.target.value
+      axios.put(`http://localhost:3000/reviews/:${reviewId}/helpful`, {data: this.state.helpfulness})
+      .then(() => {
+        this.setState({
+          reviews: res.data.reviews
+        })
+      })
+      .catch((err) => console.error(err))
   }
 
   fillRatingStars(num) {
@@ -108,18 +136,19 @@ class Reviews extends React.Component {
           {this.state.reviews.map((review, index) => (
             <ReviewEntry
               review={review}
-              key={index.toString()}
-              helpfulChange={this.handleHelpfulChange}
+              key={review.review_id}
+              helpfulChange={this.updateProductHelpfulness}
               openImageModal={this.openImageModal}
               closeImageModal={this.closeImageModal}
               visible={this.state.visible}
-              stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
+              stars={this.fillRatingStars(review.rating)}
+              helpful={this.state.helpfulness}
             />
           ))}
             </div>
-          <div>
-            {(this.state.moreReviews.length === 0) ? null : (
-              <input className="moreReviewsButtonNd" type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
+          <div className="moreReviewsButtonNd">
+            {(this.state.moreReviews.length === 0) ? <b>No more reviews</b> : (
+              <input  type="button" value="MORE REVIEWS" onClick={this.handleMoreReviews}/>)}
           </div>
         </div>
       </div>

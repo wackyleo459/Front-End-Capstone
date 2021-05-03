@@ -5,5 +5,5 @@ export default Styled.div`
   font-size: 30px;
   color: black;
   position: absolute;
-  top: 25%;
+  top: 16vh;
 `

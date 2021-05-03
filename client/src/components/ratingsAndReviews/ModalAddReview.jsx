@@ -21,13 +21,13 @@ const ModalAddReview = ({ handleChange, handleBodyCharChange, handleSummaryCharC
           <label id="labelNd"><b>Sumary</b></label>
           <br/>
           <textarea onChange={(event) => {handleChange(event); handleSummaryCharChange(event)}} maxLength="60" name="summary" rows="2"  width="20" className="modalTextAreaNd"></textarea>
-          <p>{summaryCharsRequired}</p>
+          <p className="requiredCharsNd">{summaryCharsRequired}</p>
         </div>
         <div className="reviewBodyNd">
           <label id="labelNd"><b>* Review</b></label>
           <br/>
           <textarea onChange={(event) => {handleChange(event); handleBodyCharChange(event)}} maxLength="1000" name="body" rows="5" width="25" className="modalTextAreaNd"></textarea>
-          <p>{bodyCharsRequired}</p>
+          <p className="requiredCharsNd">{bodyCharsRequired}</p>
         </div>
         <ModalChars handleChange={handleChange}/>
           <br/>
