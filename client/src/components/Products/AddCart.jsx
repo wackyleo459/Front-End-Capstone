@@ -21,6 +21,7 @@ const AddCart = ({ skus }) => {
   const isSizeSelected = selectedSize !== initialState;
   const target = useRef(null);
   const [show, setShow] = useState(false);
+  const [cart, addToCart] = useState(null);
 
   const selectSize = (event) => {
     let size = event.target.value;
@@ -39,9 +40,10 @@ const AddCart = ({ skus }) => {
   const checkOut = (e) => {
     e.preventDefault();
     if(!isSizeSelected) {
-      document.getElementById('selectQty').click();
+      document.getElementById('selectSize').click();
       setShow(true);
     }
+    addToCart(cart + Number(qty));
     reset();
   }
 
@@ -69,7 +71,7 @@ const AddCart = ({ skus }) => {
   return (
     <div className="add">
       <form id="selectForm" style={{ display: 'inline-flex' }}>
-        <label id="size">{'  size  '}
+        <label id="size">{'  Size  '}
           <select id="selectSize"onChange={selectSize}>
             <option key='0o'>Select Size</option>
             {skus.map(({ size }, ind) => (
@@ -109,12 +111,9 @@ const AddCart = ({ skus }) => {
           </div>
         )}
       </Overlay>
+      <span className="cartItems" style={!cart ? {display: 'none'}: null}>{cart}</span>
     </div>
   )
 }
 
 export default AddCart;
-
-// onHide={() => {
-//   selectSize.bind(document.getElementById('selectSize'))();
-// }}

@@ -3,10 +3,10 @@ import ImageGallery from './Products/ImageGallery.jsx';
 import ProductInfo from './Products/ProductInfo.jsx';
 import StyleSelector from './Products/StyleSelector.jsx';
 import AddCart from './Products/AddCart.jsx';
-import styles from '../../data/styles.js';
 import Share from './Products/Share.jsx';
+import captureData from './clickData/captureData.jsx';
 
-export default class ProductDetail extends React.Component {
+class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +19,11 @@ export default class ProductDetail extends React.Component {
   }
   componentDidMount() {
     this.setStyle(0);
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.productStyles[0] !== prevProps.productStyles[0]) {
+      this.setStyle(0)
+    }
   }
 
   expandView(e) {
@@ -47,7 +52,7 @@ export default class ProductDetail extends React.Component {
 
     if (this.state.styleInfo && this.state.stylePhotos) {
       return (
-        <div className={this.state.view}>
+        <div className={`productOverview ${this.state.view}`}>
           <ImageGallery detail={this.state.stylePhotos} clickExpand={this.expandView} view={this.state.view} />
 
           {this.state.view === 'collapsed' ?
@@ -68,3 +73,5 @@ export default class ProductDetail extends React.Component {
 
   }
 }
+
+export default ProductDetail;

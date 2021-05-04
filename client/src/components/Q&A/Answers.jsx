@@ -9,6 +9,7 @@ class Answers extends React.Component {
       moreAnswers: false,
       answersLength: Object.keys(this.props.answers).length,
       sortedAnswers: [],
+      keys: Object.keys(this.props.answers),
     };
 
     this.showMoreAnswers = this.showMoreAnswers.bind(this);
@@ -48,7 +49,7 @@ class Answers extends React.Component {
       return (
         <div>
           {this.state.sortedAnswers.slice(0, 2).map((answers, index) =>
-            <Answer answer={answers} key={index} />)}
+            <Answer answer={answers} key={index} id={index} keys={this.state.keys}/>)}
             <button
             className="moreAnswers"
             type="button"
@@ -61,14 +62,14 @@ class Answers extends React.Component {
       return (
         <div>
           {this.state.sortedAnswers.slice(0, 2).map((answers, index) =>
-            <Answer answer={answers} key={index} />)}
+            <Answer answer={answers} key={index} id={index} keys={this.state.keys}/>)}
         </div>
       )
     } else {
       return (
         <div>
           {this.state.sortedAnswers.map((answers, index) =>
-            <Answer answer={answers} key={index} />)}
+            <Answer answer={answers} key={index} id={index} keys={this.state.keys}/>)}
             <button
             className="moreAnswers"
             type="button"

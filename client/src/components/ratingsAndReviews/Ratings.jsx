@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import CharProductBreakDown from './CharProductBreakDown.jsx';
-
+import FilterStarRating from './FilterStarRating.jsx';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -31,26 +31,26 @@ class Ratings extends React.Component {
 
   getRating(event) {
     axios.get(`http://localhost:3000/reviews/?product_id=${this.state.id}`)
-    .then((res) => {
-      this.setState({
-        reviews: res.data.reviews.results
+      .then((res) => {
+        this.setState({
+          reviews: res.data.reviews.results
+        })
       })
-    })
-    .catch((err) => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   getRatingMeta(event) {
     axios.get(`http://localhost:3000/reviews/meta/?product_id=${this.state.id}`)
-    .then((res) => {
-      this.setState({
-        reviewsMeta: res.data
+      .then((res) => {
+        this.setState({
+          reviewsMeta: res.data
+        })
       })
-    })
-    .catch((err) => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   getPercentage(rating) {
-   return Math.round(rating / this.state.reviews.length * 100);
+    return Math.round(rating / this.state.reviews.length * 100);
   }
 
   getMetaPercentage(rating) {
@@ -82,31 +82,32 @@ class Ratings extends React.Component {
       const rating = review.rating;
       count[rating] += 1;
       return (count <= 9) ? '0 ' + count : count;
-    }, {1: 0, 2: 0, 3: 0, 4: 0, 5: 0});
+    }, { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 });
   };
 
   render() {
     return (
       <div className="column1Nd">
-        <div className="ratingsNd">
-        <h1>Ratings and Reviews</h1>
-        <div>
-            <StarRatingEntry
-              reviews={this.state.reviews}
-              key={this.state.reviews.id}
-              stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
-              averageStars={this.getAverageRating(this.state.reviews)}
-              numOfEachcRating={this.countNumOfEachRating(this.state.reviews)}
-              getPercentage={this.getPercentage}
+        <div className="ratingsNd"> Ratings and Reviews
+          <StarRatingEntry
+            reviews={this.state.reviews}
+            key={this.state.reviews.id}
+            stars={this.fillRatingStars(this.getAverageRating(this.state.reviews))}
+            averageStars={this.getAverageRating(this.state.reviews)}
+            numOfEachcRating={this.countNumOfEachRating(this.state.reviews)}
+            getPercentage={this.getPercentage}
+          />
+          <CharProductBreakDown
+            reviewsMeta={this.state.reviewsMeta}
+            getAverageRating={this.getAverageRating}
+            getMetaPercentage={this.getMetaPercentage}
+            carets={this.handleRatingCaret}
+          />
+          <div className="outerFilterNd">
+            <FilterStarRating
+              stars={Array(5).fill(<i className="fas fa-star"></i>)}
             />
-            <CharProductBreakDown
-              reviewsMeta={this.state.reviewsMeta}
-              getAverageRating={this.getAverageRating}
-              getMetaPercentage={this.getMetaPercentage}
-              carets={this.handleRatingCaret}
-            />
-
-        </div>
+          </div>
         </div>
       </div>
     )

@@ -10,7 +10,7 @@ const ProductInfo = ({ product, selectedStyle }) => {
   }
 
   return (
-    <div className="productInfo">
+    <div id="productInfo">
       <div className="product-description">
         <div>
           <StarRatings
@@ -21,8 +21,8 @@ const ProductInfo = ({ product, selectedStyle }) => {
             starSpacing="1px"
             starRatedColor='black'
             starEmptyColor='gainsboro' />
-          <span style={{ fontSize: 12, marginLeft: 10 }}>
-            <a href='https://www.w3schools.com/cssref/pr_dim_min-width.asp'>Read all reviews</a>
+          <span style={{ fontSize: 13, marginLeft: 20}}>
+            <a href='#ratingsReviews'>Read all reviews</a>
           </span>
         </div>
         <div className="category">Category: {product.category}</div>
