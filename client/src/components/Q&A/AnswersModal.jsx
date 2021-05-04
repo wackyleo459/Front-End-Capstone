@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { storage } from '../../../../firebase.js';
+import { storage } from '../../../../firsebase.js';
 
 const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax';
 const TOKEN = require('../../../../config.js');

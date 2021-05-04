@@ -20,6 +20,11 @@ class ProductDetail extends React.Component {
   componentDidMount() {
     this.setStyle(0);
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.productStyles[0] !== prevProps.productStyles[0]) {
+      this.setStyle(0)
+    }
+  }
 
   expandView(e) {
     e.preventDefault();

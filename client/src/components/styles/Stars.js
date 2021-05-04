@@ -4,6 +4,5 @@ export default Styled.div`
   display: inline;
   font-size: 30px;
   color: black;
-  position: absolute;
   top: 16vh;
 `
