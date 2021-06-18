@@ -139,6 +139,7 @@ class App extends React.Component {
               productStyles={this.state.productStyles}
             />
             <div id="ratingsReviews">
+              <h4 id="rrTitle">Ratings and Reviews</h4>
               <Ratings />
               <Reviews />
             </div>

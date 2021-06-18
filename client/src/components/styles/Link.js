@@ -1,10 +1,8 @@
-import Styled from 'styled-components';
+import Styled from "styled-components";
 
 export default Styled.text`
 
-  font-size: 2vh;
   font-weight: 600;
-  margin-left: 25px;
   padding-right: 100px;
   font-weight: 900px;
   line-height: 19px;
@@ -15,4 +13,4 @@ export default Styled.text`
   display: inline;
   cursor: pointer;
   }
-`
+`;

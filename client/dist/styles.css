@@ -33,26 +33,35 @@ body {
 }
 
 #ratingsReviews {
+  padding-top: 20px;
   padding-bottom: 50px;
   /* position: relative; */
   /* height: 78vh;
   margin-bottom: 10vh; */
+  border-top: 2px solid lightgray;
 }
 @media (min-width: 768px) {
   #ratingsReviews {
     display: grid;
     grid-template-columns: 33vw 62vw;
+    grid-template-rows: auto auto;
     grid-column-gap: 5px;
-    grid-template-areas: "ratings reviews";
+    grid-template-areas:
+      "title title"
+      "ratings reviews";
   }
 }
 @media (max-width: 767px) {
   #ratingsReviews {
     display: grid;
     grid-template-areas:
+      "title"
       "ratings"
       "reviews";
   }
+}
+#rrTitle {
+  grid-area: title;
 }
 .starUserDate {
   display: flex;
@@ -126,7 +135,7 @@ hr {
 .reviewTitleNd {
   padding: 10px;
   margin-left: -10px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -134,12 +143,12 @@ hr {
   padding: 10px;
   margin-left: -10px;
   width: 90%;
-  /* font-size: 25px; */
+  font-size: 14px;
   margin-top: 1vh;
 }
 
 .helpfulNd {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 1vh;
   margin-top: 2vh;
 }
@@ -469,7 +478,6 @@ a:hover {
 
 .filterRatingStarsNd {
   margin-top: 0px;
-  width: 39vh;
   font-size: 2vh;
   display: flex;
   justify-content: space-between;
