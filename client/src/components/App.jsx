@@ -1,29 +1,33 @@
-import React from 'react';
-import ProductDetail from './ProductDetail.jsx';
-import Reviews from './ratingsAndReviews/Reviews.jsx'
-import Ratings from './ratingsAndReviews/Ratings.jsx'
-import axios from 'axios';
-import API_KEY from '../../../config.js';
-import QandA from './Q&A/q&a.jsx';
-import captureData from './clickData/captureData.jsx';
+import React from "react";
+import ProductDetail from "./ProductDetail.jsx";
+import Reviews from "./ratingsAndReviews/Reviews.jsx";
+import Ratings from "./ratingsAndReviews/Ratings.jsx";
+import axios from "axios";
+import API_KEY from "../../../config.js";
+import QandA from "./Q&A/q&a.jsx";
+import captureData from "./clickData/captureData.jsx";
 
-const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/';
+const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/";
 const auth = {
   headers: {
-    Authorization: API_KEY
-  }
+    Authorization: API_KEY,
+  },
+  params: {
+    page: 2,
+    count: 4,
+  },
 };
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      selected: 16072,
-      currentProduct: '',
-      productStyles: '',
-      availProducts: ''
-    }
+      selected: 16060,
+      currentProduct: "",
+      productStyles: "",
+      availProducts: "",
+    };
     this.getProduct = this.getProduct.bind(this);
     this.getStyles = this.getStyles.bind(this);
     this.getProducts = this.getProducts.bind(this);
@@ -34,25 +38,26 @@ class App extends React.Component {
     this.getProduct();
   }
 
-
   selectId(e) {
     this.setState({
-      selected: e.target.value
+      selected: e.target.value,
     });
   }
   getProducts() {
-    axios.get(url, auth)
+    axios
+      .get(url, auth)
       .then(({ data }) => {
         this.setState({
-          availProducts: data
-        })
+          availProducts: data,
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
   getProduct() {
-    axios.get(url + `${this.state.selected}`, auth)
+    axios
+      .get(url + `${this.state.selected}`, auth)
       .then(({ data }) => {
         this.setState({
           currentProduct: {
@@ -62,55 +67,77 @@ class App extends React.Component {
             description: data.description,
             category: data.category,
             default_price: data.default_price,
-            features: data.features
-          }
+            features: data.features,
+          },
         });
         this.getStyles(this.state.selected);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
 
   getStyles(id) {
-    axios.get(url + `${id}/styles`, auth)
+    axios
+      .get(url + `${id}/styles`, auth)
       .then(({ data }) => {
         this.setState({
-          productStyles: data.results
+          productStyles: data.results,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
 
   render() {
-    if (this.state.currentProduct && this.state.productStyles && this.state.availProducts) {
+    if (
+      this.state.currentProduct &&
+      this.state.productStyles &&
+      this.state.availProducts
+    ) {
       return (
         <React.Fragment>
           <nav className="navbar sticky-top navbar-light">
             <span className="navbar-brand mb-0 h1">NNS</span>
-            <div className="nav-item input-group" style={{ width: 'fit-content'}}>
-              <select onChange={this.selectId}>
-                <option selected>Select Product</option>
+            <div
+              className="nav-item input-group"
+              style={{ width: "fit-content" }}
+            >
+              <select onChange={this.selectId} defaultValue="Select Product">
                 {this.state.availProducts.map(({ name, id }, ind) => (
-                  <option value={id} key={ind}>{name}</option>
+                  <option value={id} key={ind}>
+                    {name}
+                  </option>
                 ))}
               </select>
               <button onClick={this.getProduct}>Get Product</button>
             </div>
-            <a className="nav-link" href="#productInfo">Product Info</a>
-            <a className="nav-link" href="#ratingsReviews">Reviews</a>
-            <a className="nav-link" href="#QA">Q and A</a>
-            <a className="nav-link" href="#">{`Check Out `}
+            <a className="nav-link" href="#productInfo">
+              Product Info
+            </a>
+            <a className="nav-link" href="#ratingsReviews">
+              Reviews
+            </a>
+            <a className="nav-link" href="#QA">
+              Q and A
+            </a>
+            <a className="nav-link" href="#">
+              {`Check Out `}
               <i className="fas fa-shopping-cart"></i>
             </a>
           </nav>
 
-          <div className="main" data-spy="scroll" data-target="navbar" data-offset="0" >
+          <div
+            className="main"
+            data-spy="scroll"
+            data-target="navbar"
+            data-offset="0"
+          >
             <ProductDetail
               product={this.state.currentProduct}
-              productStyles={this.state.productStyles} />
+              productStyles={this.state.productStyles}
+            />
             <div id="ratingsReviews">
               <Ratings />
               <Reviews />
@@ -119,13 +146,11 @@ class App extends React.Component {
             <QandA />
           </div>
         </React.Fragment>
-      )
+      );
     } else {
-      return (
-        <div>App rendering</div>
-      )
+      return <div>App rendering</div>;
     }
   }
-};
+}
 
 export default App;
