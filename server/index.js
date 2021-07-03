@@ -14,5 +14,5 @@ app.use("/", router);
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.listen(PORT, () => {
-  console.log(`Connected to port ${PORT}`);
+  console.log(`Connected to port ${PORT} on heroku`);
 });
