@@ -3,9 +3,7 @@ import axios from "axios";
 import { storage } from "../../../../firsebase.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = require("../../../../config.js");
-
-TOKEN = TOKEN || process.env.API_KEY;
+const TOKEN = process.env.API_KEY;
 
 class AnswersModal extends React.Component {
   constructor(props) {

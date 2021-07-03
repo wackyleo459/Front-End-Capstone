@@ -7,7 +7,7 @@ import AnswersModal from "./AnswersModal.jsx";
 import Answers from "./Answers.jsx";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = require("../../../../config.js");
+const TOKEN = process.env.API_KEY;
 
 class ListEntry extends React.Component {
   constructor(props) {
