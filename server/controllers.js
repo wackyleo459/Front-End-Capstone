@@ -2,8 +2,6 @@ const axios = require("axios");
 const token = require("../config.js");
 const URL = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
 
-token = token || process.env.API_KEY;
-
 const controllers = {
   getReviews: (req, res) => {
     console.log("ReqBody", req.body);
