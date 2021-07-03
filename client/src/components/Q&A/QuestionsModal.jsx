@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = require("../../../../config.js");
+const TOKEN = process.env.API_KEY;
 
 class QuestionsModal extends React.Component {
   constructor(props) {

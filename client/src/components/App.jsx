@@ -3,14 +3,13 @@ import ProductDetail from "./ProductDetail.jsx";
 import Reviews from "./ratingsAndReviews/Reviews.jsx";
 import Ratings from "./ratingsAndReviews/Ratings.jsx";
 import axios from "axios";
-import API_KEY from "../../../config.js";
 import QandA from "./Q&A/q&a.jsx";
 import captureData from "./clickData/captureData.jsx";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/";
 const auth = {
   headers: {
-    Authorization: API_KEY || process.env.API_KEY,
+    Authorization: process.env.API_KEY,
   },
   params: {
     page: 2,
