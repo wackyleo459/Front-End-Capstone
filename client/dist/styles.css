@@ -8,10 +8,10 @@ body {
 }
 .navbar {
   font-size: 2vh;
-  background-color: #e3f2fd;;
+  background-color: #e3f2fd;
 }
 .navbar-brand {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 3.5vh;
 }
 .nav-link {
@@ -33,27 +33,35 @@ body {
 }
 
 #ratingsReviews {
+  padding-top: 20px;
   padding-bottom: 50px;
   /* position: relative; */
   /* height: 78vh;
   margin-bottom: 10vh; */
+  border-top: 2px solid lightgray;
 }
 @media (min-width: 768px) {
   #ratingsReviews {
     display: grid;
     grid-template-columns: 33vw 62vw;
+    grid-template-rows: auto auto;
     grid-column-gap: 5px;
     grid-template-areas:
-    "ratings reviews"
+      "title title"
+      "ratings reviews";
   }
 }
 @media (max-width: 767px) {
   #ratingsReviews {
     display: grid;
     grid-template-areas:
-    "ratings"
-    "reviews"
+      "title"
+      "ratings"
+      "reviews";
   }
+}
+#rrTitle {
+  grid-area: title;
 }
 .starUserDate {
   display: flex;
@@ -70,25 +78,23 @@ hr {
   box-shadow: 0px 1px 0 0.4px black;
 }
 
-
 /*-----Start Reviews Entry-----**-----Right Container-----*/
 .columnNd {
   grid-area: reviews;
   display: flex;
   flex-direction: column;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
-
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 .reviewsNd {
   margin-top: 8%;
   /* height: 60%; */
   /* position:absolute;
   padding-right: 166px; */
-  overflow:auto;
+  overflow: auto;
   margin-bottom: 10px;
   /* width: 56%; */
   padding: 0px;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 
 .selectButtonNd {
@@ -103,7 +109,7 @@ hr {
   cursor: pointer;
   border-bottom: 2px solid;
   background: none;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 
 #labelNd {
@@ -115,21 +121,21 @@ hr {
   margin-left: 5px;
   /* position: absolute; */
   border: 0px solid;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 
 .starUserDateNd {
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
   /* margin-right: 250px; */
 }
 
 .reviewTitleNd {
   padding: 10px;
   margin-left: -10px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
@@ -137,12 +143,12 @@ hr {
   padding: 10px;
   margin-left: -10px;
   width: 90%;
-  /* font-size: 25px; */
+  font-size: 14px;
   margin-top: 1vh;
 }
 
 .helpfulNd {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 1vh;
   margin-top: 2vh;
 }
@@ -205,7 +211,7 @@ hr {
   cursor: pointer;
   border-bottom: 2px solid;
   background: none;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 
 .requiredCharsNd {
@@ -251,7 +257,7 @@ hr {
   font-size: 2vh;
 }
 
-input[type='radio'] {
+input[type="radio"] {
   height: 2vh;
   width: 2vh;
   vertical-align: middle;
@@ -280,7 +286,7 @@ tr {
 th {
   border: 2px solid black;
   padding: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   overflow: hidden;
   white-space: nowrap;
   font-size: 2vh;
@@ -290,7 +296,7 @@ th {
 td {
   border: 2px solid black;
   padding: 15px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   overflow: hidden;
   white-space: nowrap;
   font-size: 2vh;
@@ -342,7 +348,7 @@ td {
 }
 
 #uploadPhotosNd {
-  border: 3px solid rgb(255, 255, 240);;
+  border: 3px solid rgb(255, 255, 240);
   padding: 10px;
   outline-width: 0;
   font-size: 2vh;
@@ -405,7 +411,6 @@ a:hover {
   cursor: pointer;
 }
 
-
 /*-----End Review Entry-----*/
 
 /*-----Start Rating Entry-----**-----Left Container-----*/
@@ -416,7 +421,7 @@ a:hover {
   padding-top: 40px;
   height: 100%;
   min-width: 65%;
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
 }
 
 .numberStarRatingNd {
@@ -445,25 +450,23 @@ a:hover {
 /*<---------------------------------- currently ommitted in master*/
 .ratingNumberNd {
   font-weight: 600;
-  display: inline;
-  font-size: 3vh;
-  margin-left: 12vh;
-  margin-bottom: 14vh;
-  position: absolute;
-  bottom: 57.5%;
+  margin: 0;
 }
 
 .starsAndAverageNd {
   position: relative;
-  background-color: #2ADA71;
-  height: 120px;
+  background-color: #2ada71;
+  height: 65px;
   width: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .progressBarNd {
   /* height: 47px; */
   /* margin-left: 10px; */
-  font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
   width: 100%;
   /* margin-top: 6vh; */
 }
@@ -475,7 +478,6 @@ a:hover {
 
 .filterRatingStarsNd {
   margin-top: 0px;
-  width: 39vh;
   font-size: 2vh;
   display: flex;
   justify-content: space-between;
@@ -486,7 +488,7 @@ a:hover {
 }
 
 .outerFilterNd {
-  position: absolute;
+  /* position: absolute; */
   bottom: 2vh;
   margin-left: 1vh;
 }
@@ -495,6 +497,7 @@ a:hover {
   /* height: 95px; */
   display: flex;
   padding-inline: 2vh;
+  text-align: center;
 }
 
 /*-----End Rating Entry-----*/
@@ -525,9 +528,9 @@ a:hover {
 }
 
 .dividernf {
-  width:10px;
-  height:auto;
-  display:inline-block;
+  width: 10px;
+  height: auto;
+  display: inline-block;
 }
 
 .yesButtonnf {
@@ -547,9 +550,9 @@ a:hover {
 
 .modalnf {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .questionInfo {
@@ -600,7 +603,7 @@ a:hover {
   position: absolute;
   border: none;
   text-decoration: underline;
-  color:rgb(87, 86, 86);
+  color: rgb(87, 86, 86);
   margin: inherit;
 }
 
@@ -644,16 +647,16 @@ a:hover {
 .questionsModalnf {
   background-color: white;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   font-size: 18px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   max-height: 500;
 }
 
-.nicknamenf{
+.nicknamenf {
   size: 50vw;
 }
 
-.emailnf{
+.emailnf {
   size: 50vw;
 }
