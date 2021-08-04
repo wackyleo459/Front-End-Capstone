@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const StyleSelector = ({ styles, setStyle }) => {
+const StyleSelector = ({ product, styles, setStyle }) => {
   const [currentIndex, setIndex] = useState(0);
 
   const select = (event, index) => {
@@ -16,7 +16,8 @@ const StyleSelector = ({ styles, setStyle }) => {
   };
   useEffect(() => {
     setIndex(0);
-  }, [styles]);
+    setStyle(0);
+  }, [styles, product]);
 
   return (
     <div className="stylesDisplay">

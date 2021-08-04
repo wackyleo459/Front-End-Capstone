@@ -49,6 +49,7 @@ class ProductDetail extends React.Component {
   }
 
   render() {
+    console.log("hey");
     if (this.state.styleInfo && this.state.stylePhotos) {
       return (
         <div className={`productOverview ${this.state.view}`}>
@@ -67,6 +68,7 @@ class ProductDetail extends React.Component {
               />
               <StyleSelector
                 styles={this.props.productStyles}
+                product={this.props.product}
                 setStyle={this.setStyle}
               />
               <AddCart skus={this.state.styleInfo.skus} />
