@@ -5,15 +5,21 @@ import Ratings from "./ratingsAndReviews/Ratings.jsx";
 import axios from "axios";
 import QandA from "./Q&A/q&a.jsx";
 import captureData from "./clickData/captureData.jsx";
+import API_KEY from "../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/";
 const auth = {
   headers: {
-    Authorization: process.env.API_KEY,
+    Authorization: API_KEY,
   },
   params: {
     page: 2,
     count: 4,
+  },
+};
+const auth0 = {
+  headers: {
+    Authorization: API_KEY,
   },
 };
 
@@ -22,7 +28,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      selected: 16060,
+      selected: 42366,
       currentProduct: "",
       productStyles: "",
       availProducts: "",
@@ -56,7 +62,7 @@ class App extends React.Component {
   }
   getProduct() {
     axios
-      .get(url + `${this.state.selected}`, auth)
+      .get(url + `${this.state.selected}`, auth0)
       .then(({ data }) => {
         this.setState({
           currentProduct: {
@@ -78,7 +84,7 @@ class App extends React.Component {
 
   getStyles(id) {
     axios
-      .get(url + `${id}/styles`, auth)
+      .get(url + `${id}/styles`, auth0)
       .then(({ data }) => {
         this.setState({
           productStyles: data.results,

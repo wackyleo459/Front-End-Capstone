@@ -5,9 +5,10 @@ import axios from "axios";
 import Modal from "react-awesome-modal";
 import AnswersModal from "./AnswersModal.jsx";
 import Answers from "./Answers.jsx";
+import API_KEY from "../../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = process.env.API_KEY;
+//const TOKEN = process.env.API_KEY;
 
 class ListEntry extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class ListEntry extends React.Component {
         question_id: this.props.questions.question_id,
       },
       headers: {
-        Authorization: TOKEN || process.env.API_KEY,
+        Authorization: API_KEY || process.env.API_KEY,
       },
     })
       .then(

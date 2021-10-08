@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { storage } from "../../../../firsebase.js";
+import API_KEY from "../../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
 
-const TOKEN = process.env.API_KEY;
-
+const TOKEN = API_KEY || process.env.API_KEY;
 
 class AnswersModal extends React.Component {
   constructor(props) {

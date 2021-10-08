@@ -1,11 +1,12 @@
 {
-  "name": "Front-End-Capstone",
+  "name": "nns-shopping",
   "version": "1.0.0",
   "description": "",
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
     "heroku-postbuild": "webpack --config ./webpack.config.js --mode development -w",
+    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
     "test": "jest"
   },
   "repository": {
