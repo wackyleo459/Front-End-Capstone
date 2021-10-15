@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "react-dev": "webpack --config ./webpack.config.js --mode development -w",
+    "build": "webpack --config ./webpack.config.js --mode development -w",
     "test": "jest"
   },
   "repository": {
