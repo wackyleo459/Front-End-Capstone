@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
-import axios from 'axios';
-import List from './List.jsx';
+import React from "react";
+import axios from "axios";
+import List from "./List.jsx";
 
 class QandA extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class QandA extends React.Component {
     return (
       <div className="qandanf" id="QA">
         <h3>Questions &amp; Answers</h3>
-        <List />
+        <List currentProduct={this.props.currentProduct} />
       </div>
     );
   }

@@ -1,19 +1,14 @@
-const router = require('express').Router();
-const controllers = require('./controllers.js');
+const router = require("express").Router();
+const controllers = require("./controllers.js");
 
 router
-  .route('/reviews')
+  .route("/reviews")
   .get(controllers.getReviews)
-  .post(controllers.postReviews)
+  .post(controllers.postReviews);
 
-router
-  .route('/reviews/meta')
-  .get(controllers.getReviewsMeta)
-router
-  .route('/reviews/:review_id/helpful')
-  .put(controllers.updateReviews)
+router.route("/reviews/meta").get(controllers.getReviewsMeta);
+router.route("/reviews/:review_id/helpful").put(controllers.updateReviews);
 
-
-router.get('/qa/questions', controllers.getQuestions)
-  // .post(controllers.postQuestions)
-module.exports = router
+router.get("/qa/questions", controllers.getQuestions);
+// .post(controllers.postQuestions);
+module.exports = router;

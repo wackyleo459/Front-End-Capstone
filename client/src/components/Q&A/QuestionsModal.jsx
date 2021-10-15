@@ -34,7 +34,7 @@ class QuestionsModal extends React.Component {
         body: this.state.question,
         name: this.state.name,
         email: this.state.email,
-        product_id: 16060,
+        product_id: 42366,
       },
       headers: {
         Authorization: TOKEN || process.env.API_KEY,

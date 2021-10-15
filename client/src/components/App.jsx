@@ -28,7 +28,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      selected: 42366,
+      selected: 42370,
       currentProduct: "",
       productStyles: "",
       availProducts: "",
@@ -42,7 +42,11 @@ class App extends React.Component {
     this.getProducts();
     this.getProduct();
   }
-
+  // componentDidUpdate(prevProp, prevState) {
+  //   if (this.state.currentProduct !== prevState.currentProduct) {
+  //     this.setState({currentProduct: this.state.currentProduct})
+  //   }
+  // }
   selectId(e) {
     this.setState({
       selected: e.target.value,
@@ -149,7 +153,7 @@ class App extends React.Component {
               <Reviews />
             </div>
             <br />
-            <QandA />
+            <QandA currentProduct={this.state.currentProduct} />
           </div>
         </React.Fragment>
       );

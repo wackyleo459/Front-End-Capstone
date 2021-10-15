@@ -22,14 +22,18 @@ const ProductInfo = ({ product, selectedStyle }) => {
     axios.get(url, auth).then(({ data }) => {
       let total = 0;
       let votes = 0;
-      let totalVotes = Object.values(data.ratings).map((ea) => Number(ea));
-      let rangeRatings = Object.keys(data.ratings).map((ea) => Number(ea));
-      totalVotes.forEach((eaVote, ind) => {
-        total += eaVote * rangeRatings[ind];
-        votes += eaVote;
-      });
-      setReviews(votes);
-      setRating(total / votes);
+      if (Object.keys(data.ratings).length === 0) {
+        setRating(0);
+      } else {
+        let totalVotes = Object.values(data.ratings).map((ea) => Number(ea));
+        let rangeRatings = Object.keys(data.ratings).map((ea) => Number(ea));
+        totalVotes.forEach((eaVote, ind) => {
+          total += eaVote * rangeRatings[ind];
+          votes += eaVote;
+        });
+        setReviews(votes);
+        setRating(total / votes);
+      }
     });
   }, [product]);
 

@@ -25,6 +25,7 @@ class List extends React.Component {
       visible: false,
       moreQuestions: false,
       name: "",
+      currentProduct: "",
     };
     this.getQuestions = this.getQuestions.bind(this);
     this.showModal = this.showModal.bind(this);
@@ -32,33 +33,35 @@ class List extends React.Component {
     this.showMoreQuestions = this.showMoreQuestions.bind(this);
     this.showLessQuestions = this.showLessQuestions.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
-    this.getProduct = this.getProduct.bind(this);
   }
 
   componentDidMount() {
     this.getQuestions();
-    this.getProduct(16060);
+    this.setState({
+      currentProduct: this.props.currentProduct.id,
+    });
+  }
+
+  componentDidUpdate(prevProp) {
+    if (this.props.currentProduct !== prevProp.currentProduct) {
+      this.setState({
+        currentProduct: this.props.currentProduct.id,
+        name: this.props.currentProduct.name,
+      });
+    }
   }
 
   getQuestions() {
     axios
-      .get("http://localhost:3000/qa/questions")
+      .get(
+        `http://localhost:3000/qa/questions/?product_id=${this.state.currentProduct}`
+      )
       .then((res) =>
         this.setState({
           questions: res.data,
+          name: this.props.currentProduct.name,
         })
       )
-      .catch((err) => console.error(err));
-  }
-
-  getProduct(id) {
-    axios
-      .get(url + `${id}`, auth)
-      .then((res) => {
-        this.setState({
-          name: res.data.name,
-        });
-      })
       .catch((err) => console.error(err));
   }
 
@@ -93,7 +96,7 @@ class List extends React.Component {
   }
 
   render() {
-    if (this.state.questions.length === 0 || this.state.name.length === 0) {
+    if (this.state.questions.length === 0) {
       return <h2>Loading...</h2>;
     } else if (this.state.searchValue.length >= 3) {
       return (
@@ -130,6 +133,7 @@ class List extends React.Component {
               .map((question, index) => (
                 <ListEntry
                   name={this.state.name}
+                  id={this.state.currentProduct}
                   questions={question}
                   key={index}
                 />
@@ -160,6 +164,7 @@ class List extends React.Component {
             <QuestionsModal
               name={this.state.name}
               handleClose={this.hideModal}
+              id={this.state.currentProduct}
             />
           </Modal>
         </React.Fragment>
@@ -194,6 +199,7 @@ class List extends React.Component {
             {this.state.questions.results.map((question, index) => (
               <ListEntry
                 name={this.state.name}
+                id={this.state.currentProduct}
                 questions={question}
                 key={index}
               />
@@ -220,6 +226,7 @@ class List extends React.Component {
             <QuestionsModal
               name={this.state.name}
               handleClose={this.hideModal}
+              id={this.state.currentProduct}
             />
           </Modal>
         </React.Fragment>
@@ -254,6 +261,7 @@ class List extends React.Component {
             {this.state.questions.results.slice(0, 4).map((question, index) => (
               <ListEntry
                 name={this.state.name}
+                id={this.state.currentProduct}
                 questions={question}
                 key={index}
               />
@@ -284,6 +292,7 @@ class List extends React.Component {
             <QuestionsModal
               name={this.state.name}
               handleClose={this.hideModal}
+              id={this.state.currentProduct}
             />
           </Modal>
         </React.Fragment>
@@ -318,6 +327,7 @@ class List extends React.Component {
             {this.state.questions.results.map((question, index) => (
               <ListEntry
                 name={this.state.name}
+                id={this.state.currentProduct}
                 questions={question}
                 key={index}
               />
@@ -348,6 +358,7 @@ class List extends React.Component {
             <QuestionsModal
               name={this.state.name}
               handleClose={this.hideModal}
+              id={this.state.currentProduct}
             />
           </Modal>
         </React.Fragment>
