@@ -1,9 +1,8 @@
 import React from "react";
 import axios from "axios";
-import API_KEY from "../../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = API_KEY || process.env.API_KEY;
+const TOKEN = process.env.API_KEY;
 
 class QuestionsModal extends React.Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class QuestionsModal extends React.Component {
         product_id: 42366,
       },
       headers: {
-        Authorization: TOKEN || process.env.API_KEY,
+        Authorization: TOKEN,
       },
     })
       .then((res) => console.log(res))

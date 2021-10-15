@@ -2,10 +2,10 @@
 import React from "react";
 import axios from "axios";
 import Moment from "react-moment";
-import API_KEY from "../../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax";
-const TOKEN = API_KEY || process.env.API_KEY;
+const TOKEN = process.env.API_KEY;
+
 class Answer extends React.Component {
   constructor(props) {
     super(props);

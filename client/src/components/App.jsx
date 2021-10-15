@@ -5,7 +5,7 @@ import Ratings from "./ratingsAndReviews/Ratings.jsx";
 import axios from "axios";
 import QandA from "./Q&A/q&a.jsx";
 import captureData from "./clickData/captureData.jsx";
-import API_KEY from "../../../config.js";
+const API_KEY = process.env.API_KEY;
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/products/";
 const auth = {

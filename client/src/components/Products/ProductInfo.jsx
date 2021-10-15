@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import StarRatings from "react-star-ratings";
 import axios from "axios";
-import API_KEY from "../../../../config.js";
 
 const url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-lax/reviews/meta/";
 
 const ProductInfo = ({ product, selectedStyle }) => {
   const auth = {
     headers: {
-      Authorization: API_KEY,
+      Authorization: process.env.API_KEY,
     },
     params: {
       product_id: `${product.id}`,
