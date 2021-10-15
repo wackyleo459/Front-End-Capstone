@@ -39,7 +39,7 @@ class ListEntry extends React.Component {
   setCount() {
     axios({
       method: "put",
-      url: `${url}/qa/questions/${42366}/helpful`,
+      url: `${url}/qa/questions/${this.props.id}/helpful`,
       data: {
         question_id: this.props.questions.question_id,
       },
