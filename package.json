@@ -1,8 +1,12 @@
 {
   "name": "nns-shopping",
   "version": "1.0.0",
-  "description": "",
+  "description": "ecommerce mockup page",
   "main": "server/index.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "start": "node server/index.js",
     "build": "webpack --config ./webpack.config.js --mode development -w",
@@ -12,8 +16,10 @@
     "type": "git",
     "url": "git+https://github.com/hr-lax43-NDS-FEC/Front-End-Capstone.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Sue Ann Kim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hr-lax43-NDS-FEC/Front-End-Capstone/issues"
