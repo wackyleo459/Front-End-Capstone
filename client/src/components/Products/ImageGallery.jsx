@@ -3,6 +3,7 @@ import InnerImageZoom from "react-inner-image-zoom";
 
 const ImageGallery = function (props) {
   const [currentIndex, setIndex] = useState(0);
+  const [detailURLs, setURLs] = useState(props.detail);
 
   const thumbnailClick = (e, index) => {
     e.preventDefault();
@@ -69,6 +70,7 @@ const ImageGallery = function (props) {
   useEffect(() => {
     setIndex(0);
     slideThumbnails("left");
+    setURLs(props.detail);
   }, [props.detail]);
 
   return (
@@ -146,13 +148,13 @@ const ImageGallery = function (props) {
         {props.view === "collapsed" ? (
           <img
             className="mainImg"
-            src={props.detail[currentIndex].url}
+            src={detailURLs[currentIndex].url}
             onClick={props.clickExpand}
           />
         ) : (
           <InnerImageZoom
             className="mainImg"
-            src={props.detail[currentIndex].url}
+            src={detailURLs[currentIndex].url}
             zoomScale={2}
             hasSpacer={true}
           />
